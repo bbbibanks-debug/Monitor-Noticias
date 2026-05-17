@@ -1,7 +1,7 @@
 import requests
 from lxml import html
 
-# Configurações refinadas com as 6 fontes de notícias integradas
+# Configurações refinadas com as 8 fontes de notícias integradas
 sites = [
     {
         "id": "g1",
@@ -34,16 +34,30 @@ sites = [
     {
         "id": "uol",
         "nome": "UOL",
-        "url": "https://www.uol.com.br/",
-        "xpath": "/html/body//a",  # Caminho amplo solicitado para o UOL
+        "url": "https://uol.com.br",
+        "xpath": "/html/body//a",
         "cor": "#f6a800"
     },
     {
         "id": "correio",
         "nome": "Correio Braziliense",
-        "url": "https://www.correiobraziliense.com.br/",
-        "xpath": "/html/body//a",  # Caminho amplo solicitado para o Correio Braziliense
+        "url": "https://correiobraziliense.com.br",
+        "xpath": "/html/body//a",
         "cor": "#005ca9"
+    },
+    {
+        "id": "finviz",
+        "nome": "Market News",  # Nome customizado solicitado para o Finviz
+        "url": "https://finviz.com/news",
+        "xpath": "/html/body//a",  # Caminho solicitado focado no corpo do site
+        "cor": "#3f9c35"
+    },
+    {
+        "id": "googlenews",
+        "nome": "Google News",
+        "url": "https://news.google.com/home?hl=pt-BR&gl=BR&ceid=BR:pt-419",
+        "xpath": "/html/body/c-wiz/div/div[2]/main/div[2]/c-wiz/section//a",  # Caminho estrito solicitado adaptado para pegar links filhos
+        "cor": "#4285f4"
     }
 ]
 
@@ -60,7 +74,7 @@ for site in sites:
     try:
         response = requests.get(site["url"], headers=headers, timeout=10)
         
-        # Garante a interpretação perfeita dos acentos em português para todos os sites
+        # Garante a interpretação perfeita de acentos e caracteres internacionais
         conteudo_html = response.content.decode('utf-8', errors='ignore')
         
         tree = html.fromstring(conteudo_html)
@@ -72,16 +86,21 @@ for site in sites:
             texto = item.text_content().strip()
             link = item.get('href')
             
-            # Filtro de Relevância: Textos acima de 35 caracteres limpam os links de menu do /html/body
+            # Filtro de Relevância: Textos acima de 35 caracteres limpam os links indesejados
             if texto and link and len(texto) > 35 and texto not in vistas:
                 vistas.add(texto)
                 
-                # Normaliza URLs relativas adicionando o domínio correto na frente
-                if link.startswith('/'):
-                    url_base = site["url"].rstrip('/')
+                # Trata links relativos (muito comuns no Google News)
+                if link.startswith('./'):
+                    link = link[2:]  # Remove o './' inicial
+                    link = f"https://news.google.com/{link}"
+                elif link.startswith('/'):
+                    url_base = site["url"].split('?')[0].rstrip('/')  # Limpa parâmetros de query se houverem
+                    if "news.google.com" in site["url"]:
+                        url_base = "https://news.google.com"
                     link = f"{url_base}{link}"
                     
-                # Filtro de segurança específico para links internos ou quebras de layout
+                # Filtro de segurança para ignorar links quebrados de layout
                 if "javascript:" not in link and link.startswith('http'):
                     dados_finais[site["id"]].append({"texto": texto, "link": link})
                 
@@ -243,8 +262,8 @@ html_template += """
 </html>
 """
 
-# Alvo modificado para index.html para alimentar o GitHub Pages automaticamente
+# Alvo configurado para index.html para alimentar o GitHub Pages automaticamente
 with open("index.html", "w", encoding="utf-8") as f:
     f.write(html_template)
 
-print("\nSucesso! O arquivo 'index.html' foi configurado com todas as 6 fontes.")
+print("\nSucesso! O arquivo 'index.html' foi configurado com todas as 8 fontes.")
