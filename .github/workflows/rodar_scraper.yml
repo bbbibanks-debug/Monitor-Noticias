@@ -5,38 +5,34 @@ on:
     - cron: '0 */2 * * *'
   workflow_dispatch:
 
+# Ativa globalmente o Node24 para remover todos os warnings do painel
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
     
-    # Permissão explícita exigida pelo GitHub para gravação de arquivos
     permissions:
       contents: write
 
     steps:
-    # 1. Copia o código do repositório
     - name: Copiar codigo do repositorio
       uses: actions/checkout@v4
 
-    # 2. Configura o ambiente Python
     - name: Configurar o Python
       uses: actions/setup-python@v5
       with:
         python-version: '3.10'
 
-    # 3. Instala as dependências necessárias de raspagem
     - name: Instalar bibliotecas externas
       run: |
         python -m pip install --upgrade pip
-        pip install requests lxml
         pip install requests lxml mtranslate
 
-
-    # 4. Executa o seu robô de web scraping para gerar o main.html
     - name: Executar o script de raspagem
       run: python monitor.py
 
-    # 5. AÇÃO OFICIAL: Identifica o arquivo main.html modificado e faz o upload com segurança
     - name: Salvar e subir alteracoes com segurança
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
