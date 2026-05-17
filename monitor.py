@@ -1,6 +1,5 @@
 import requests
 from lxml import html
-import importlib
 
 # Tenta importar a biblioteca de tradução, se não existir, instala dinamicamente
 try:
@@ -11,63 +10,73 @@ except ImportError:
     subprocess.check_call([sys.executable, "-m", "pip", "install", "mtranslate"])
     from mtranslate import translate
 
-# Configurações com as 8 fontes de notícias integradas
+# Configurações refinadas e flexíveis para as 8 fontes de notícias
 sites = [
     {
         "id": "g1",
         "nome": "G1 Globo",
-        "url": "https://globo.com",
+        "url": "https://g1.globo.com/",
         "xpath": "//a[contains(@class, 'feed-post-link')] | //a[contains(@class, 'post__link')] | //div[contains(@class, 'bstn-fd-main')]//a",
-        "cor": "#c4170c"
+        "cor": "#c4170c",
+        "tamanho_min": 35
     },
     {
         "id": "cnn",
         "nome": "CNN Brasil",
-        "url": "https://cnnbrasil.com.br",
+        "url": "https://www.cnnbrasil.com.br/",
         "xpath": "/html/body//a",
-        "cor": "#cc0000"
+        "cor": "#cc0000",
+        "tamanho_min": 35
     },
     {
         "id": "times",
         "nome": "Times Brasil",
         "url": "https://timesbrasil.com.br",
         "xpath": "/html/body//a",
-        "cor": "#002447"
+        "cor": "#002447",
+        "tamanho_min": 35
     },
     {
         "id": "jovempan",
         "nome": "Jovem Pan",
         "url": "https://jovempan.com.br",
         "xpath": "/html/body//a",
-        "cor": "#00441b"
+        "cor": "#00441b",
+        "tamanho_min": 35
     },
     {
         "id": "uol",
         "nome": "UOL",
-        "url": "https://uol.com.br",
+        "url": "https://www.uol.com.br/",
         "xpath": "/html/body//a",
-        "cor": "#f6a800"
+        "cor": "#f6a800",
+        "tamanho_min": 35
     },
     {
         "id": "correio",
         "nome": "Correio Braziliense",
         "url": "https://correiobraziliense.com.br",
         "xpath": "/html/body//a",
-        "cor": "#005ca9"
+        "cor": "#005ca9",
+        "tamanho_min": 35
     },
     {
         "id": "finviz",
         "nome": "Market News",
-        "url": "https://finviz.com",
-        "xpath": "/html/body//a",
-        "cor": "#3f9c35"
+        "url": "https://finviz.com/news",
+        # Alvo focado diretamente nos links de notícias do painel do Finviz
+        "xpath": "//a[contains(@class, 'nn-tab-link')] | //td[contains(@class, 'nn-text')]//a | /html/body//a",
+        "cor": "#3f9c35",
+        "tamanho_min": 25  # Limite reduzido para aceitar manchetes financeiras objetivas
     },
     {
         "id": "googlenews",
         "nome": "Google News",
         "url": "https://google.com",
-        "xpath": "/html/body/c-wiz/div/div/main/div/c-wiz/section//a",
-        "cor": "#4285f4"
+        # XPath inteligente: busca links contidos dentro de blocos de artigos do Google News
+        "xpath": "//article//a[not(contains(@class, 'avatar'))] | //a[contains(@class, 'WwrzSb')]",
+        "cor": "#4285f4",
+        "tamanho_min": 25  # Limite menor para garantir captura total das chamadas curtas do Google
     }
 ]
 
@@ -77,11 +86,11 @@ headers = {
 
 dados_finais = {site["id"]: [] for site in sites}
 
-print("Iniciando a raspagem de dados de todas as fontes...")
+print("Iniciando a raspagem de dados otimizada de todas as fontes...")
 
 for site in sites:
     try:
-        response = requests.get(site["url"], headers=headers, timeout=10)
+        response = requests.get(site["url"], headers=headers, timeout=12)
         conteudo_html = response.content.decode('utf-8', errors='ignore')
         tree = html.fromstring(conteudo_html)
         elementos = tree.xpath(site["xpath"])
@@ -91,21 +100,21 @@ for site in sites:
             texto = item.text_content().strip()
             link = item.get('href')
             
-            if texto and link and len(texto) > 35 and texto not in vistas:
+            # Utiliza o tamanho mínimo customizado definido para cada site da lista
+            if texto and link and len(texto) > site["tamanho_min"] and texto not in vistas:
                 vistas.add(texto)
                 
+                # Normalização inteligente de URLs relativas do ecossistema Google Notícias
                 if link.startswith('./'):
                     link = link[2:]
-                    link = f"https://google.com{link}"
+                    link = f"https://news.google.com/{link}"
                 elif link.startswith('/'):
-                    url_base = "https://google.com" if "://google.com" in site["url"] else site["url"].split('?')[0].rstrip('/')
+                    url_base = "https://news.google.com" if "news.google.com" in site["url"] else site["url"].split('?')[0].rstrip('/')
                     link = f"{url_base}{link}"
                     
                 if "javascript:" not in link and link.startswith('http'):
-                    # LÓGICA EXCLUSIVA DE TRADUÇÃO PARA O MARKET NEWS
                     if site["id"] == "finviz":
                         try:
-                            # Traduz o título original em inglês para o português
                             texto_traduzido = translate(texto, "pt")
                             dados_finais[site["id"]].append({
                                 "texto": texto, 
@@ -113,7 +122,6 @@ for site in sites:
                                 "link": link
                             })
                         except Exception:
-                            # Caso a tradução falhe por instabilidade de rede, mantém apenas o original
                             dados_finais[site["id"]].append({"texto": texto, "link": link})
                     else:
                         dados_finais[site["id"]].append({"texto": texto, "link": link})
@@ -226,7 +234,6 @@ html_template = """<!DOCTYPE html>
             line-height: 1.5;
             margin-bottom: 4px;
         }
-        /* Estilo menor e discreto para a tradução */
         .noticia-traducao {
             font-size: 0.9rem;
             color: #9cdcfe;
@@ -252,7 +259,6 @@ html_template = """<!DOCTYPE html>
 for site in sites:
     noticias_html = ""
     for noti in dados_finais[site["id"]]:
-        # Se for o bloco Market News e houver tradução disponível, renderiza os dois textos
         if site["id"] == "finviz" and "texto_traduzido" in noti:
             noticias_html += f"""
                 <a href="{noti['link']}" target="_blank" class="noticia-item">
@@ -296,4 +302,4 @@ html_template += """
 with open("index.html", "w", encoding="utf-8") as f:
     f.write(html_template)
 
-print("\nSucesso! O arquivo 'index.html' foi configurado com tradução integrada no Market News.")
+print("\nSucesso! Arquivos atualizados e ajustados para volume máximo de raspagem.")
