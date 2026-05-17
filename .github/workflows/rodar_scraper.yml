@@ -9,16 +9,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     
-    # Define explicitamente a permissão de escrita para este ambiente virtual
+    # Permissão explícita exigida pelo GitHub para gravação de arquivos
     permissions:
       contents: write
 
     steps:
-    # 1. Copia o código do repositório usando o token de segurança embutido
+    # 1. Copia o código do repositório
     - name: Copiar codigo do repositorio
       uses: actions/checkout@v4
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
 
     # 2. Configura o ambiente Python
     - name: Configurar o Python
@@ -32,17 +30,13 @@ jobs:
         python -m pip install --upgrade pip
         pip install requests lxml
 
-    # 4. Executa o seu robô de web scraping
+    # 4. Executa o seu robô de web scraping para gerar o main.html
     - name: Executar o script de raspagem
       run: python monitor.py
 
-    # 5. Valida se houveram mudanças e faz o upload forçado usando a credencial nativa
-    - name: Salvar e subir alterações para o GitHub
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        git config --global user.name "GitHub Action Bot"
-        git config --global user.email "actions@github.com"
-        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@://github.com{{ github.repository }}.git
-        git add main.html
-        git diff --quiet && git diff --staged --quiet || (git commit -m "Recarga automatica de noticias" && git push origin main)
+    # 5. AÇÃO OFICIAL: Identifica o arquivo main.html modificado e faz o upload com segurança
+    - name: Salvar e subir alteracoes com segurança
+      uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: "Recarga automatica de noticias (Bot)"
+        file_pattern: 'main.html'
