@@ -1,16 +1,16 @@
+import os
 import requests
 from lxml import html
-from lxml import etree
 
+# Tenta carregar a biblioteca de tradução para o Market News
 try:
     from mtranslate import translate
 except ImportError:
-    import subprocess
-    import sys
+    import subprocess, sys
     subprocess.check_call([sys.executable, "-m", "pip", "install", "mtranslate"])
     from mtranslate import translate
 
-# Configurações refinadas e flexíveis para as 8 fontes de notícias
+# Configurações originais puras via HTML Scraping de todas as 8 fontes
 sites = [
     {
         "id": "g1",
@@ -18,8 +18,7 @@ sites = [
         "url": "https://globo.com",
         "xpath": "//a[contains(@class, 'feed-post-link')] | //a[contains(@class, 'post__link')] | //div[contains(@class, 'bstn-fd-main')]//a",
         "cor": "#c4170c",
-        "tamanho_min": 35,
-        "is_rss": False
+        "tamanho_min": 35
     },
     {
         "id": "cnn",
@@ -27,8 +26,7 @@ sites = [
         "url": "https://cnnbrasil.com.br",
         "xpath": "/html/body//a",
         "cor": "#cc0000",
-        "tamanho_min": 35,
-        "is_rss": False
+        "tamanho_min": 35
     },
     {
         "id": "times",
@@ -36,8 +34,7 @@ sites = [
         "url": "https://timesbrasil.com.br",
         "xpath": "/html/body//a",
         "cor": "#002447",
-        "tamanho_min": 35,
-        "is_rss": False
+        "tamanho_min": 35
     },
     {
         "id": "jovempan",
@@ -45,8 +42,7 @@ sites = [
         "url": "https://jovempan.com.br",
         "xpath": "/html/body//a",
         "cor": "#00441b",
-        "tamanho_min": 35,
-        "is_rss": False
+        "tamanho_min": 35
     },
     {
         "id": "uol",
@@ -54,8 +50,7 @@ sites = [
         "url": "https://uol.com.br",
         "xpath": "/html/body//a",
         "cor": "#f6a800",
-        "tamanho_min": 35,
-        "is_rss": False
+        "tamanho_min": 35
     },
     {
         "id": "correio",
@@ -63,8 +58,7 @@ sites = [
         "url": "https://correiobraziliense.com.br",
         "xpath": "/html/body//a",
         "cor": "#005ca9",
-        "tamanho_min": 35,
-        "is_rss": False
+        "tamanho_min": 35
     },
     {
         "id": "finviz",
@@ -72,17 +66,16 @@ sites = [
         "url": "https://finviz.com",
         "xpath": "//a[contains(@class, 'nn-tab-link')] | //td[contains(@class, 'nn-text')]//a | /html/body//a",
         "cor": "#3f9c35",
-        "tamanho_min": 25,
-        "is_rss": False
+        "tamanho_min": 25
     },
     {
         "id": "googlenews",
         "nome": "Google News",
         "url": "https://google.com",
-        "xpath": "//item", 
+        # RETORNO AO SCRAPING PURO: XPath inteligente focado em artigos dinâmicos e links nativos do Google News
+        "xpath": "//article//a | //a[contains(@class, 'WwrzSb')] | //a[contains(@class, 'gsc-title')]",
         "cor": "#4285f4",
-        "tamanho_min": 25,
-        "is_rss": True
+        "tamanho_min": 25
     }
 ]
 
@@ -92,67 +85,51 @@ headers = {
 
 dados_finais = {site["id"]: [] for site in sites}
 
-print("Iniciando a raspagem de dados otimizada de todas as fontes...")
+print("Iniciando a raspagem de dados via HTML Puro de todas as fontes...")
 
 for site in sites:
     try:
         response = requests.get(site["url"], headers=headers, timeout=12)
+        conteudo_html = response.content.decode('utf-8', errors='ignore')
+        
+        tree = html.fromstring(conteudo_html)
+        elementos = tree.xpath(site["xpath"])
         vistas = set()
         
-        if site["is_rss"]:
-            # CORREÇÃO CRÍTICA: Faz o parser puro de XML (RSS) ignorando codificações HTML quebradas
-            xml_tree = etree.fromstring(response.content)
-            elementos = xml_tree.xpath(site["xpath"])
+        for item in elementos:
+            texto = item.text_content().strip()
+            link = item.get('href')
             
-            for item in elementos:
-                texto = item.find('title').text if item.find('title') is not None else ""
-                link = item.find('link').text if item.find('link') is not None else ""
+            if texto and link and len(texto) > site["tamanho_min"] and texto not in vistas:
+                vistas.add(texto)
                 
-                texto = texto.strip()
-                
-                # Remove o nome da fonte no final do título do Google RSS (Ex: "- G1")
-                if " - " in texto:
-                    texto = texto.rsplit(" - ", 1)[0]
-                
-                if texto and link and len(texto) > site["tamanho_min"] and texto not in vistas:
-                    vistas.add(texto)
-                    dados_finais[site["id"]].append({"texto": texto, "link": link})
-        else:
-            # Processamento padrão via HTML para os demais sites
-            conteudo_html = response.content.decode('utf-8', errors='ignore')
-            tree = html.fromstring(conteudo_html)
-            elementos = tree.xpath(site["xpath"])
-            
-            for item in elementos:
-                texto = item.text_content().strip()
-                link = item.get('href')
-                
-                if texto and link and len(texto) > site["tamanho_min"] and texto not in vistas:
-                    vistas.add(texto)
+                # Tratamento explícito e cirúrgico dos links internos do Google News
+                if link.startswith('./'):
+                    link = link[2:] # Remove o './' inicial se houver
+                    link = f"https://news.google.com/{link}"
+                elif link.startswith('/'):
+                    url_base = "https://news.google.com" if "news.google.com" in site["url"] else site["url"].split('?')[0].rstrip('/')
+                    link = f"{url_base}{link}"
                     
-                    if link.startswith('/'):
-                        url_base = site["url"].split('?')[0].rstrip('/')
-                        link = f"{url_base}{link}"
-                        
-                    if "javascript:" not in link and link.startswith('http'):
-                        if site["id"] == "finviz":
-                            try:
-                                texto_traduzido = translate(texto, "pt")
-                                dados_finais[site["id"]].append({
-                                    "texto": texto, 
-                                    "texto_traduzido": texto_traduzido, 
-                                    "link": link
-                                })
-                            except Exception:
-                                dados_finais[site["id"]].append({"texto": texto, "link": link})
-                        else:
+                if "javascript:" not in link and link.startswith('http'):
+                    if site["id"] == "finviz":
+                        try:
+                            texto_traduzido = translate(texto, "pt")
+                            dados_finais[site["id"]].append({
+                                "texto": texto, 
+                                "texto_traduzido": texto_traduzido, 
+                                "link": link
+                            })
+                        except Exception:
                             dados_finais[site["id"]].append({"texto": texto, "link": link})
+                    else:
+                        dados_finais[site["id"]].append({"texto": texto, "link": link})
                 
         print(f"-> {len(dados_finais[site['id']])} notícias coletadas do {site['nome']}")
     except Exception as e:
         print(f"Erro ao acessar {site['nome']}: {e}")
 
-# --- GERAÇÃO DO HTML INTERATIVO ---
+# --- GERAÇÃO DO HTML INTERATIVO ORIGINAL (SEM DUAS COLUNAS / SEM IA) ---
 
 html_template = """<!DOCTYPE html>
 <html lang="pt-BR">
@@ -321,7 +298,8 @@ html_template += """
 </html>
 """
 
+# Alvo configurado de volta para index.html nativo
 with open("index.html", "w", encoding="utf-8") as f:
     f.write(html_template)
 
-print("\nSucesso! Arquivo index.html gerado.")
+print("\nSucesso! Revertido para o Scraping de HTML estável e Google News consertado.")
