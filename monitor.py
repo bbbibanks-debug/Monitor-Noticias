@@ -71,5 +71,6 @@ html_template += """    </div>
 </body>
 </html>"""
 
-with open("main.html", "w", encoding="utf-8") as f: f.write(html_template)
-print("Arquivo main.html configurado.")
+with open("index.html", "w", encoding="utf-8") as f:f.write(html_template)
+print("Arquivo index.html configurado.")
+
