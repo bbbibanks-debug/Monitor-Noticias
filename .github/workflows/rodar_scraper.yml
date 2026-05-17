@@ -1,0 +1,33 @@
+name: Atualizador Automatico de Noticias
+
+on:
+  schedule:
+    - cron: '0 */2 * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Copiar codigo do repositorio
+      uses: actions/checkout@v4
+
+    - name: Configurar o Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    - name: Instalar bibliotecas externas
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests lxml
+
+    - name: Executar o script de raspagem
+      run: python monitor.py
+
+    - name: Salvar e subir alterações para o GitHub
+      run: |
+        git config --global user.name "GitHub Action Bot"
+        git config --global user.email "actions@github.com"
+        git add main.html
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Recarga automatica de noticias" && git push)
