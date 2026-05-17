@@ -1,6 +1,7 @@
 import os
 import requests
 from lxml import html
+from datetime import datetime, timedelta
 
 # Tenta carregar a biblioteca de tradução para o Market News
 try:
@@ -10,7 +11,7 @@ except ImportError:
     subprocess.check_call([sys.executable, "-m", "pip", "install", "mtranslate"])
     from mtranslate import translate
 
-# Lista de fontes atualizada (Google News removido, 3 novas fontes adicionadas)
+# Lista de fontes atualizada (10 grandes fontes integradas)
 sites = [
     {
         "id": "g1",
@@ -71,24 +72,24 @@ sites = [
     {
         "id": "moneytimes",
         "nome": "Money Times",
-        "url": "https://www.moneytimes.com.br/",
-        "xpath": "/html/body//a",  # Caminho amplo solicitado
+        "url": "https://moneytimes.com.br",
+        "xpath": "/html/body//a",
         "cor": "#173321",
         "tamanho_min": 35
     },
     {
         "id": "infomoney",
         "nome": "InfoMoney",
-        "url": "https://www.infomoney.com.br/",
-        "xpath": "/html/body//a",  # Caminho amplo solicitado
+        "url": "https://infomoney.com.br",
+        "xpath": "/html/body//a",
         "cor": "#001a30",
         "tamanho_min": 35
     },
     {
         "id": "r7",
         "nome": "R7 Notícias",
-        "url": "https://www.r7.com/",
-        "xpath": "/html/body/div[1]/main//a",  # Caminho focado na div e main solicitados
+        "url": "https://r7.com",
+        "xpath": "/html/body/div/main//a",
         "cor": "#1d70b8",
         "tamanho_min": 35
     }
@@ -118,7 +119,6 @@ for site in sites:
             if texto and link and len(texto) > site["tamanho_min"] and texto not in vistas:
                 vistas.add(texto)
                 
-                # Normalização de links relativos
                 if link.startswith('/'):
                     url_base = site["url"].split('?').rstrip('/')
                     link = f"{url_base}{link}"
@@ -141,7 +141,12 @@ for site in sites:
     except Exception as e:
         print(f"Erro ao acessar {site['nome']}: {e}")
 
-# --- GERAÇÃO DO HTML INTERATIVO ORIGINAL ---
+# --- CAPTURA E FORMATAÇÃO DO HORÁRIO (FUSO HORÁRIO DO BRASIL - BRASÍLIA) ---
+# GitHub Actions roda em UTC. Subtraímos 3 horas para marcar o horário correto de Brasília.
+hora_brasilia = datetime.utcnow() - timedelta(hours=3)
+texto_data_hora = hora_brasilia.strftime("Ultima captura de informações feita no dia %d/%m/%Y as %H:%M hrs")
+
+# --- GERAÇÃO DO HTML INTERATIVO ---
 
 html_template = """<!DOCTYPE html>
 <html lang="pt-BR">
@@ -259,6 +264,17 @@ html_template = """<!DOCTYPE html>
             overflow: hidden;
             text-overflow: ellipsis;
         }
+        /* Estilo elegante para a frase do rodapé */
+        .rodape-tempo {
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+            width: 100%;
+        }
     </style>
 </head>
 <body>
@@ -297,14 +313,18 @@ for site in sites:
             </div>
         </div>"""
 
-html_template += """
+# Injeta dinamicamente a frase solicitada no rodapé da página
+html_template += f"""
+        <div class="rodape-tempo">
+            {texto_data_hora}
+        </div>
     </div>
 
     <script>
-        function toggleBox(header) {
+        function toggleBox(header) {{
             const box = header.parentElement;
             box.classList.toggle('ativo');
-        }
+        }}
     </script>
 </body>
 </html>
@@ -313,4 +333,4 @@ html_template += """
 with open("index.html", "w", encoding="utf-8") as f:
     f.write(html_template)
 
-print("\nSucesso! Lista de fontes atualizada com Money Times, InfoMoney e R7.")
+print(f"\nSucesso! Carimbo adicionado: {texto_data_hora}")
