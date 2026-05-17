@@ -1,5 +1,6 @@
 import requests
 from lxml import html
+from lxml import etree
 
 try:
     from mtranslate import translate
@@ -77,9 +78,8 @@ sites = [
     {
         "id": "googlenews",
         "nome": "Google News",
-        # SOLUÇÃO DEFINITIVA: Mudança para a URL estável do Feed RSS Oficial do Google News Brasil
         "url": "https://google.com",
-        "xpath": "//item",  # Tag padrão XML que contém cada notícia no RSS
+        "xpath": "//item", 
         "cor": "#4285f4",
         "tamanho_min": 25,
         "is_rss": True
@@ -97,21 +97,20 @@ print("Iniciando a raspagem de dados otimizada de todas as fontes...")
 for site in sites:
     try:
         response = requests.get(site["url"], headers=headers, timeout=12)
-        conteudo_html = response.content.decode('utf-8', errors='ignore')
-        tree = html.fromstring(conteudo_html)
         vistas = set()
         
         if site["is_rss"]:
-            # Processamento exclusivo e simplificado para a estrutura RSS do Google News
-            elementos = tree.xpath(site["xpath"])
+            # CORREÇÃO CRÍTICA: Faz o parser puro de XML (RSS) ignorando codificações HTML quebradas
+            xml_tree = etree.fromstring(response.content)
+            elementos = xml_tree.xpath(site["xpath"])
+            
             for item in elementos:
-                # No RSS, o título fica dentro de <title> e o link dentro de <link>
                 texto = item.find('title').text if item.find('title') is not None else ""
                 link = item.find('link').text if item.find('link') is not None else ""
                 
                 texto = texto.strip()
                 
-                # Remove o nome da fonte que o Google adiciona no final do título (Ex: "- G1")
+                # Remove o nome da fonte no final do título do Google RSS (Ex: "- G1")
                 if " - " in texto:
                     texto = texto.rsplit(" - ", 1)[0]
                 
@@ -119,8 +118,11 @@ for site in sites:
                     vistas.add(texto)
                     dados_finais[site["id"]].append({"texto": texto, "link": link})
         else:
-            # Processamento padrão via HTML Scraping para os demais sites
+            # Processamento padrão via HTML para os demais sites
+            conteudo_html = response.content.decode('utf-8', errors='ignore')
+            tree = html.fromstring(conteudo_html)
             elementos = tree.xpath(site["xpath"])
+            
             for item in elementos:
                 texto = item.text_content().strip()
                 link = item.get('href')
@@ -322,4 +324,4 @@ html_template += """
 with open("index.html", "w", encoding="utf-8") as f:
     f.write(html_template)
 
-print("\nSucesso! Arquivos atualizados e ajustados para volume máximo de raspagem.")
+print("\nSucesso! Arquivo index.html gerado.")
