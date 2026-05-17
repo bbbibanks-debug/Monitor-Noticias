@@ -39,4 +39,4 @@ jobs:
       uses: stefanzweifel/git-auto-commit-action@v5
       with:
         commit_message: "Recarga automatica de noticias (Bot)"
-        file_pattern: 'main.html'
+        file_pattern: 'index.html'
