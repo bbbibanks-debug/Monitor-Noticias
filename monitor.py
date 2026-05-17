@@ -10,7 +10,7 @@ except ImportError:
     subprocess.check_call([sys.executable, "-m", "pip", "install", "mtranslate"])
     from mtranslate import translate
 
-# Configurações originais puras via HTML Scraping de todas as 8 fontes
+# Lista de fontes atualizada (Google News removido, 3 novas fontes adicionadas)
 sites = [
     {
         "id": "g1",
@@ -69,13 +69,28 @@ sites = [
         "tamanho_min": 25
     },
     {
-        "id": "googlenews",
-        "nome": "Google News",
-        "url": "https://news.google.com/home?hl=pt-BR&gl=BR&ceid=BR:pt-419",
-        # CORREÇÃO CRÍTICA: XPath dinâmico baseado no c-wiz solicitado, mas focado nas manchetes reais
-        "xpath": "/html/body//c-wiz//article//a | /html/body//c-wiz//a[contains(@class, 'WwrzSb')]",
-        "cor": "#4285f4",
-        "tamanho_min": 25
+        "id": "moneytimes",
+        "nome": "Money Times",
+        "url": "https://www.moneytimes.com.br/",
+        "xpath": "/html/body//a",  # Caminho amplo solicitado
+        "cor": "#173321",
+        "tamanho_min": 35
+    },
+    {
+        "id": "infomoney",
+        "nome": "InfoMoney",
+        "url": "https://www.infomoney.com.br/",
+        "xpath": "/html/body//a",  # Caminho amplo solicitado
+        "cor": "#001a30",
+        "tamanho_min": 35
+    },
+    {
+        "id": "r7",
+        "nome": "R7 Notícias",
+        "url": "https://www.r7.com/",
+        "xpath": "/html/body/div[1]/main//a",  # Caminho focado na div e main solicitados
+        "cor": "#1d70b8",
+        "tamanho_min": 35
     }
 ]
 
@@ -103,12 +118,9 @@ for site in sites:
             if texto and link and len(texto) > site["tamanho_min"] and texto not in vistas:
                 vistas.add(texto)
                 
-                # Tratamento cirúrgico dos links internos do Google News
-                if link.startswith('./'):
-                    link = link[2:] # Remove o './' inicial se houver
-                    link = f"https://news.google.com/{link}"
-                elif link.startswith('/'):
-                    url_base = "https://news.google.com" if "news.google.com" in site["url"] else site["url"].split('?').rstrip('/')
+                # Normalização de links relativos
+                if link.startswith('/'):
+                    url_base = site["url"].split('?').rstrip('/')
                     link = f"{url_base}{link}"
                     
                 if "javascript:" not in link and link.startswith('http'):
@@ -301,4 +313,4 @@ html_template += """
 with open("index.html", "w", encoding="utf-8") as f:
     f.write(html_template)
 
-print("\nSucesso! Google News adaptado dinamicamente através do c-wiz.")
+print("\nSucesso! Lista de fontes atualizada com Money Times, InfoMoney e R7.")
