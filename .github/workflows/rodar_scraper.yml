@@ -8,26 +8,41 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    
+    # Define explicitamente a permissão de escrita para este ambiente virtual
+    permissions:
+      contents: write
+
     steps:
+    # 1. Copia o código do repositório usando o token de segurança embutido
     - name: Copiar codigo do repositorio
       uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
 
+    # 2. Configura o ambiente Python
     - name: Configurar o Python
       uses: actions/setup-python@v5
       with:
         python-version: '3.10'
 
+    # 3. Instala as dependências necessárias de raspagem
     - name: Instalar bibliotecas externas
       run: |
         python -m pip install --upgrade pip
         pip install requests lxml
 
+    # 4. Executa o seu robô de web scraping
     - name: Executar o script de raspagem
       run: python monitor.py
 
+    # 5. Valida se houveram mudanças e faz o upload forçado usando a credencial nativa
     - name: Salvar e subir alterações para o GitHub
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         git config --global user.name "GitHub Action Bot"
         git config --global user.email "actions@github.com"
+        git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@://github.com{{ github.repository }}.git
         git add main.html
-        git diff --quiet && git diff --staged --quiet || (git commit -m "Recarga automatica de noticias" && git push)
+        git diff --quiet && git diff --staged --quiet || (git commit -m "Recarga automatica de noticias" && git push origin main)
