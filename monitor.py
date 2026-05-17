@@ -71,9 +71,9 @@ sites = [
     {
         "id": "googlenews",
         "nome": "Google News",
-        "url": "https://google.com",
-        # RETORNO AO SCRAPING PURO: XPath inteligente focado em artigos dinâmicos e links nativos do Google News
-        "xpath": "//article//a | //a[contains(@class, 'WwrzSb')] | //a[contains(@class, 'gsc-title')]",
+        "url": "https://news.google.com/home?hl=pt-BR&gl=BR&ceid=BR:pt-419",
+        # CORREÇÃO CRÍTICA: XPath dinâmico baseado no c-wiz solicitado, mas focado nas manchetes reais
+        "xpath": "/html/body//c-wiz//article//a | /html/body//c-wiz//a[contains(@class, 'WwrzSb')]",
         "cor": "#4285f4",
         "tamanho_min": 25
     }
@@ -103,12 +103,12 @@ for site in sites:
             if texto and link and len(texto) > site["tamanho_min"] and texto not in vistas:
                 vistas.add(texto)
                 
-                # Tratamento explícito e cirúrgico dos links internos do Google News
+                # Tratamento cirúrgico dos links internos do Google News
                 if link.startswith('./'):
                     link = link[2:] # Remove o './' inicial se houver
                     link = f"https://news.google.com/{link}"
                 elif link.startswith('/'):
-                    url_base = "https://news.google.com" if "news.google.com" in site["url"] else site["url"].split('?')[0].rstrip('/')
+                    url_base = "https://news.google.com" if "news.google.com" in site["url"] else site["url"].split('?').rstrip('/')
                     link = f"{url_base}{link}"
                     
                 if "javascript:" not in link and link.startswith('http'):
@@ -129,7 +129,7 @@ for site in sites:
     except Exception as e:
         print(f"Erro ao acessar {site['nome']}: {e}")
 
-# --- GERAÇÃO DO HTML INTERATIVO ORIGINAL (SEM DUAS COLUNAS / SEM IA) ---
+# --- GERAÇÃO DO HTML INTERATIVO ORIGINAL ---
 
 html_template = """<!DOCTYPE html>
 <html lang="pt-BR">
@@ -298,8 +298,7 @@ html_template += """
 </html>
 """
 
-# Alvo configurado de volta para index.html nativo
 with open("index.html", "w", encoding="utf-8") as f:
     f.write(html_template)
 
-print("\nSucesso! Revertido para o Scraping de HTML estável e Google News consertado.")
+print("\nSucesso! Google News adaptado dinamicamente através do c-wiz.")
