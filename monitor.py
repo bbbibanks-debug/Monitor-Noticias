@@ -1,7 +1,17 @@
 import requests
 from lxml import html
+import importlib
 
-# Configurações refinadas com as 8 fontes de notícias integradas
+# Tenta importar a biblioteca de tradução, se não existir, instala dinamicamente
+try:
+    from mtranslate import translate
+except ImportError:
+    import subprocess
+    import sys
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "mtranslate"])
+    from mtranslate import translate
+
+# Configurações com as 8 fontes de notícias integradas
 sites = [
     {
         "id": "g1",
@@ -47,16 +57,16 @@ sites = [
     },
     {
         "id": "finviz",
-        "nome": "Market News",  # Nome customizado solicitado para o Finviz
-        "url": "https://finviz.com/news",
-        "xpath": "/html/body//a",  # Caminho solicitado focado no corpo do site
+        "nome": "Market News",
+        "url": "https://finviz.com",
+        "xpath": "/html/body//a",
         "cor": "#3f9c35"
     },
     {
         "id": "googlenews",
         "nome": "Google News",
-        "url": "https://news.google.com/home?hl=pt-BR&gl=BR&ceid=BR:pt-419",
-        "xpath": "/html/body/c-wiz/div/div[2]/main/div[2]/c-wiz/section//a",  # Caminho estrito solicitado adaptado para pegar links filhos
+        "url": "https://google.com",
+        "xpath": "/html/body/c-wiz/div/div/main/div/c-wiz/section//a",
         "cor": "#4285f4"
     }
 ]
@@ -65,7 +75,6 @@ headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 }
 
-# Dicionário para armazenar as notícias coletadas por portal
 dados_finais = {site["id"]: [] for site in sites}
 
 print("Iniciando a raspagem de dados de todas as fontes...")
@@ -73,36 +82,41 @@ print("Iniciando a raspagem de dados de todas as fontes...")
 for site in sites:
     try:
         response = requests.get(site["url"], headers=headers, timeout=10)
-        
-        # Garante a interpretação perfeita de acentos e caracteres internacionais
         conteudo_html = response.content.decode('utf-8', errors='ignore')
-        
         tree = html.fromstring(conteudo_html)
         elementos = tree.xpath(site["xpath"])
-        
         vistas = set()
         
         for item in elementos:
             texto = item.text_content().strip()
             link = item.get('href')
             
-            # Filtro de Relevância: Textos acima de 35 caracteres limpam os links indesejados
             if texto and link and len(texto) > 35 and texto not in vistas:
                 vistas.add(texto)
                 
-                # Trata links relativos (muito comuns no Google News)
                 if link.startswith('./'):
-                    link = link[2:]  # Remove o './' inicial
-                    link = f"https://news.google.com/{link}"
+                    link = link[2:]
+                    link = f"https://google.com{link}"
                 elif link.startswith('/'):
-                    url_base = site["url"].split('?')[0].rstrip('/')  # Limpa parâmetros de query se houverem
-                    if "news.google.com" in site["url"]:
-                        url_base = "https://news.google.com"
+                    url_base = "https://google.com" if "://google.com" in site["url"] else site["url"].split('?')[0].rstrip('/')
                     link = f"{url_base}{link}"
                     
-                # Filtro de segurança para ignorar links quebrados de layout
                 if "javascript:" not in link and link.startswith('http'):
-                    dados_finais[site["id"]].append({"texto": texto, "link": link})
+                    # LÓGICA EXCLUSIVA DE TRADUÇÃO PARA O MARKET NEWS
+                    if site["id"] == "finviz":
+                        try:
+                            # Traduz o título original em inglês para o português
+                            texto_traduzido = translate(texto, "pt")
+                            dados_finais[site["id"]].append({
+                                "texto": texto, 
+                                "texto_traduzido": texto_traduzido, 
+                                "link": link
+                            })
+                        except Exception:
+                            # Caso a tradução falhe por instabilidade de rede, mantém apenas o original
+                            dados_finais[site["id"]].append({"texto": texto, "link": link})
+                    else:
+                        dados_finais[site["id"]].append({"texto": texto, "link": link})
                 
         print(f"-> {len(dados_finais[site['id']])} notícias coletadas do {site['nome']}")
     except Exception as e:
@@ -212,6 +226,14 @@ html_template = """<!DOCTYPE html>
             line-height: 1.5;
             margin-bottom: 4px;
         }
+        /* Estilo menor e discreto para a tradução */
+        .noticia-traducao {
+            font-size: 0.9rem;
+            color: #9cdcfe;
+            margin-top: 2px;
+            margin-bottom: 4px;
+            line-height: 1.4;
+        }
         .noticia-link {
             font-size: 0.85rem;
             color: var(--text-muted);
@@ -230,11 +252,20 @@ html_template = """<!DOCTYPE html>
 for site in sites:
     noticias_html = ""
     for noti in dados_finais[site["id"]]:
-        noticias_html += f"""
-            <a href="{noti['link']}" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 {noti['texto']}</div>
-                <div class="noticia-link">{noti['link']}</div>
-            </a>"""
+        # Se for o bloco Market News e houver tradução disponível, renderiza os dois textos
+        if site["id"] == "finviz" and "texto_traduzido" in noti:
+            noticias_html += f"""
+                <a href="{noti['link']}" target="_blank" class="noticia-item">
+                    <div class="noticia-titulo">🇺🇸 {noti['texto']}</div>
+                    <div class="noticia-traducao">🇧🇷 {noti['texto_traduzido']}</div>
+                    <div class="noticia-link">{noti['link']}</div>
+                </a>"""
+        else:
+            noticias_html += f"""
+                <a href="{noti['link']}" target="_blank" class="noticia-item">
+                    <div class="noticia-titulo">🔥 {noti['texto']}</div>
+                    <div class="noticia-link">{noti['link']}</div>
+                </a>"""
     
     if not noticias_html:
         noticias_html = "<p style='color:var(--text-muted);'>Nenhuma notícia relevante encontrada no momento.</p>"
@@ -262,8 +293,7 @@ html_template += """
 </html>
 """
 
-# Alvo configurado para index.html para alimentar o GitHub Pages automaticamente
 with open("index.html", "w", encoding="utf-8") as f:
     f.write(html_template)
 
-print("\nSucesso! O arquivo 'index.html' foi configurado com todas as 8 fontes.")
+print("\nSucesso! O arquivo 'index.html' foi configurado com tradução integrada no Market News.")
