@@ -11,7 +11,7 @@ except ImportError:
     subprocess.check_call([sys.executable, "-m", "pip", "install", "mtranslate"])
     from mtranslate import translate
 
-# Lista de fontes com os XPaths de Estadão, Folha e Band otimizados e generalizados
+# Lista de fontes configuradas
 sites = [
     {"id": "g1", "nome": "G1 Globo", "url": "https://globo.com", "xpath": "//a[contains(@class, 'feed-post-link')] | //a[contains(@class, 'post__link')] | //div[contains(@class, 'bstn-fd-main')]//a", "cor": "#c4170c", "tamanho_min": 15},
     {"id": "cnn", "nome": "CNN Brasil", "url": "https://cnnbrasil.com.br", "xpath": "//a[contains(@class, 'home__list__tag')] | //a[contains(@class, 'home__title')] | //main//a", "cor": "#cc0000", "tamanho_min": 15},
@@ -25,29 +25,139 @@ sites = [
     {"id": "r7", "nome": "R7 Notícias", "url": "https://r7.com", "xpath": "//a[contains(@class, 'r7-flex-title-link')] | /html/body/div/main//a", "cor": "#1d70b8", "tamanho_min": 15},
     {"id": "metropoles", "nome": "Metrópoles", "url": "https://metropoles.com", "xpath": "//h1/a | //h2/a | //h3/a | //h5/a | //a[contains(@class, 'm-title')]", "cor": "#ff0055", "tamanho_min": 15},
     {"id": "terra", "nome": "Terra", "url": "https://terra.com.br", "xpath": "//a[contains(@class, 'card-news__url')] | //main//a", "cor": "#2b3640", "tamanho_min": 15},
-    # Ajustado XPath da Band para buscar de forma ampla na estrutura de cards e corpo principal
     {"id": "band", "nome": "Band", "url": "https://band.com.br", "xpath": "//a[@data-bnd-link] | //div[contains(@class, 'card')]//a | //main//a", "cor": "#006432", "tamanho_min": 15},
     {"id": "ig", "nome": "iG", "url": "https://ig.com.br", "xpath": "//h2/a | //h3/a | //main//a", "cor": "#1a4a7c", "tamanho_min": 15},
-    # Ajustado XPath do Estadão para varrer seções de listas de forma genérica
-    {"id": "estadao", "nome": "Estadão", "url": "https://www.estadao.com.br/", "xpath": "//section//a | //div[contains(@class, 'box')]//a | //main//a", "cor": "#007a87", "tamanho_min": 15},
-    # Ajustado XPath da Folha de S.Paulo para buscar links no container principal
-    {"id": "folha", "nome": "Folha de S.Paulo", "url": "https://uol.com.br", "xpath": "//div[contains(@class, 'c-main-headline')]//a | //div[contains(@class, 'c-headline')]//a | //main//a", "cor": "#222222", "tamanho_min": 15}
+    {"id": "estadao", "nome": "Estadão", "url": "https://estadao.com.br", "xpath": "//section//a | //div[contains(@class, 'box')]//a | //main//a", "cor": "#007a87", "tamanho_min": 15},
+    {"id": "folha", "nome": "Folha de S.Paulo", "url": "https://www.folha.uol.com.br/", "xpath": "//div[contains(@class, 'c-main-headline')]//a | //div[contains(@class, 'c-headline')]//a | //main//a", "cor": "#222222", "tamanho_min": 15}
 ]
 
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 }
 
-# Lista expandida para descartar links de utilidade interna dos portais
+# Termos gerais bloqueados em texto de botões de menus
 termos_bloqueados = [
     "fale conosco", "politica de privacidade", "sobre o terra", "anuncie", "expediente", 
     "termos de uso", "assine", "minha conta", "perfil", "todos os direitos", "quem somos", 
     "home", "noticias", "contato", "newsletter", "cookies", "ajuda", "sac", "login",
-    "cadastre-se", "painel", "editorial", "esporte", "entretenimento", "videos"
+    "cadastre-se", "painel", "editorial", "videos"
 ]
 
+# BANCO DE DADOS DE EXCLUSÃO DE SITES (URLs Limpas - Lista ampliada)
+urls_bloqueadas = {
+    "uol.com.br",
+    "uol.com.br/://uol.com.br",
+    "://uol.com.br",
+    "://uol.com.br/lp/esportes/max",
+    "://uol.com.br",
+    "://uol.com.br",
+    "://uol.com.br",
+    "://uol.com.br/loja-virtual",
+    "://uol.com.br/criador-de-sites",
+    "://uol.com.br/e-mail",
+    "://uol.com.br/index.html",
+    "://uol.com.br",
+    "://uol.com.br",
+    "://uol.com.br/politica/governo-lula",
+    "://uol.com.br/internacional",
+    "://uol.com.br/previsao-do-tempo",
+    "://uol.com.br/ultimas",
+    "://uol.com.br/loterias",
+    "uol.com.br/esporte/podcast/posse-de-bola",
+    "uol.com.br/universa/podcast/desculpa-alguma-coisa",
+    "uol.com.br/play/diva-de-cnpj",
+    "://uol.com.br/podcast/midia-e-marketing",
+    "uol.com.br/carros/lancamentos-e-mercado",
+    "uol.com.br/carros/avaliacao",
+    "uol.com.br/carros/legislacao-multas-e-transito",
+    "uol.com.br/carros/carros-eletricos",
+    "uol.com.br/carros/manutencao-e-seguranca",
+    "uol.com.br/carros/carros-curiosos",
+    "uol.com.br/carros/na-garagem",
+    "://uol.com.br/mais",
+    "://uol.com.br/empresas-e-negocios",
+    "://uol.com.br/empreendedorismo",
+    "://uol.com.br/dinheiro-e-renda",
+    "://uol.com.br/guia-de-compras",
+    "://uol.com.br/guia-de-economia",
+    "://uol.com.br/imposto-de-renda",
+    "://uol.com.br/cotacoes/cambio",
+    "://uol.com.br/cotacoes/bolsas",
+    "://uol.com.br/cotacoes/cambio/criptomoeda",
+    "://uol.com.br/imposto-de-renda/noticias/redacao/2026/03/20/imposto-de-renda-download-programa-declaracao.ghtm",
+    "://uol.com.br/imposto-de-renda/duvidas",
+    "://uol.com.br/bolsa-familia",
+    "://uol.com.br/pis",
+    "://uol.com.br/preco-dos-combustiveis",
+    "://uol.com.br/inflacao",
+    "://uol.com.br/banco-central",
+    "://uol.com.br/temas/juros",
+    "://uol.com.br/colunaseblogs",
+    "uol.com.br/esporte/futebol/central-de-jogos",
+    "uol.com.br/esporte/futebol/campeonatos/copa-do-mundo",
+    "uol.com.br/esporte/futebol/campeonatos/libertadores",
+    "uol.com.br/esporte/futebol/campeonatos/copa-do-brasil",
+    "uol.com.br/esporte/futebol/campeonatos/copa-sul-americana",
+    "uol.com.br/esporte/futebol/campeonatos/liga-dos-campeoes",
+    "uol.com.br/esporte/futebol/campeonatos",
+    "uol.com.br/esporte/colunas/mercado-da-bola",
+    "uol.com.br/esporte/futebol/times/brasil",
+    "uol.com.br/esporte/futebol/ultimas-noticias/2026/05/18/convocacao-selecao-brasileira-copa-do-mundo-ancelotti.ghtm",
+    "uol.com.br/esporte/futebol/times/brasil/proximos-jogos",
+    "uol.com.br/esporte/futebol/ultimas-noticias/2025/12/05/o-hexa-vem-simule-os-possiveis-jogos-da-copa-2026-apos-sorteio-dos-grupos.htm",
+    "uol.com.br/esporte/futebol/ultimas-noticias/2026/05/19/convoque-selecao.ghtm",
+    "uol.com.br/splash/bbb/enquetes",
+    "uol.com.br/splash/musica/festivais",
+    "uol.com.br/splash/reality-shows",
+    "uol.com.br/splash/teatro-e-musicais",
+    "uol.com.br/splash/novelas/coracao-acelerado",
+    "uol.com.br/splash/novelas/a-nobreza-do-amor",
+    "uol.com.br/splash/novelas/terra-nostra",
+    "://uol.com.br/banca",
+    "://uol.com.br/livros",
+    "uol.com.br/universa/maria-vai-com-os-outros",
+    "uol.com.br/universa/inspira/lab-da-beleza",
+    "uol.com.br/universa/universa-talks",
+    "uol.com.br/vivabem/equilibrio",
+    "uol.com.br/vivabem/movimento",
+    "uol.com.br/vivabem/saude/bula",
+    "uol.com.br/vivabem/saude/emagrecimento",
+    "uol.com.br/vivabem/saude/gravidez-e-maternidade",
+    "uol.com.br/vivabem/saude/gripes-e-resfriados",
+    "uol.com.br/vivabem/saude/doencas-de-a-z",
+    "uol.com.br/vivabem/saude/qual-e-o-remedio",
+    "uol.com.br/vivabem/alimentacao/chas-e-seus-beneficios",
+    # Novas inclusões solicitadas
+    "uol.com.br/vivabem/colunas/guia-do-supermercado",
+    "uol.com.br/tilt/fique-por-dentro",
+    "uol.com.br/tilt/tec-a-seu-favor",
+    "uol.com.br/tilt/novos-habitos",
+    "uol.com.br/tilt/redes-sociais",
+    "uol.com.br/tilt/isso-e-golpe",
+    "uol.com.br/tilt/teste-velocidade-internet",
+    "uol.com.br/tilt/dicas-matadoras",
+    "uol.com.br/tilt/a-tecnologia-por-tras",
+    "uol.com.br/tilt/no-brasil-nao-tem",
+    "uol.com.br/ecoa/crise-climatica",
+    "uol.com.br/ecoa/iniciativas-que-inspiram",
+    "uol.com.br/ecoa/temas/meio-ambiente",
+    "uol.com.br/ecoa/energia-limpa",
+    "uol.com.br/nossa/reportagens-especiais/ultimas",
+    "uol.com.br/nossa/cozinha/receitas",
+    "uol.com.br/nossa/cozinha/receitas/lista",
+    "uol.com.br/nossa/cozinha/receita-de-familia",
+    "uol.com.br/nossa/cozinha/gastronobasico",
+    "uol.com.br/nossa/viagem/fora-da-rota",
+    "uol.com.br/toca/de-ponta-a-ponta",
+    "uol.com.br/toca/rota-dos-shows",
+    "uol.com.br/toca/reality",
+    "uol.com.br/guia-de-compras/bebes-e-criancas",
+    "uol.com.br/guia-de-compras/casa-e-cozinha",
+    "uol.com.br/guia-de-compras/roupas-e-acessorios"
+}
+
 dados_finais = {site["id"]: [] for site in sites}
-print("Iniciando a raspagem de dados otimizada de todas as fontes...")
+print("Iniciando a raspagem de dados com banco de dados de exclusão ampliado...")
 
 for site in sites:
     try:
@@ -63,7 +173,6 @@ for site in sites:
             link = item.get('href')
             
             if texto and link and len(texto) > site["tamanho_min"] and texto not in vistas:
-                # Filtragem contra termos estruturais de menu
                 texto_lower = texto.lower()
                 if any(termo in texto_lower for termo in termos_bloqueados):
                     continue
@@ -71,19 +180,20 @@ for site in sites:
                 vistas.add(texto)
                 
                 if link.startswith('/'):
-                    url_base = site["url"].split('?')[0].rstrip('/')
+                    url_base = site["url"].split('?').rstrip('/')
                     link = f"{url_base}{link}"
                 
                 if "javascript:" not in link and link.startswith('http'):
                     
-                    # --- NOVO CRITÉRIO DE FILTRAGEM INTELIGENTE PARA OS JORNAIS GRANDES ---
-                    # Evita capturar categorias genéricas como 'https://www.estadao.com.br/politica'
+                    # Normalização rigorosa para validação estrutural contra a lista negra
+                    link_limpo = link.replace("https://", "").replace("http://", "").split('?')[0].split('#')[0].rstrip('/')
+                    link_limpo_com_www = link_limpo.replace("www.", "")
+                    
+                    if link_limpo in urls_bloqueadas or link_limpo_com_www in urls_bloqueadas:
+                        continue
+                    
                     if site["id"] in ["estadao", "folha", "band"]:
-                        link_clean = link.split('?')[0].rstrip('/')
-                        partes_url = link_clean.replace('http://','').replace('https://','').split('/')
-                        
-                        # Links de notícias da Folha e Estadão costumam ser profundos ou ter formatos com datas/IDs
-                        # Se a URL limpa tiver menos de 4 partes (ex: estadao.com.br/politica), ignoramos por ser uma editoria
+                        partes_url = link_limpo.split('/')
                         if len(partes_url) < 3:
                             continue
                     
