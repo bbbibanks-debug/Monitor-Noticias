@@ -50,7 +50,9 @@ if os.path.exists("blacklist.txt"):
         for linha in f:
             linha_limpa = linha.strip()
             if linha_limpa and not linha_limpa.startswith("#"):
-                urls_bloqueadas.add(linha_limpa.replace("https://", "").replace("http://", "").rstrip('/'))
+                # Garante que a entrada do txt fique sem protocolo ou barras finais
+                url_normalizada = linha_limpa.replace("https://", "").replace("http://", "").split('?')[0].split('#')[0].rstrip('/')
+                urls_bloqueadas.add(url_normalizada)
     print(f"-> Blacklist carregada com sucesso! {len(urls_bloqueadas)} URLs banidas mapeadas.")
 else:
     print("-> Aviso: 'blacklist.txt' não encontrado. Nenhuma URL externa será bloqueada.")
@@ -79,13 +81,13 @@ for site in sites:
                 vistas.add(texto)
                 
                 if link.startswith('/'):
-                    url_base = site["url"].split('?').rstrip('/')
+                    url_base = site["url"].split('?')[0].rstrip('/')
                     link = f"{url_base}{link}"
                 
                 if "javascript:" not in link and link.startswith('http'):
                     
-                    # Normalização estrutural para comparação
-                    link_limpo = link.replace("https://", "").replace("http://", "").split('?').split('#').rstrip('/')
+                    # CORREÇÃO DA LIMPEZA: Isolamento de strings feito sequencialmente por índice indexado
+                    link_limpo = link.replace("https://", "").replace("http://", "").split('?')[0].split('#')[0].rstrip('/')
                     link_limpo_com_www = link_limpo.replace("www.", "")
                     
                     # Filtra contra a estrutura carregada do arquivo externo
