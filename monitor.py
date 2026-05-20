@@ -11,7 +11,7 @@ except ImportError:
     subprocess.check_call([sys.executable, "-m", "pip", "install", "mtranslate"])
     from mtranslate import translate
 
-# 1) XPaths refinados para evitar menus, rodapés e links institucionais comuns
+# Lista de fontes com os XPaths de Estadão, Folha e Band otimizados e generalizados
 sites = [
     {"id": "g1", "nome": "G1 Globo", "url": "https://globo.com", "xpath": "//a[contains(@class, 'feed-post-link')] | //a[contains(@class, 'post__link')] | //div[contains(@class, 'bstn-fd-main')]//a", "cor": "#c4170c", "tamanho_min": 15},
     {"id": "cnn", "nome": "CNN Brasil", "url": "https://cnnbrasil.com.br", "xpath": "//a[contains(@class, 'home__list__tag')] | //a[contains(@class, 'home__title')] | //main//a", "cor": "#cc0000", "tamanho_min": 15},
@@ -25,21 +25,25 @@ sites = [
     {"id": "r7", "nome": "R7 Notícias", "url": "https://r7.com", "xpath": "//a[contains(@class, 'r7-flex-title-link')] | /html/body/div/main//a", "cor": "#1d70b8", "tamanho_min": 15},
     {"id": "metropoles", "nome": "Metrópoles", "url": "https://metropoles.com", "xpath": "//h1/a | //h2/a | //h3/a | //h5/a | //a[contains(@class, 'm-title')]", "cor": "#ff0055", "tamanho_min": 15},
     {"id": "terra", "nome": "Terra", "url": "https://terra.com.br", "xpath": "//a[contains(@class, 'card-news__url')] | //main//a", "cor": "#2b3640", "tamanho_min": 15},
-    {"id": "band", "nome": "Band", "url": "https://band.com.br", "xpath": "//a[contains(@class, 'card__link')] | //main//a", "cor": "#006432", "tamanho_min": 15},
+    # Ajustado XPath da Band para buscar de forma ampla na estrutura de cards e corpo principal
+    {"id": "band", "nome": "Band", "url": "https://band.com.br", "xpath": "//a[@data-bnd-link] | //div[contains(@class, 'card')]//a | //main//a", "cor": "#006432", "tamanho_min": 15},
     {"id": "ig", "nome": "iG", "url": "https://ig.com.br", "xpath": "//h2/a | //h3/a | //main//a", "cor": "#1a4a7c", "tamanho_min": 15},
-    {"id": "estadao", "nome": "Estadão", "url": "https://estadao.com.br", "xpath": "//a[contains(@class, 'link-title')] | //main//a", "cor": "#007a87", "tamanho_min": 15},
-    {"id": "folha", "nome": "Folha de S.Paulo", "url": "https://uol.com.br", "xpath": "//a[contains(@class, 'c-main-headline__url')] | //a[contains(@class, 'c-headline__url')]", "cor": "#222222", "tamanho_min": 15}
+    # Ajustado XPath do Estadão para varrer seções de listas de forma genérica
+    {"id": "estadao", "nome": "Estadão", "url": "https://www.estadao.com.br/", "xpath": "//section//a | //div[contains(@class, 'box')]//a | //main//a", "cor": "#007a87", "tamanho_min": 15},
+    # Ajustado XPath da Folha de S.Paulo para buscar links no container principal
+    {"id": "folha", "nome": "Folha de S.Paulo", "url": "https://uol.com.br", "xpath": "//div[contains(@class, 'c-main-headline')]//a | //div[contains(@class, 'c-headline')]//a | //main//a", "cor": "#222222", "tamanho_min": 15}
 ]
 
 headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 }
 
-# Lista de palavras que identificam links puramente estruturais ou institucionais
+# Lista expandida para descartar links de utilidade interna dos portais
 termos_bloqueados = [
     "fale conosco", "politica de privacidade", "sobre o terra", "anuncie", "expediente", 
     "termos de uso", "assine", "minha conta", "perfil", "todos os direitos", "quem somos", 
-    "home", "noticias", "contato", "newsletter", "cookies", "ajuda", "sac", "login"
+    "home", "noticias", "contato", "newsletter", "cookies", "ajuda", "sac", "login",
+    "cadastre-se", "painel", "editorial", "esporte", "entretenimento", "videos"
 ]
 
 dados_finais = {site["id"]: [] for site in sites}
@@ -59,12 +63,10 @@ for site in sites:
             link = item.get('href')
             
             if texto and link and len(texto) > site["tamanho_min"] and texto not in vistas:
-                # 1) Filtragem rigorosa contra links estruturais
+                # Filtragem contra termos estruturais de menu
                 texto_lower = texto.lower()
                 if any(termo in texto_lower for termo in termos_bloqueados):
                     continue
-                if link.endswith('.html') and len(link) < 25 and '/' not in link.replace('http://','').replace('https://',''):
-                    continue # Descarta categorias curtas ex: /esporte.html
                 
                 vistas.add(texto)
                 
@@ -73,6 +75,18 @@ for site in sites:
                     link = f"{url_base}{link}"
                 
                 if "javascript:" not in link and link.startswith('http'):
+                    
+                    # --- NOVO CRITÉRIO DE FILTRAGEM INTELIGENTE PARA OS JORNAIS GRANDES ---
+                    # Evita capturar categorias genéricas como 'https://www.estadao.com.br/politica'
+                    if site["id"] in ["estadao", "folha", "band"]:
+                        link_clean = link.split('?')[0].rstrip('/')
+                        partes_url = link_clean.replace('http://','').replace('https://','').split('/')
+                        
+                        # Links de notícias da Folha e Estadão costumam ser profundos ou ter formatos com datas/IDs
+                        # Se a URL limpa tiver menos de 4 partes (ex: estadao.com.br/politica), ignoramos por ser uma editoria
+                        if len(partes_url) < 3:
+                            continue
+                    
                     if site["id"] == "finviz":
                         try:
                             texto_traduzido = translate(texto, "pt")
@@ -93,7 +107,6 @@ for site in sites:
 hora_brasilia = datetime.utcnow() - timedelta(hours=3)
 texto_data_hora = hora_brasilia.strftime("Última captura de informações feita no dia %d/%m/%Y às %H:%M hrs")
 
-# 2) CSS ajustado para expansão apenas vertical (alinhamento flex-start no grid)
 html_template = f"""<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -131,7 +144,6 @@ html_template = f"""<!DOCTYPE html>
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }}
-        /* Alinhamento dos itens no topo evita espaços laterais vazios ao abrir o card */
         .grid-noticias {{
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
@@ -177,7 +189,6 @@ html_template = f"""<!DOCTYPE html>
             padding: 0 20px;
             background-color: rgba(0,0,0,0.1);
         }}
-        /* Removido o scroll interno: a caixa cresce naturalmente para baixo */
         .fonte-box.ativo .fonte-content {{
             max-height: none;
             padding: 12px 20px;
