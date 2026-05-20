@@ -10,7 +10,6 @@ except ImportError:
     subprocess.check_call([sys.executable, "-m", "pip", "install", "mtranslate"])
     from mtranslate import translate
 
-# Configuração das fontes
 sites = [
     {"id": "g1", "nome": "G1 Globo", "url": "https://globo.com", "xpath": "//a[contains(@class, 'feed-post-link')] | //a[contains(@class, 'post__link')] | //div[contains(@class, 'bstn-fd-main')]//a", "cor": "#c4170c", "tamanho_min": 15},
     {"id": "cnn", "nome": "CNN Brasil", "url": "https://cnnbrasil.com.br", "xpath": "//a", "cor": "#cc0000", "tamanho_min": 15},
@@ -27,7 +26,7 @@ sites = [
     {"id": "band", "nome": "Band", "url": "https://band.com.br", "xpath": "//a[@data-bnd-link] | //div[contains(@class, 'card')]//a | //main//a", "cor": "#006432", "tamanho_min": 15},
     {"id": "ig", "nome": "iG", "url": "https://ig.com.br", "xpath": "//h2/a | //h3/a | //main//a", "cor": "#1a4a7c", "tamanho_min": 15},
     {"id": "estadao", "nome": "Estadão", "url": "https://estadao.com.br", "xpath": "//a", "cor": "#007a87", "tamanho_min": 15},
-    {"id": "folha", "nome": "Folha de S.Paulo", "url": "https://uol.com.br", "xpath": "//a", "cor": "#222222", "tamanho_min": 15}
+    {"id": "folha", "nome": "Folha de S.Paulo", "url": "https://www.folha.uol.com.br/", "xpath": "//a", "cor": "#222222", "tamanho_min": 15}
 ]
 
 headers = {
@@ -41,17 +40,20 @@ termos_bloqueados = [
     "cadastre-se", "painel", "editorial", "videos"
 ]
 
-# CARREGAMENTO CORRIGIDO DA BLACKLIST
+def limpar_url(url_string):
+    # Lógica corrigida e fatiada para evitar erros com objetos do tipo lista
+    url_limpa = url_string.replace("https://", "").replace("http://", "")
+    url_limpa = url_limpa.split('?')[0]
+    url_limpa = url_limpa.split('#')[0]
+    return url_limpa.strip().rstrip('/')
+
 urls_bloqueadas = set()
 if os.path.exists("blacklist.txt"):
     with open("blacklist.txt", "r", encoding="utf-8") as f:
         for linha in f:
             linha_limpa = linha.strip()
             if linha_limpa and not linha_limpa.startswith("#"):
-                # Remove protocolos e corta tudo o que estiver após ? ou # de forma segura
-                url_normalizada = linha_limpa.replace("https://", "").replace("http://", "")
-                url_normalizada = url_normalizada.split('?')[0].split('#')[0].rstrip('/')
-                urls_bloqueadas.add(url_normalizada)
+                urls_bloqueadas.add(limpar_url(linha_limpa))
     print(f"-> Blacklist carregada com sucesso! {len(urls_bloqueadas)} URLs banidas mapeadas.")
 else:
     print("-> Aviso: 'blacklist.txt' não encontrado. Nenhuma URL externa será bloqueada.")
@@ -84,12 +86,9 @@ for site in sites:
                     link = f"{url_base}{link}"
                 
                 if "javascript:" not in link and link.startswith('http'):
-                    # CORREÇÃO DA LIMPEZA SINTÁTICA: Uso correto de índices [0] para limpar a string sequencialmente
-                    link_limpo = link.replace("https://", "").replace("http://", "")
-                    link_limpo = link_limpo.split('?')[0].split('#')[0].rstrip('/')
+                    link_limpo = limpar_url(link)
                     link_limpo_com_www = link_limpo.replace("www.", "")
                     
-                    # Filtra contra a estrutura carregada do arquivo externo
                     if link_limpo in urls_bloqueadas or link_limpo_com_www in urls_bloqueadas:
                         continue
                     
