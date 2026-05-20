@@ -28,7 +28,7 @@ sites = [
     {"id": "band", "nome": "Band", "url": "https://band.com.br", "xpath": "//a[@data-bnd-link] | //div[contains(@class, 'card')]//a | //main//a", "cor": "#006432", "tamanho_min": 15},
     {"id": "ig", "nome": "iG", "url": "https://ig.com.br", "xpath": "//h2/a | //h3/a | //main//a", "cor": "#1a4a7c", "tamanho_min": 15},
     {"id": "estadao", "nome": "Estadão", "url": "https://estadao.com.br", "xpath": "//section//a | //div[contains(@class, 'box')]//a | //main//a", "cor": "#007a87", "tamanho_min": 15},
-    {"id": "folha", "nome": "Folha de S.Paulo", "url": "https://www.folha.uol.com.br/", "xpath": "//div[contains(@class, 'c-main-headline')]//a | //div[contains(@class, 'c-headline')]//a | //main//a", "cor": "#222222", "tamanho_min": 15}
+    {"id": "folha", "nome": "Folha de S.Paulo", "url": "https://uol.com.br", "xpath": "//div[contains(@class, 'c-main-headline')]//a | //div[contains(@class, 'c-headline')]//a | //main//a", "cor": "#222222", "tamanho_min": 15}
 ]
 
 headers = {
@@ -43,121 +43,20 @@ termos_bloqueados = [
     "cadastre-se", "painel", "editorial", "videos"
 ]
 
-# BANCO DE DADOS DE EXCLUSÃO DE SITES (URLs Limpas - Lista ampliada)
-urls_bloqueadas = {
-    "uol.com.br",
-    "uol.com.br/://uol.com.br",
-    "://uol.com.br",
-    "://uol.com.br/lp/esportes/max",
-    "://uol.com.br",
-    "://uol.com.br",
-    "://uol.com.br",
-    "://uol.com.br/loja-virtual",
-    "://uol.com.br/criador-de-sites",
-    "://uol.com.br/e-mail",
-    "://uol.com.br/index.html",
-    "://uol.com.br",
-    "://uol.com.br",
-    "://uol.com.br/politica/governo-lula",
-    "://uol.com.br/internacional",
-    "://uol.com.br/previsao-do-tempo",
-    "://uol.com.br/ultimas",
-    "://uol.com.br/loterias",
-    "uol.com.br/esporte/podcast/posse-de-bola",
-    "uol.com.br/universa/podcast/desculpa-alguma-coisa",
-    "uol.com.br/play/diva-de-cnpj",
-    "://uol.com.br/podcast/midia-e-marketing",
-    "uol.com.br/carros/lancamentos-e-mercado",
-    "uol.com.br/carros/avaliacao",
-    "uol.com.br/carros/legislacao-multas-e-transito",
-    "uol.com.br/carros/carros-eletricos",
-    "uol.com.br/carros/manutencao-e-seguranca",
-    "uol.com.br/carros/carros-curiosos",
-    "uol.com.br/carros/na-garagem",
-    "://uol.com.br/mais",
-    "://uol.com.br/empresas-e-negocios",
-    "://uol.com.br/empreendedorismo",
-    "://uol.com.br/dinheiro-e-renda",
-    "://uol.com.br/guia-de-compras",
-    "://uol.com.br/guia-de-economia",
-    "://uol.com.br/imposto-de-renda",
-    "://uol.com.br/cotacoes/cambio",
-    "://uol.com.br/cotacoes/bolsas",
-    "://uol.com.br/cotacoes/cambio/criptomoeda",
-    "://uol.com.br/imposto-de-renda/noticias/redacao/2026/03/20/imposto-de-renda-download-programa-declaracao.ghtm",
-    "://uol.com.br/imposto-de-renda/duvidas",
-    "://uol.com.br/bolsa-familia",
-    "://uol.com.br/pis",
-    "://uol.com.br/preco-dos-combustiveis",
-    "://uol.com.br/inflacao",
-    "://uol.com.br/banco-central",
-    "://uol.com.br/temas/juros",
-    "://uol.com.br/colunaseblogs",
-    "uol.com.br/esporte/futebol/central-de-jogos",
-    "uol.com.br/esporte/futebol/campeonatos/copa-do-mundo",
-    "uol.com.br/esporte/futebol/campeonatos/libertadores",
-    "uol.com.br/esporte/futebol/campeonatos/copa-do-brasil",
-    "uol.com.br/esporte/futebol/campeonatos/copa-sul-americana",
-    "uol.com.br/esporte/futebol/campeonatos/liga-dos-campeoes",
-    "uol.com.br/esporte/futebol/campeonatos",
-    "uol.com.br/esporte/colunas/mercado-da-bola",
-    "uol.com.br/esporte/futebol/times/brasil",
-    "uol.com.br/esporte/futebol/ultimas-noticias/2026/05/18/convocacao-selecao-brasileira-copa-do-mundo-ancelotti.ghtm",
-    "uol.com.br/esporte/futebol/times/brasil/proximos-jogos",
-    "uol.com.br/esporte/futebol/ultimas-noticias/2025/12/05/o-hexa-vem-simule-os-possiveis-jogos-da-copa-2026-apos-sorteio-dos-grupos.htm",
-    "uol.com.br/esporte/futebol/ultimas-noticias/2026/05/19/convoque-selecao.ghtm",
-    "uol.com.br/splash/bbb/enquetes",
-    "uol.com.br/splash/musica/festivais",
-    "uol.com.br/splash/reality-shows",
-    "uol.com.br/splash/teatro-e-musicais",
-    "uol.com.br/splash/novelas/coracao-acelerado",
-    "uol.com.br/splash/novelas/a-nobreza-do-amor",
-    "uol.com.br/splash/novelas/terra-nostra",
-    "://uol.com.br/banca",
-    "://uol.com.br/livros",
-    "uol.com.br/universa/maria-vai-com-os-outros",
-    "uol.com.br/universa/inspira/lab-da-beleza",
-    "uol.com.br/universa/universa-talks",
-    "uol.com.br/vivabem/equilibrio",
-    "uol.com.br/vivabem/movimento",
-    "uol.com.br/vivabem/saude/bula",
-    "uol.com.br/vivabem/saude/emagrecimento",
-    "uol.com.br/vivabem/saude/gravidez-e-maternidade",
-    "uol.com.br/vivabem/saude/gripes-e-resfriados",
-    "uol.com.br/vivabem/saude/doencas-de-a-z",
-    "uol.com.br/vivabem/saude/qual-e-o-remedio",
-    "uol.com.br/vivabem/alimentacao/chas-e-seus-beneficios",
-    # Novas inclusões solicitadas
-    "uol.com.br/vivabem/colunas/guia-do-supermercado",
-    "uol.com.br/tilt/fique-por-dentro",
-    "uol.com.br/tilt/tec-a-seu-favor",
-    "uol.com.br/tilt/novos-habitos",
-    "uol.com.br/tilt/redes-sociais",
-    "uol.com.br/tilt/isso-e-golpe",
-    "uol.com.br/tilt/teste-velocidade-internet",
-    "uol.com.br/tilt/dicas-matadoras",
-    "uol.com.br/tilt/a-tecnologia-por-tras",
-    "uol.com.br/tilt/no-brasil-nao-tem",
-    "uol.com.br/ecoa/crise-climatica",
-    "uol.com.br/ecoa/iniciativas-que-inspiram",
-    "uol.com.br/ecoa/temas/meio-ambiente",
-    "uol.com.br/ecoa/energia-limpa",
-    "uol.com.br/nossa/reportagens-especiais/ultimas",
-    "uol.com.br/nossa/cozinha/receitas",
-    "uol.com.br/nossa/cozinha/receitas/lista",
-    "uol.com.br/nossa/cozinha/receita-de-familia",
-    "uol.com.br/nossa/cozinha/gastronobasico",
-    "uol.com.br/nossa/viagem/fora-da-rota",
-    "uol.com.br/toca/de-ponta-a-ponta",
-    "uol.com.br/toca/rota-dos-shows",
-    "uol.com.br/toca/reality",
-    "uol.com.br/guia-de-compras/bebes-e-criancas",
-    "uol.com.br/guia-de-compras/casa-e-cozinha",
-    "uol.com.br/guia-de-compras/roupas-e-acessorios"
-}
+# CARREGAMENTO DINÂMICO DA BLACKLIST EXTERNA
+urls_bloqueadas = set()
+if os.path.exists("blacklist.txt"):
+    with open("blacklist.txt", "r", encoding="utf-8") as f:
+        for linha in f:
+            linha_limpa = linha.strip()
+            if linha_limpa and not linha_limpa.startswith("#"):
+                urls_bloqueadas.add(linha_limpa.replace("https://", "").replace("http://", "").rstrip('/'))
+    print(f"-> Blacklist carregada com sucesso! {len(urls_bloqueadas)} URLs banidas mapeadas.")
+else:
+    print("-> Aviso: 'blacklist.txt' não encontrado. Nenhuma URL externa será bloqueada.")
 
 dados_finais = {site["id"]: [] for site in sites}
-print("Iniciando a raspagem de dados com banco de dados de exclusão ampliado...")
+print("Iniciando a raspagem de notícias...")
 
 for site in sites:
     try:
@@ -185,10 +84,11 @@ for site in sites:
                 
                 if "javascript:" not in link and link.startswith('http'):
                     
-                    # Normalização rigorosa para validação estrutural contra a lista negra
-                    link_limpo = link.replace("https://", "").replace("http://", "").split('?')[0].split('#')[0].rstrip('/')
+                    # Normalização estrutural para comparação
+                    link_limpo = link.replace("https://", "").replace("http://", "").split('?').split('#').rstrip('/')
                     link_limpo_com_www = link_limpo.replace("www.", "")
                     
+                    # Filtra contra a estrutura carregada do arquivo externo
                     if link_limpo in urls_bloqueadas or link_limpo_com_www in urls_bloqueadas:
                         continue
                     
