@@ -2,7 +2,7 @@ name: Atualizador Automatico de Noticias
 
 on:
   schedule:
-    - cron: '0 */2 * * *'
+   - cron: '*/15 * * * *'
   workflow_dispatch:
 
 # Ativa globalmente o Node24 para remover todos os warnings do painel
