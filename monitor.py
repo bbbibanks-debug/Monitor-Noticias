@@ -10,15 +10,14 @@ except ImportError:
     subprocess.check_call([sys.executable, "-m", "pip", "install", "mtranslate"])
     from mtranslate import translate
 
-# Configuração das fontes com XPaths totalmente abertos para Times, Correio, Estadão e Folha
+# Configuração das fontes com XPath aberto para a CNN Brasil
 sites = [
     {"id": "g1", "nome": "G1 Globo", "url": "https://globo.com", "xpath": "//a[contains(@class, 'feed-post-link')] | //a[contains(@class, 'post__link')] | //div[contains(@class, 'bstn-fd-main')]//a", "cor": "#c4170c", "tamanho_min": 15},
-    {"id": "cnn", "nome": "CNN Brasil", "url": "https://cnnbrasil.com.br", "xpath": "//a[contains(@class, 'home__list__tag')] | //a[contains(@class, 'home__title')] | //main//a", "cor": "#cc0000", "tamanho_min": 15},
-    # 1) Times Brasil: Raspagem total da página inicial via seletor universal
+    # CNN Brasil ajustada para varredura completa da página inicial
+    {"id": "cnn", "nome": "CNN Brasil", "url": "https://cnnbrasil.com.br", "xpath": "//a", "cor": "#cc0000", "tamanho_min": 15},
     {"id": "times", "nome": "Times Brasil", "url": "https://timesbrasil.com.br", "xpath": "//a", "cor": "#002447", "tamanho_min": 15},
     {"id": "jovempan", "nome": "Jovem Pan", "url": "https://jovempan.com.br", "xpath": "//div[contains(@class, 'post-item')]//a | //main//a", "cor": "#00441b", "tamanho_min": 15},
     {"id": "uol", "nome": "UOL", "url": "https://uol.com.br", "xpath": "//div[contains(@class, 'hu-commons')]//a | //a[contains(@class, 'hyperlink')]", "cor": "#f6a800", "tamanho_min": 15},
-    # 2) Correio Braziliense: Raspagem total da página inicial via seletor universal
     {"id": "correio", "nome": "Correio Braziliense", "url": "https://correiobraziliense.com.br", "xpath": "//a", "cor": "#005ca9", "tamanho_min": 15},
     {"id": "finviz", "nome": "Market News", "url": "https://finviz.com", "xpath": "//a[contains(@class, 'nn-tab-link')] | //td[contains(@class, 'nn-text')]//a", "cor": "#3f9c35", "tamanho_min": 15},
     {"id": "moneytimes", "nome": "Money Times", "url": "https://moneytimes.com.br", "xpath": "//h2/a | //h3/a | //div[contains(@class, 'news-item')]//a", "cor": "#173321", "tamanho_min": 15},
@@ -28,10 +27,8 @@ sites = [
     {"id": "terra", "nome": "Terra", "url": "https://terra.com.br", "xpath": "//a[contains(@class, 'card-news__url')] | //main//a", "cor": "#2b3640", "tamanho_min": 15},
     {"id": "band", "nome": "Band", "url": "https://band.com.br", "xpath": "//a[@data-bnd-link] | //div[contains(@class, 'card')]//a | //main//a", "cor": "#006432", "tamanho_min": 15},
     {"id": "ig", "nome": "iG", "url": "https://ig.com.br", "xpath": "//h2/a | //h3/a | //main//a", "cor": "#1a4a7c", "tamanho_min": 15},
-    # 3) Estadão: Raspagem total da página inicial via seletor universal
     {"id": "estadao", "nome": "Estadão", "url": "https://estadao.com.br", "xpath": "//a", "cor": "#007a87", "tamanho_min": 15},
-    # 4) Folha de S.Paulo: Raspagem total da página inicial via seletor universal
-    {"id": "folha", "nome": "Folha de S.Paulo", "url": "https://uol.com.br", "xpath": "//a", "cor": "#222222", "tamanho_min": 15}
+    {"id": "folha", "nome": "Folha de S.Paulo", "url": "https://www.folha.uol.com.br/", "xpath": "//a", "cor": "#222222", "tamanho_min": 15}
 ]
 
 headers = {
@@ -91,8 +88,8 @@ for site in sites:
                     if link_limpo in urls_bloqueadas or link_limpo_com_www in urls_bloqueadas:
                         continue
                     
-                    # Filtro inteligente de profundidade para evitar capturar botões de categorias soltas (Ex: /politica)
-                    if site["id"] in ["estadao", "folha", "band", "times", "correio"]:
+                    # Incluída a cnn no filtro inteligente de profundidade de link
+                    if site["id"] in ["estadao", "folha", "band", "times", "correio", "cnn"]:
                         partes_url = link_limpo.split('/')
                         if len(partes_url) < 3:
                             continue
