@@ -10,6 +10,7 @@ except ImportError:
     subprocess.check_call([sys.executable, "-m", "pip", "install", "mtranslate"])
     from mtranslate import translate
 
+# Configuração das fontes com a inclusão da Bloomberg Línea e VEJA
 sites = [
     {"id": "g1", "nome": "G1 Globo", "url": "https://globo.com", "xpath": "//a[contains(@class, 'feed-post-link')] | //a[contains(@class, 'post__link')] | //div[contains(@class, 'bstn-fd-main')]//a", "cor": "#c4170c", "tamanho_min": 15},
     {"id": "cnn", "nome": "CNN Brasil", "url": "https://cnnbrasil.com.br", "xpath": "//a", "cor": "#cc0000", "tamanho_min": 15},
@@ -26,7 +27,11 @@ sites = [
     {"id": "band", "nome": "Band", "url": "https://band.com.br", "xpath": "//a[@data-bnd-link] | //div[contains(@class, 'card')]//a | //main//a", "cor": "#006432", "tamanho_min": 15},
     {"id": "ig", "nome": "iG", "url": "https://ig.com.br", "xpath": "//h2/a | //h3/a | //main//a", "cor": "#1a4a7c", "tamanho_min": 15},
     {"id": "estadao", "nome": "Estadão", "url": "https://estadao.com.br", "xpath": "//a", "cor": "#007a87", "tamanho_min": 15},
-    {"id": "folha", "nome": "Folha de S.Paulo", "url": "https://www.folha.uol.com.br/", "xpath": "//a", "cor": "#222222", "tamanho_min": 15}
+    {"id": "folha", "nome": "Folha de S.Paulo", "url": "https://uol.com.br", "xpath": "//a", "cor": "#222222", "tamanho_min": 15},
+    # 1) Bloomberg Línea: Varredura completa da página inicial
+    {"id": "bloomberg", "nome": "Bloomberg Línea", "url": "https://www.bloomberglinea.com.br/", "xpath": "//a", "cor": "#ffdf00", "tamanho_min": 15},
+    # 2) VEJA: Varredura completa da página inicial
+    {"id": "veja", "nome": "VEJA", "url": "https://veja.abril.com.br/", "xpath": "//a", "cor": "#e60000", "tamanho_min": 15}
 ]
 
 headers = {
@@ -45,7 +50,7 @@ urls_bloqueadas = set()
 if os.path.exists("blacklist.txt"):
     with open("blacklist.txt", "r", encoding="utf-8") as f:
         for linha in f:
-            linha_limpa = linha.strip()
+            linha_limpa = Finder = linha.strip()
             if linha_limpa and not linha_limpa.startswith("#"):
                 urls_bloqueadas.add(linha_limpa)
     print(f"-> Blacklist carregada com sucesso! {len(urls_bloqueadas)} URLs literais prontas.")
@@ -81,8 +86,7 @@ for site in sites:
                 
                 if "javascript:" not in link and link.startswith('http'):
                     
-                    # --- FILTRAGEM ABSOLUTA POR STRING EXATA ---
-                    # Sem limpezas parciais: verifica se o endereço inteiro bate com as linhas do arquivo txt
+                    # FILTRAGEM ABSOLUTA POR STRING EXATA CONTRA BLACKLIST
                     if link in urls_bloqueadas:
                         continue
                         
