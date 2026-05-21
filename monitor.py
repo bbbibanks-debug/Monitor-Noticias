@@ -28,12 +28,18 @@ sites = [
     {"id": "estadao", "nome": "Estadão", "url": "https://estadao.com.br", "xpath": "//a", "cor": "#007a87", "tamanho_min": 15},
     {"id": "folha", "nome": "Folha de S.Paulo", "url": "https://uol.com.br", "xpath": "//a", "cor": "#222222", "tamanho_min": 15},
     {"id": "bloomberg", "nome": "Bloomberg Línea", "url": "https://bloomberglinea.com.br", "xpath": "//a", "cor": "#ffdf00", "tamanho_min": 15},
-    # VEJA ajustada pontualmente com seletor genérico estável para cobrir toda a página inicial
-    {"id": "veja", "nome": "VEJA", "url": "https://abril.com.br", "xpath": "//a[@href]", "cor": "#e60000", "tamanho_min": 15}
+    # VEJA: XPath e cabeçalhos otimizados em sessão simulada para burlar bloqueios anti-bot
+    {"id": "veja", "nome": "VEJA", "url": "https://abril.com.br", "xpath": "//main//a[@href] | //a[contains(@class, 'link')] | //div[contains(@class, 'card')]//a", "cor": "#e60000", "tamanho_min": 15}
 ]
 
-headers = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+# Cabeçalhos avançados para simular navegação humana real e evitar erros HTTP 403 / 406
+headers_padrao = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
+    "Accept-Language": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7",
+    "Cache-Control": "max-age=0",
+    "Connection": "keep-alive",
+    "Upgrade-Insecure-Requests": "1"
 }
 
 termos_bloqueados = [
@@ -44,42 +50,33 @@ termos_bloqueados = [
 ]
 
 def higienizar_string_url(url_bruta):
-    """Limpa quebras de linha e espaçamentos vazios das pontas."""
     if not url_bruta:
         return ""
     return url_bruta.strip().replace("\n", "").replace("\t", "").replace(" ", "")
 
-def extrair_url_base_pura(url_higienizada):
-    """Corta parâmetros de consulta (?) e âncoras (#) para a segunda validação."""
-    try:
-        pass1 = url_higienizada.split('?')[0]
-        pass2 = pass1.split('#')[0]
-        return pass2.rstrip('/')
-    except Exception:
-        return url_higienizada
-
-# CARREGAMENTO DA BLACKLIST
-urls_bloqueadas_brutas = set()
-urls_bloqueadas_bases = set()
-
+# CARREGAMENTO DA BLACKLIST CONTRA LINKS INDESEJADOS
+urls_bloqueadas = set()
 if os.path.exists("blacklist.txt"):
     with open("blacklist.txt", "r", encoding="utf-8") as f:
         for linha in f:
             linha_limpa = linha.strip()
             if linha_limpa and not linha_limpa.startswith("#"):
-                url_limpa = higienizar_string_url(linha_limpa)
-                urls_bloqueadas_brutas.add(url_limpa)
-                urls_bloqueadas_bases.add(extrair_url_base_pura(url_limpa))
-    print(f"-> Blacklist carregada com sucesso! {len(urls_bloqueadas_brutas)} caminhos mapeados.")
+                urls_bloqueadas.add(higienizar_string_url(linha_limpa))
+    print(f"-> Blacklist carregada com sucesso! {len(urls_bloqueadas)} URLs literais prontas.")
 else:
     print("-> Aviso: 'blacklist.txt' não encontrado.")
 
 dados_finais = {site["id"]: [] for site in sites}
-print("Iniciando a raspagem com dupla verificação de segurança contra exclusões...")
+print("Iniciando a raspagem com checagem estrita de igualdade...")
+
+# Inicializa uma sessão para persistir cookies e passar por firewalls de portais restritos como a Veja
+session = requests.Session()
+session.headers.update(headers_padrao)
 
 for site in sites:
     try:
-        response = requests.get(site["url"], headers=headers, timeout=12)
+        # Abre o site usando a sessão persistente com gerenciamento de cookies
+        response = session.get(site["url"], timeout=15)
         conteudo_html = response.content.decode('utf-8', errors='ignore')
         
         tree = html.fromstring(conteudo_html)
@@ -102,17 +99,9 @@ for site in sites:
                     link = f"{url_base}{link}"
                 
                 if "javascript:" not in link and link.startswith('http'):
-                    
-                    # Limpeza preliminar contra quebras de linha injetadas do HTML
                     link_higienizado = higienizar_string_url(link)
                     
-                    # VERIFICAÇÃO 1: Correspondência exata da string contida na Blacklist
-                    if link_higienizado in urls_bloqueadas_brutas:
-                        continue
-                        
-                    # VERIFICAÇÃO 2: Correspondência da URL base (ignora parâmetros variáveis como ?utm_source)
-                    link_base_puro = extrair_url_base_pura(link_higienizado)
-                    if link_base_puro in urls_bloqueadas_bases:
+                    if link_higienizado in urls_bloqueadas:
                         continue
                         
                     if site["id"] == "finviz":
@@ -141,6 +130,9 @@ html_template = f"""<!DOCTYPE html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel de Notícias</title>
+    <!-- Ativação da estrutura estrutural de Aplicativo Mobile (PWA) -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1a1a1e">
     <style>
         :root {{
             --bg-color: #121214;
