@@ -2,7 +2,6 @@ import os
 import requests
 from lxml import html
 from datetime import datetime, timedelta
-
 try:
     from mtranslate import translate
 except ImportError:
@@ -28,7 +27,7 @@ sites = [
     {"id": "estadao", "nome": "Estadão", "url": "https://estadao.com.br", "xpath": "//a", "cor": "#007a87", "tamanho_min": 15},
     {"id": "folha", "nome": "Folha de S.Paulo", "url": "https://uol.com.br", "xpath": "//a", "cor": "#222222", "tamanho_min": 15},
     {"id": "bloomberg", "nome": "Bloomberg Línea", "url": "https://bloomberglinea.com.br", "xpath": "//a", "cor": "#ffdf00", "tamanho_min": 15},
-    {"id": "veja", "nome": "VEJA", "url": "https://abril.com.br", "xpath": "//main//a[@href] | //a[contains(@class, 'link')] | //div[contains(@class, 'card')]//a", "cor": "#e60000", "tamanho_min": 15}
+    {"id": "sbtnews", "nome": "SBT News", "url": "https://sbtnews.com.br", "xpath": "//a[contains(@class, 'news-card')] | //h2/a | //h3/a | //main//a", "cor": "#3b5998", "tamanho_min": 15}
 ]
 
 headers_padrao = {
@@ -41,7 +40,7 @@ headers_padrao = {
 }
 
 termos_bloqueados = [
-    "fale conosco", "politica de privacidade", "sobre o terra", "anuncie", "expediente", 
+    "fale conosco", "politica de privacidade", "sobre o terra", "anuncie", "expediente",
     "termos de uso", "assine", "minha conta", "perfil", "todos os direitos", "quem somos", 
     "home", "noticias", "contato", "newsletter", "cookies", "ajuda", "sac", "login",
     "cadastre-se", "painel", "editorial", "videos"
@@ -53,7 +52,6 @@ def higienizar_string_url(url_bruta):
     return url_bruta.strip().replace("\n", "").replace("\t", "").replace(" ", "")
 
 def extrair_url_base_pura(url_higienizada):
-    # Lógica de fatiamento corrigida com checagens seguras prontas para strings brutas
     if not url_higienizada:
         return ""
     url_base = url_higienizada.split('?')[0]
@@ -110,11 +108,11 @@ for site in sites:
                     
                     if link_higienizado in urls_bloqueadas_brutas:
                         continue
-                        
+                    
                     link_base_puro = extrair_url_base_pura(link_higienizado)
                     if link_base_puro in urls_bloqueadas_bases:
                         continue
-                        
+                    
                     if site["id"] == "finviz":
                         try:
                             texto_traduzido = translate(texto, "pt")
@@ -141,10 +139,8 @@ html_template = f"""<!DOCTYPE html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel de Notícias</title>
-    
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#1a1a1e">
-    
     <style>
         :root {{
             --bg-color: #121214;
@@ -271,13 +267,12 @@ html_template = f"""<!DOCTYPE html>
             width: 100%;
         }}
     </style>
-    
     <script>
-      if ('serviceWorker' in navigator) {{
-        navigator.serviceWorker.register('./sw.js')
-          .then(reg => console.log('App Ready'))
-          .catch(err => console.log('Err:', err));
-      }}
+        if ('serviceWorker' in navigator) {{
+            navigator.serviceWorker.register('./sw.js')
+            .then(reg => console.log('App Ready'))
+            .catch(err => console.log('Err:', err));
+        }}
     </script>
 </head>
 <body>
@@ -305,16 +300,16 @@ for site in sites:
     
     if not noticias_html:
         noticias_html = "<p style='color:var(--text-muted);'>Nenhuma notícia relevante encontrada no momento.</p>"
-
+        
     html_template += f"""
-            <div class="fonte-box">
-                <div class="fonte-header" style="border-left-color: {site['cor']};" onclick="toggleBox(this)">
-                    {site['nome']}
-                </div>
-                <div class="fonte-content">
-                    {noticias_html}
-                </div>
-            </div>"""
+    <div class="fonte-box">
+        <div class="fonte-header" style="border-left-color: {site['cor']};" onclick="toggleBox(this)">
+            {site['nome']}
+        </div>
+        <div class="fonte-content">
+            {noticias_html}
+        </div>
+    </div>"""
 
 html_template += f"""
         </div>
