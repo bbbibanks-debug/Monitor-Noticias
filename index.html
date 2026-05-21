@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel de Notícias</title>
     
-    <!-- Configurações estruturais de PWA/Aplicativo móvel -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#1a1a1e">
     
@@ -136,12 +135,11 @@
         }
     </style>
     
-    <!-- JavaScript do Service Worker com chaves duplicadas para proteção de f-string -->
     <script>
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('./sw.js')
-          .then(reg => console.log('App Pronto para Uso!'))
-          .catch(err => console.log('Erro no App:', err));
+          .then(reg => console.log('App Ready'))
+          .catch(err => console.log('Err:', err));
       }
     </script>
 </head>
@@ -157,23 +155,27 @@
                 <div class="fonte-content">
                     
             <a href="https://ge.globo.com/rj/futebol/libertadores/jogo/20-05-2026/flamengo-estudiantes-lp.ghtml" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 TEMPO REALFlamengo encara Estudiantes no Maracanã pela Libertadores; SIGA</div>
+                <div class="noticia-titulo">🔥 TEMPO REALPedro abre para o Flamengo contra o Estudiantes pela Libertadores; SIGA</div>
                 <div class="noticia-link">https://ge.globo.com/rj/futebol/libertadores/jogo/20-05-2026/flamengo-estudiantes-lp.ghtml</div>
             </a>
             <a href="https://ge.globo.com/futebol/times/flamengo/noticia/2026/05/20/flamengo-x-estudiantes-pc-de-oliveira-diz-que-var-errou-ao-nao-marcar-penalti-em-bruno-henrique.ghtml" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 PC de Oliveira diz que VAR errou ao anular pênalti em Bruno Henrique; VÍDEO</div>
+                <div class="noticia-titulo">🔥 PC de Oliveira diz que VAR errou ao anular pênalti em Bruno Henrique</div>
                 <div class="noticia-link">https://ge.globo.com/futebol/times/flamengo/noticia/2026/05/20/flamengo-x-estudiantes-pc-de-oliveira-diz-que-var-errou-ao-nao-marcar-penalti-em-bruno-henrique.ghtml</div>
             </a>
-            <a href="https://ge.globo.com/sp/futebol/libertadores/jogo/20-05-2026/palmeiras-cerro-portenho.ghtml" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 TEMPO REALSIGA: Palmeiras pega Cerro pela Liberta e pode garantir vaga</div>
-                <div class="noticia-link">https://ge.globo.com/sp/futebol/libertadores/jogo/20-05-2026/palmeiras-cerro-portenho.ghtml</div>
-            </a>
             <a href="https://ge.globo.com/futebol/libertadores/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Libertadores: veja agenda, classificação e resultados</div>
+                <div class="noticia-titulo">🔥 Confira classificação, tabela de jogos e resultados da Libertadores</div>
                 <div class="noticia-link">https://ge.globo.com/futebol/libertadores/</div>
             </a>
+            <a href="https://ge.globo.com/sp/futebol/libertadores/jogo/20-05-2026/palmeiras-cerro-portenho.ghtml" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 TEMPO REALVegetti põe Cerro à frente do Palmeiras; SIGA a Libertadores</div>
+                <div class="noticia-link">https://ge.globo.com/sp/futebol/libertadores/jogo/20-05-2026/palmeiras-cerro-portenho.ghtml</div>
+            </a>
+            <a href="https://ge.globo.com/futebol/libertadores/jogo/20-05-2026/junior-barranquilla-sporting-cristal.ghtml" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 Junior x S. Cristal duelam no grupo do Verdão; SIGA</div>
+                <div class="noticia-link">https://ge.globo.com/futebol/libertadores/jogo/20-05-2026/junior-barranquilla-sporting-cristal.ghtml</div>
+            </a>
             <a href="https://ge.globo.com/rs/futebol/copa-sul-americana/jogo/20-05-2026/gremio-palestino.ghtml" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 TEMPO REALGrêmio amplia sobre Palestino com gol de Pavón na Sula; SIGA</div>
+                <div class="noticia-titulo">🔥 Grêmio supera o Palestino e sonha com vaga direta</div>
                 <div class="noticia-link">https://ge.globo.com/rs/futebol/copa-sul-americana/jogo/20-05-2026/gremio-palestino.ghtml</div>
             </a>
             <a href="https://ge.globo.com/rs/futebol/times/gremio/noticia/2026/05/20/weverton-joga-proximos-jogos-do-gremio-veja-cronograma-do-goleiro.ghtml" target="_blank" class="noticia-item">
@@ -181,16 +183,16 @@
                 <div class="noticia-link">https://ge.globo.com/rs/futebol/times/gremio/noticia/2026/05/20/weverton-joga-proximos-jogos-do-gremio-veja-cronograma-do-goleiro.ghtml</div>
             </a>
             <a href="https://ge.globo.com/futebol/copa-sul-americana/jogo/20-05-2026/independiente-petrolero-botafogo.ghtml" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 TEMPO REALSIGA: Correa faz 3º do Bota sobre o Ind. Petrolero pela Sula</div>
+                <div class="noticia-titulo">🔥 Sula: Botafogo vence Ind. Petrolero e fica perto de vaga direta</div>
                 <div class="noticia-link">https://ge.globo.com/futebol/copa-sul-americana/jogo/20-05-2026/independiente-petrolero-botafogo.ghtml</div>
             </a>
-            <a href="https://oglobo.globo.com/blogs/lauro-jardim/post/2026/05/cai-o-chefe-de-comunicacao-da-campanha-de-flavio.ghtml" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Lauro Jardim: Flávio troca coordenador de campanha</div>
-                <div class="noticia-link">https://oglobo.globo.com/blogs/lauro-jardim/post/2026/05/cai-o-chefe-de-comunicacao-da-campanha-de-flavio.ghtml</div>
+            <a href="https://g1.globo.com/politica/noticia/2026/05/20/policia-federal-rejeita-proposta-de-delacao-de-daniel-vorcaro.ghtml" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 Polícia Federal rejeita proposta de delação de Vorcaro</div>
+                <div class="noticia-link">https://g1.globo.com/politica/noticia/2026/05/20/policia-federal-rejeita-proposta-de-delacao-de-daniel-vorcaro.ghtml</div>
             </a>
-            <a href="https://g1.globo.com/politica/blog/camila-bomfim/post/2026/05/20/dino-cobra-informacoes-da-camara-sobre-viagem-de-mario-frias-ao-exterior.ghtml" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Dino dá 48h para Câmara explicar viagem de Frias</div>
-                <div class="noticia-link">https://g1.globo.com/politica/blog/camila-bomfim/post/2026/05/20/dino-cobra-informacoes-da-camara-sobre-viagem-de-mario-frias-ao-exterior.ghtml</div>
+            <a href="https://oglobo.globo.com/blogs/lauro-jardim/post/2026/05/cai-o-chefe-de-comunicacao-da-campanha-de-flavio.ghtml" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 Jardim: cai coordenador de campanha de Flávio</div>
+                <div class="noticia-link">https://oglobo.globo.com/blogs/lauro-jardim/post/2026/05/cai-o-chefe-de-comunicacao-da-campanha-de-flavio.ghtml</div>
             </a>
             <a href="https://oglobo.globo.com/economia/noticia/2026/05/20/relator-da-pec-da-escala-6x1-defende-que-quem-recebe-acima-de-r-16-mil-nao-tenha-limite-de-jornada-de-trabalho.ghtml" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🔥 6x1: relator defende jornada sem limite acima de R$ 16 mil</div>
@@ -237,7 +239,7 @@
                 <div class="noticia-link">https://ge.globo.com/ce/futebol/copa-do-nordeste/jogo/20-05-2026/fortaleza-sport.ghtml</div>
             </a>
             <a href="https://ge.globo.com/ba/futebol/copa-do-nordeste/jogo/20-05-2026/vitoria-abc.ghtml" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 SIGA NE: Vitória faz 4º sobre  ABC</div>
+                <div class="noticia-titulo">🔥 SIGA NE: Vitória faz 5º sobre  ABC</div>
                 <div class="noticia-link">https://ge.globo.com/ba/futebol/copa-do-nordeste/jogo/20-05-2026/vitoria-abc.ghtml</div>
             </a>
             <a href="https://revistaquem.globo.com/noticias/filhos-dos-famosos/noticia/2026/05/caua-reymond-ganha-declaracao-de-sua-filha-com-grazi-massafera-no-dia-de-seu-aniversario-melhor-pai.ghtml" target="_blank" class="noticia-item">
@@ -348,6 +350,10 @@
                 <div class="noticia-titulo">🔥 Mendonça analisará ações que tentam destravar CPMI do Banco Master</div>
                 <div class="noticia-link">https://www.cnnbrasil.com.br/politica/mendonca-analisara-acoes-que-tentam-destravar-cpmi-do-banco-master/</div>
             </a>
+            <a href="https://www.cnnbrasil.com.br/blogs/jussara-soares/politica/mendonca-abrira-procedimento-para-apurar-troca-na-pf-no-caso-lulinha/" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 Mendonça abrirá procedimento para apurar troca na PF no caso Lulinha</div>
+                <div class="noticia-link">https://www.cnnbrasil.com.br/blogs/jussara-soares/politica/mendonca-abrira-procedimento-para-apurar-troca-na-pf-no-caso-lulinha/</div>
+            </a>
             <a href="https://www.cnnbrasil.com.br/blogs/caio-junqueira/politica/pf-descarta-pergunta-para-amiga-de-lulinha-sobre-quem-e-filho-do-rapaz/" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🔥 PF descarta pergunta para amiga de Lulinha sobre quem é “filho do rapaz"</div>
                 <div class="noticia-link">https://www.cnnbrasil.com.br/blogs/caio-junqueira/politica/pf-descarta-pergunta-para-amiga-de-lulinha-sobre-quem-e-filho-do-rapaz/</div>
@@ -361,11 +367,11 @@
                 <div class="noticia-link">https://www.cnnbrasil.com.br/internacional/waack-trump-adota-em-cuba-mesma-estrategia-usada-com-maduro/</div>
             </a>
             <a href="https://www.cnnbrasil.com.br/esportes/lances-ao-vivo/libertadores-da-america-2026/20-05-2026/palmeiras-x-cerro-porteno/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 TEMPO REAL: Palmeiras recebe o Cerro Porteño pela Libertadores; acompanhe</div>
+                <div class="noticia-titulo">🔥 TEMPO REAL: Cerro Porteño abre o placar contra o Palmeiras pela Libertadores; acompanhe</div>
                 <div class="noticia-link">https://www.cnnbrasil.com.br/esportes/lances-ao-vivo/libertadores-da-america-2026/20-05-2026/palmeiras-x-cerro-porteno/</div>
             </a>
             <a href="https://www.cnnbrasil.com.br/esportes/lances-ao-vivo/libertadores-da-america-2026/20-05-2026/flamengo-x-estudiantes/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 TEMPO REAL: Flamengo recebe o Estudiantes pela Libertadores; siga</div>
+                <div class="noticia-titulo">🔥 TEMPO REAL: Flamengo marca contra Estudiantes pela Libertadores</div>
                 <div class="noticia-link">https://www.cnnbrasil.com.br/esportes/lances-ao-vivo/libertadores-da-america-2026/20-05-2026/flamengo-x-estudiantes/</div>
             </a>
             <a href="https://www.cnnbrasil.com.br/entretenimento/voltaram-virginia-posa-de-biquini-em-dubai-e-ganha-curtida-de-vini-jr/" target="_blank" class="noticia-item">
@@ -656,6 +662,10 @@
                 <div class="noticia-titulo">🔥 Veja mais em Economia</div>
                 <div class="noticia-link">https://www.cnnbrasil.com.br/economia/</div>
             </a>
+            <a href="https://www.cnnbrasil.com.br/internacional/prefeito-de-ny-quer-taxar-moradores-milionarios-entenda/" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 Prefeito de NY quer taxar moradores milionários; entenda</div>
+                <div class="noticia-link">https://www.cnnbrasil.com.br/internacional/prefeito-de-ny-quer-taxar-moradores-milionarios-entenda/</div>
+            </a>
             <a href="https://www.cnnbrasil.com.br/internacional/analise-trump-nao-quer-ser-relacionado-com-sujeira-de-big-techs/" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🔥 Análise: Trump não quer ser relacionado com "sujeira" de big techs</div>
                 <div class="noticia-link">https://www.cnnbrasil.com.br/internacional/analise-trump-nao-quer-ser-relacionado-com-sujeira-de-big-techs/</div>
@@ -880,6 +890,10 @@
                 <div class="noticia-titulo">🔥 Aconchego de casa de vó: conheça residência de Chay Suede e Laura Neiva</div>
                 <div class="noticia-link">https://www.cnnbrasil.com.br/lifestyle/aconchego-de-casa-de-vo-conheca-residencia-de-chay-suede-e-laura-neiva/</div>
             </a>
+            <a href="https://www.cnnbrasil.com.br/entretenimento/cardi-b-fala-sobre-efeitos-da-maternidade-em-seu-estilo-nao-mudei-nada/" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 Cardi B fala sobre efeitos da maternidade em seu estilo: "Não mudei nada"</div>
+                <div class="noticia-link">https://www.cnnbrasil.com.br/entretenimento/cardi-b-fala-sobre-efeitos-da-maternidade-em-seu-estilo-nao-mudei-nada/</div>
+            </a>
             <a href="https://www.cnnbrasil.com.br/entretenimento/quinta-brunson-produz-e-estrela-novo-filme-de-betty-boop/" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🔥 Quinta Brunson produz e estrela novo filme de "Betty Boop"</div>
                 <div class="noticia-link">https://www.cnnbrasil.com.br/entretenimento/quinta-brunson-produz-e-estrela-novo-filme-de-betty-boop/</div>
@@ -899,10 +913,6 @@
             <a href="https://www.cnnbrasil.com.br/entretenimento/manuh-batidao-faz-harmonizacao-intima-e-diz-vai-resolver-meus-problemas/" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🔥 Manu Bahtidão faz harmonização íntima e diz: "Vai resolver meus problemas"</div>
                 <div class="noticia-link">https://www.cnnbrasil.com.br/entretenimento/manuh-batidao-faz-harmonizacao-intima-e-diz-vai-resolver-meus-problemas/</div>
-            </a>
-            <a href="https://www.cnnbrasil.com.br/entretenimento/paula-fernandes-confirma-namoro-com-comandante-de-jato-confira/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Paula Fernandes confirma namoro com comandante de jato; confira</div>
-                <div class="noticia-link">https://www.cnnbrasil.com.br/entretenimento/paula-fernandes-confirma-namoro-com-comandante-de-jato-confira/</div>
             </a>
             <a href="https://www.cnnbrasil.com.br/pop/" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🔥 Veja mais em POP</div>
@@ -1147,25 +1157,25 @@
                 <div class="noticia-link">https://timesbrasil.com.br/ultimas-noticias</div>
             </a>
             <a href="https://timesbrasil.com.br/empresas-e-negocios/biomm-projeta-lancar-ozempic-generico-em-2027-apos-disparada-nas-vendas-de-insulina/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 há 23 minutos            
+                <div class="noticia-titulo">🔥 há 33 minutos            
             
                                                 Biomm projeta lançar Ozempic genérico em 2027 após disparada nas vendas de insulina</div>
                 <div class="noticia-link">https://timesbrasil.com.br/empresas-e-negocios/biomm-projeta-lancar-ozempic-generico-em-2027-apos-disparada-nas-vendas-de-insulina/</div>
             </a>
             <a href="https://timesbrasil.com.br/mundo/em-edicao-federacao-do-ira-pede-vistos-para-jogadores-antes-da-copa-do-mundo-entenda/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 há 48 minutos            
+                <div class="noticia-titulo">🔥 há 58 minutos            
             
                                                 Federação do Irã pede vistos para jogadores antes da Copa do Mundo; entenda</div>
                 <div class="noticia-link">https://timesbrasil.com.br/mundo/em-edicao-federacao-do-ira-pede-vistos-para-jogadores-antes-da-copa-do-mundo-entenda/</div>
             </a>
             <a href="https://timesbrasil.com.br/cripto-brasil/carlo-pereira-tokenizacao-pode-colocar-brasil-a-frente-na-nova-revolucao-financeira/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 há 52 minutos            
+                <div class="noticia-titulo">🔥 há 1 hora            
             
                                                 Carlo Pereira: tokenização pode colocar Brasil à frente na nova revolução financeira</div>
                 <div class="noticia-link">https://timesbrasil.com.br/cripto-brasil/carlo-pereira-tokenizacao-pode-colocar-brasil-a-frente-na-nova-revolucao-financeira/</div>
             </a>
             <a href="https://timesbrasil.com.br/brasil/flavio-dino-cobra-explicacoes-da-camara-sobre-viagem-de-mario-frias-ao-exterior/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 há 59 minutos            
+                <div class="noticia-titulo">🔥 há 1 hora            
             
                                                 Flávio Dino cobra explicações da Câmara sobre viagem de Mário Frias ao exterior</div>
                 <div class="noticia-link">https://timesbrasil.com.br/brasil/flavio-dino-cobra-explicacoes-da-camara-sobre-viagem-de-mario-frias-ao-exterior/</div>
@@ -2007,16 +2017,6 @@
           versus</div>
                 <div class="noticia-link">https://placar.uol.com.br/esporte/futebol/copa-sul-americana/2026/05/20/gremio-x-palestino.htm</div>
             </a>
-            <a href="https://placar.uol.com.br/esporte/futebol/copa-sul-americana/2026/05/20/independiente-petrolero-x-botafogo.htm" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Copa Sul-Americana
-          INP
-        
-          BOT
-        
-            
-          versus</div>
-                <div class="noticia-link">https://placar.uol.com.br/esporte/futebol/copa-sul-americana/2026/05/20/independiente-petrolero-x-botafogo.htm</div>
-            </a>
             <a href="https://www.uol.com.br/esporte/futebol/ultimas-noticias/2026/05/20/sul-americana-olimpia-x-vasco.ghtm" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🔥 Vasco toma virada do Olimpia e se complica por vaga direta na Sul-Americana</div>
                 <div class="noticia-link">https://www.uol.com.br/esporte/futebol/ultimas-noticias/2026/05/20/sul-americana-olimpia-x-vasco.ghtm</div>
@@ -2063,6 +2063,10 @@
                 <div class="noticia-titulo">🔥 Neymar foi convocado para a seleção sem condições de jogar</div>
                 <div class="noticia-link">https://www.uol.com.br/esporte/futebol/ultimas-noticias/2026/05/20/selecao-convocou-neymar-sem-condicoes-de-jogo-e-aposta-em-recuperacao.ghtm</div>
             </a>
+            <a href="https://www.uol.com.br/esporte/colunas/gabriel-sa/2026/05/20/sao-paulo-doria-discute-rescisao-apos-ameacas-nas-redes-sociais.htm" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 Zagueiro Dória quer deixar o São Paulo após ameaças nas redes sociais</div>
+                <div class="noticia-link">https://www.uol.com.br/esporte/colunas/gabriel-sa/2026/05/20/sao-paulo-doria-discute-rescisao-apos-ameacas-nas-redes-sociais.htm</div>
+            </a>
             <a href="https://noticias.uol.com.br/colunas/carlos-madeiro/2026/05/20/anp-confirma-que-sitio-de-agricultor-tem-petroleo-cru-no-sertao-do-ceara.htm" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🔥 ANP confirma que sítio de agricultor no sertão do CE tem petróleo cru</div>
                 <div class="noticia-link">https://noticias.uol.com.br/colunas/carlos-madeiro/2026/05/20/anp-confirma-que-sitio-de-agricultor-tem-petroleo-cru-no-sertao-do-ceara.htm</div>
@@ -2071,21 +2075,17 @@
                 <div class="noticia-titulo">🔥 Com manobra ruralista, Câmara aprova redução em quase 40% de floresta nacional no Pará</div>
                 <div class="noticia-link">https://www1.folha.uol.com.br/ambiente/2026/05/com-manobra-de-ruralistas-camara-aprova-reducao-de-area-de-floresta-nacional-no-para.shtml</div>
             </a>
-            <a href="https://www1.folha.uol.com.br/poder/2026/05/congresso-deve-derrubar-veto-de-lula-e-liberar-verba-proibida-por-lei-a-municipios-antes-da-eleicao.shtml" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Congresso deve derrubar veto de Lula e liberar verba proibida por lei a municípios</div>
-                <div class="noticia-link">https://www1.folha.uol.com.br/poder/2026/05/congresso-deve-derrubar-veto-de-lula-e-liberar-verba-proibida-por-lei-a-municipios-antes-da-eleicao.shtml</div>
-            </a>
-            <a href="https://noticias.uol.com.br/cotidiano/ultimas-noticias/2026/05/20/caixa-aumenta-premio-da-mega-sena-30-anos-veja-quanto-pode-pagar.ghtm" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Caixa aumenta prêmio da Mega-Sena de 30 anos, e previsão sobe para R$ 300 milhões</div>
-                <div class="noticia-link">https://noticias.uol.com.br/cotidiano/ultimas-noticias/2026/05/20/caixa-aumenta-premio-da-mega-sena-30-anos-veja-quanto-pode-pagar.ghtm</div>
+            <a href="https://noticias.uol.com.br/colunas/tatiana-farah/2026/05/20/mario-frias-pode-ser-intimado-pelo-stf-em-audiencia-contra-atriz-ex-globo.htm" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 Mário Frias pode ser intimado pelo STF em audiência contra atriz ex-Globo</div>
+                <div class="noticia-link">https://noticias.uol.com.br/colunas/tatiana-farah/2026/05/20/mario-frias-pode-ser-intimado-pelo-stf-em-audiencia-contra-atriz-ex-globo.htm</div>
             </a>
             <a href="https://noticias.uol.com.br/colunas/carlos-madeiro/2026/05/20/orgao-alerta-para-inicio-de-super-el-nino-e-sugere-acoes-ao-governo-lula.htm" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🔥 Órgão alerta sobre início de 'super El Niño' e sugere ações ao governo Lula</div>
                 <div class="noticia-link">https://noticias.uol.com.br/colunas/carlos-madeiro/2026/05/20/orgao-alerta-para-inicio-de-super-el-nino-e-sugere-acoes-ao-governo-lula.htm</div>
             </a>
-            <a href="https://noticias.uol.com.br/colunas/tatiana-farah/2026/05/20/mario-frias-pode-ser-intimado-pelo-stf-em-audiencia-contra-atriz-ex-globo.htm" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Mário Frias pode ser intimado pelo STF em audiência contra atriz ex-Globo</div>
-                <div class="noticia-link">https://noticias.uol.com.br/colunas/tatiana-farah/2026/05/20/mario-frias-pode-ser-intimado-pelo-stf-em-audiencia-contra-atriz-ex-globo.htm</div>
+            <a href="https://noticias.uol.com.br/cotidiano/ultimas-noticias/2026/05/20/caixa-aumenta-premio-da-mega-sena-30-anos-veja-quanto-pode-pagar.ghtm" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 Caixa aumenta prêmio da Mega-Sena de 30 anos, e previsão sobe para R$ 300 milhões</div>
+                <div class="noticia-link">https://noticias.uol.com.br/cotidiano/ultimas-noticias/2026/05/20/caixa-aumenta-premio-da-mega-sena-30-anos-veja-quanto-pode-pagar.ghtm</div>
             </a>
             <a href="https://noticias.uol.com.br/politica/ultimas-noticias/2026/05/20/justica-do-rio-suspende-segurancas-para-familiares-de-claudio-castro.ghtm" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🔥 Justiça do Rio suspende seguranças para familiares de Castro</div>
@@ -2610,21 +2610,17 @@
                 <div class="noticia-titulo">🔥 Em vídeo com Ibaneis, MDB anuncia retirada de apoio a Celina: "Decepção"</div>
                 <div class="noticia-link">https://www.correiobraziliense.com.br/cidades-df/2026/05/7424180-ibaneis-se-diz-decepcionado-com-celina-leao.html</div>
             </a>
-            <a href="https://www.correiobraziliense.com.br/politica/2026/05/7424480-flavio-dino-da-48-horas-para-camara-explicar-viagem-de-mario-frias.html" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 SUPREMO TRIBUNAL FEDERAL</div>
-                <div class="noticia-link">https://www.correiobraziliense.com.br/politica/2026/05/7424480-flavio-dino-da-48-horas-para-camara-explicar-viagem-de-mario-frias.html</div>
+            <a href="https://www.correiobraziliense.com.br/cidades-df/2026/05/7424537-sem-piscinas-da-agua-mineral-parque-nacional-reduz-valor-dos-ingressos.html" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 Sem piscinas, Parque Nacional reduz valor dos ingressos</div>
+                <div class="noticia-link">https://www.correiobraziliense.com.br/cidades-df/2026/05/7424537-sem-piscinas-da-agua-mineral-parque-nacional-reduz-valor-dos-ingressos.html</div>
+            </a>
+            <a href="https://www.correiobraziliense.com.br/cidades-df/2026/05/7424537-sem-piscinas-da-agua-mineral-parque-nacional-reduz-valor-dos-ingressos.html" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 Desconto de 50% anunciado pelo ICMBio e vale até a reabertura completa dos atrativos do parque</div>
+                <div class="noticia-link">https://www.correiobraziliense.com.br/cidades-df/2026/05/7424537-sem-piscinas-da-agua-mineral-parque-nacional-reduz-valor-dos-ingressos.html</div>
             </a>
             <a href="https://www.correiobraziliense.com.br/politica/2026/05/7424480-flavio-dino-da-48-horas-para-camara-explicar-viagem-de-mario-frias.html" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Flávio Dino dá 48 horas para Câmara explicar viagem de Frias</div>
+                <div class="noticia-titulo">🔥 SUPREMO TRIBUNAL FEDERALFlávio Dino dá 48 horas para Câmara explicar viagem de Frias</div>
                 <div class="noticia-link">https://www.correiobraziliense.com.br/politica/2026/05/7424480-flavio-dino-da-48-horas-para-camara-explicar-viagem-de-mario-frias.html</div>
-            </a>
-            <a href="https://www.correiobraziliense.com.br/politica/2026/05/7424480-flavio-dino-da-48-horas-para-camara-explicar-viagem-de-mario-frias.html" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Magistrado quer saber se o parlamentar viajou usando recursos públicos. Congressista não retornou ao Brasil</div>
-                <div class="noticia-link">https://www.correiobraziliense.com.br/politica/2026/05/7424480-flavio-dino-da-48-horas-para-camara-explicar-viagem-de-mario-frias.html</div>
-            </a>
-            <a href="https://www.correiobraziliense.com.br/politica/2026/05/7424133-michelle-chama-moraes-de-irmao-em-cristo-e-fala-sobre-futuro-politico.html" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 PODERMichelle chama Moraes de "irmão em Cristo" e fala de futuro político</div>
-                <div class="noticia-link">https://www.correiobraziliense.com.br/politica/2026/05/7424133-michelle-chama-moraes-de-irmao-em-cristo-e-fala-sobre-futuro-politico.html</div>
             </a>
             <a href="https://www.correiobraziliense.com.br/cidades-df/2026/05/7424327-premio-de-rs-1-milhao-do-nota-legal-vai-para-morador-de-samambaia-sul.html" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🔥 PRÊMIOSPrêmio de R$ 1 milhão do Nota legal vai para morador de Samambaia Sul</div>
@@ -2634,21 +2630,21 @@
                 <div class="noticia-titulo">🔥 InvestigaçãoBebê de 3 meses morre após mãe tomar rivotril e dormir por cima do filho</div>
                 <div class="noticia-link">https://www.correiobraziliense.com.br/cidades-df/2026/05/7424420-bebe-de-3-meses-morre-apos-mae-tomar-rivotril-e-dormir-por-cima-do-filho.html</div>
             </a>
-            <a href="https://www.correiobraziliense.com.br/cidades-df/2026/05/7424409-porao-do-rock-acontece-neste-fim-de-semana-em-brasilia.html" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Festival de MúsicaPorão do Rock acontece neste fim de semana em Brasília</div>
-                <div class="noticia-link">https://www.correiobraziliense.com.br/cidades-df/2026/05/7424409-porao-do-rock-acontece-neste-fim-de-semana-em-brasilia.html</div>
+            <a href="https://www.correiobraziliense.com.br/politica/2026/05/7424466-stj-abre-investigacao-sobre-fraude-para-manipular-ia-da-corte.html" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 IASTJ abre investigação sobre fraude para manipular IA da corte</div>
+                <div class="noticia-link">https://www.correiobraziliense.com.br/politica/2026/05/7424466-stj-abre-investigacao-sobre-fraude-para-manipular-ia-da-corte.html</div>
             </a>
-            <a href="https://www.correiobraziliense.com.br/economia/2026/05/7424433-credito-rural-reuniao-entre-durigan-e-senadores-termina-sem-texto-definido.html" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Crédito RuralReunião entre Durigan e senadores termina sem texto definido</div>
-                <div class="noticia-link">https://www.correiobraziliense.com.br/economia/2026/05/7424433-credito-rural-reuniao-entre-durigan-e-senadores-termina-sem-texto-definido.html</div>
+            <a href="https://www.correiobraziliense.com.br/politica/2026/05/7424133-michelle-chama-moraes-de-irmao-em-cristo-e-fala-sobre-futuro-politico.html" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 PODERMichelle chama Moraes de "irmão em Cristo" e fala de futuro político</div>
+                <div class="noticia-link">https://www.correiobraziliense.com.br/politica/2026/05/7424133-michelle-chama-moraes-de-irmao-em-cristo-e-fala-sobre-futuro-politico.html</div>
             </a>
             <a href="https://www.correiobraziliense.com.br/politica/2026/05/7424314-pl-divulga-nota-apos-fala-de-valdemar-costa-neto-sobre-flavio-bolsonaro.html" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🔥 POSICIONAMENTOPL divulga nota após fala de Valdemar Costa Neto sobre Flávio Bolsonaro</div>
                 <div class="noticia-link">https://www.correiobraziliense.com.br/politica/2026/05/7424314-pl-divulga-nota-apos-fala-de-valdemar-costa-neto-sobre-flavio-bolsonaro.html</div>
             </a>
-            <a href="https://www.correiobraziliense.com.br/brasil/2026/05/7424485-virginia-fonseca-se-pronuncia-apos-polemica-com-video-beijando-macaco-e-repudia-ataques-contra-vini-jr.html" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 RacismoVirginia se pronuncia após polêmica com vídeo beijando macaco</div>
-                <div class="noticia-link">https://www.correiobraziliense.com.br/brasil/2026/05/7424485-virginia-fonseca-se-pronuncia-apos-polemica-com-video-beijando-macaco-e-repudia-ataques-contra-vini-jr.html</div>
+            <a href="https://www.correiobraziliense.com.br/esportes/2026/05/7423567-backflip-conheca-o-salto-da-ginastica-que-viralizou.html" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 Ginástica'Backflip': conheça o salto da ginástica que viralizou</div>
+                <div class="noticia-link">https://www.correiobraziliense.com.br/esportes/2026/05/7423567-backflip-conheca-o-salto-da-ginastica-que-viralizou.html</div>
             </a>
             <a href="https://www.correiobraziliense.com.br/cidades-df/2026/05/7424221-patury-destaca-acoes-que-levaram-brasilia-ao-topo-do-ranking-de-seguranca.html" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🔥 CB.PODERBrasília é a capital mais segura do país, diz Secretário de Segurança</div>
@@ -2666,17 +2662,17 @@
                 <div class="noticia-titulo">🔥 Segurança PúblicaOperação reforça combate ao crime na Asa Norte e Noroeste</div>
                 <div class="noticia-link">https://www.correiobraziliense.com.br/cidades-df/2026/05/7424412-operacao-reforca-combate-ao-crime-na-asa-norte-e-noroeste.html</div>
             </a>
-            <a href="https://www.correiobraziliense.com.br/brasil/2026/05/7424481-mp-sp-pede-prisao-preventiva-do-rapper-oruam-reu-por-disparo-de-arma-de-fogo.html" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 MP-SP pede prisão preventiva do rapper Oruam, réu por disparo de arma de fogo</div>
-                <div class="noticia-link">https://www.correiobraziliense.com.br/brasil/2026/05/7424481-mp-sp-pede-prisao-preventiva-do-rapper-oruam-reu-por-disparo-de-arma-de-fogo.html</div>
+            <a href="https://www.correiobraziliense.com.br/euestudante/ensino-superior/2026/05/7424434-estudantes-protestam-contra-tarcisio-em-marcha-em-sp.html" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 São PauloEstudantes protestam contra Tarcísio em marcha em SP</div>
+                <div class="noticia-link">https://www.correiobraziliense.com.br/euestudante/ensino-superior/2026/05/7424434-estudantes-protestam-contra-tarcisio-em-marcha-em-sp.html</div>
             </a>
             <a href="https://www.correiobraziliense.com.br/politica/2026/05/7424435-otto-lobo-e-aprovado-pelo-senado-para-comandar-a-cvm.html" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🔥 SENADO FEDERALOtto Lobo é aprovado pelo Senado para comandar a CVM</div>
                 <div class="noticia-link">https://www.correiobraziliense.com.br/politica/2026/05/7424435-otto-lobo-e-aprovado-pelo-senado-para-comandar-a-cvm.html</div>
             </a>
-            <a href="https://www.correiobraziliense.com.br/diversao-e-arte/2026/05/7424484-mike-tyson-recorda-o-dia-em-que-flagrou-sua-esposa-com-brad-pitt.html" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 FamososMike Tyson recorda o dia em que flagrou sua esposa com Brad Pitt</div>
-                <div class="noticia-link">https://www.correiobraziliense.com.br/diversao-e-arte/2026/05/7424484-mike-tyson-recorda-o-dia-em-que-flagrou-sua-esposa-com-brad-pitt.html</div>
+            <a href="https://www.correiobraziliense.com.br/mundo/2026/05/7424444-ministro-israelense-zomba-de-ativistas-presos-em-video-e-paises-reagem.html" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 "Bem vindos a Israel"Ministro israelense zomba de ativistas presos em vídeo e países reagem</div>
+                <div class="noticia-link">https://www.correiobraziliense.com.br/mundo/2026/05/7424444-ministro-israelense-zomba-de-ativistas-presos-em-video-e-paises-reagem.html</div>
             </a>
             <a href="https://newblogs.correiobraziliense.com.br/blog-da-rosana-hessel/14-entidades-saem-em-defesa-de-gabriel-galipolo-e-da-pec-65/" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🔥 BLOG DA ROSANA HESSEL14 entidades saem em defesa de Gabriel Galípolo e da PEC 65</div>
@@ -2854,17 +2850,17 @@
                 <div class="noticia-titulo">🔥 Podcast do CorreioEm livro, jurista defende solução entre excesso e falta de punição</div>
                 <div class="noticia-link">https://www.correiobraziliense.com.br/economia/2026/05/7423613-em-livro-jurista-defende-solucao-entre-excesso-e-falta-de-punicao.html</div>
             </a>
-            <a href="https://www.correiobraziliense.com.br/economia/2026/05/7424274-camara-debate-arrecadacao-bilionaria-das-bets-e-os-impactos-sociais.html" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Apostas esportivasCâmara debate arrecadação bilionária das bets e os impactos sociais do setor</div>
-                <div class="noticia-link">https://www.correiobraziliense.com.br/economia/2026/05/7424274-camara-debate-arrecadacao-bilionaria-das-bets-e-os-impactos-sociais.html</div>
+            <a href="https://www.correiobraziliense.com.br/economia/2026/05/7424433-credito-rural-reuniao-entre-durigan-e-senadores-termina-sem-texto-definido.html" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 Crédito RuralReunião entre Durigan e senadores termina sem texto definido</div>
+                <div class="noticia-link">https://www.correiobraziliense.com.br/economia/2026/05/7424433-credito-rural-reuniao-entre-durigan-e-senadores-termina-sem-texto-definido.html</div>
             </a>
             <a href="https://www.correiobraziliense.com.br/tecnologia/2026/05/7424278-entenda-o-que-muda-nas-regras-de-redes-sociais-com-novos-decretos-de-lula.html" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🔥 NOVAS REGRAS PARA REDES SOCIAISBig techs devem remover conteúdos ilícitos e agir para coibir golpes</div>
                 <div class="noticia-link">https://www.correiobraziliense.com.br/tecnologia/2026/05/7424278-entenda-o-que-muda-nas-regras-de-redes-sociais-com-novos-decretos-de-lula.html</div>
             </a>
-            <a href="https://www.correiobraziliense.com.br/diversao-e-arte/2026/05/7424340-virginia-se-pronuncia-apos-repercussao-de-video-gravado-em-um-zoologico.html" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 FAMOSOSVirginia se pronuncia após repercussão de vídeo gravado em um zoológico</div>
-                <div class="noticia-link">https://www.correiobraziliense.com.br/diversao-e-arte/2026/05/7424340-virginia-se-pronuncia-apos-repercussao-de-video-gravado-em-um-zoologico.html</div>
+            <a href="https://www.correiobraziliense.com.br/cidades-df/2026/05/7424409-porao-do-rock-acontece-neste-fim-de-semana-em-brasilia.html" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 Festival de MúsicaPorão do Rock acontece neste fim de semana em Brasília</div>
+                <div class="noticia-link">https://www.correiobraziliense.com.br/cidades-df/2026/05/7424409-porao-do-rock-acontece-neste-fim-de-semana-em-brasilia.html</div>
             </a>
             <a href="https://www.correiobraziliense.com.br/diversao-e-arte/2026/05/7424334-boicotado-por-hollywood-kevin-spacey-aparece-no-tapete-vermelho-de-cannes.html" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🔥 CANNESBoicotado por Hollywood, Kevin Spacey aparece em Cannes</div>
@@ -3162,10 +3158,10 @@
                 </div>
                 <div class="fonte-content">
                     
-            <a href="https://www.bloomberg.com/news/articles/2026-05-20/inr-usd-indian-central-bank-intervenes-as-rupee-drops-to-record-low" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🇺🇸 Indian Central Bank Intervenes as Rupee Drops to Record Low</div>
-                <div class="noticia-traducao">🇧🇷 Banco Central Indiano intervém enquanto a rupia cai para mínimo recorde</div>
-                <div class="noticia-link">https://www.bloomberg.com/news/articles/2026-05-20/inr-usd-indian-central-bank-intervenes-as-rupee-drops-to-record-low</div>
+            <a href="https://www.bloomberg.com/news/articles/2026-05-20/moody-s-cuts-mexico-credit-rating-as-fiscal-pressures-mount" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🇺🇸 Moody’s Cuts Mexico Credit Rating to One Notch Above Junk</div>
+                <div class="noticia-traducao">🇧🇷 Moody's reduz classificação de crédito do México para um degrau acima de lixo</div>
+                <div class="noticia-link">https://www.bloomberg.com/news/articles/2026-05-20/moody-s-cuts-mexico-credit-rating-as-fiscal-pressures-mount</div>
             </a>
             <a href="https://www.cnbc.com/2026/05/20/stock-market-today-live-updates.html" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🇺🇸 S&P 500 futures fall as traders analyze Nvidia earnings: Live updates</div>
@@ -4012,9 +4008,9 @@
                 <div class="noticia-titulo">🔥 Conheça os participantes</div>
                 <div class="noticia-link">https://record.r7.com/casa-do-patrao/participantes/</div>
             </a>
-            <a href="https://record.r7.com/casa-do-patrao/na-tv/video/sheila-vence-leilao-do-picpay-e-conquista-vaga-na-proxima-prova-do-patrao-casa-do-patrao-20052026/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Sheila vence leilão do PicPay e conquista vaga na próxima 'Prova do Patrão'</div>
-                <div class="noticia-link">https://record.r7.com/casa-do-patrao/na-tv/video/sheila-vence-leilao-do-picpay-e-conquista-vaga-na-proxima-prova-do-patrao-casa-do-patrao-20052026/</div>
+            <a href="https://record.r7.com/casa-do-patrao/novidades/no-limite-da-cerca-relacao-de-matheus-e-bianca-da-o-que-falar-em-casa-do-patrao-21052026/" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 Relação de Matheus e Bianca dá o que falar em 'Casa do Patrão'</div>
+                <div class="noticia-link">https://record.r7.com/casa-do-patrao/novidades/no-limite-da-cerca-relacao-de-matheus-e-bianca-da-o-que-falar-em-casa-do-patrao-21052026/</div>
             </a>
             <a href="https://record.r7.com/casa-do-patrao/novidades/joao-victor-luis-fellipe-e-vini-estao-no-quarto-ta-na-reta-de-casa-do-patrao-20052026/" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🔥 João Victor, Luis Fellipe e Vini estão no 4º 'Tá na Reta'; vote agora</div>
@@ -4129,15 +4125,15 @@
                 <div class="noticia-link">https://record.r7.com/programacao/</div>
             </a>
             <a href="http://r7.com/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 No ar‌07h00‌‌aaaaaaaaaaaaaaaaaaaaaaaaa‌‌</div>
+                <div class="noticia-titulo">🔥 No ar‌07h00‌‌aaaaaaaaaaaaaaaaaaaaaaaa‌‌</div>
                 <div class="noticia-link">http://r7.com/</div>
             </a>
             <a href="http://r7.com/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 ‌07h00- A seguir‌‌aaaaaaaaaaaaaaaaa‌‌</div>
+                <div class="noticia-titulo">🔥 ‌07h00- A seguir‌‌aaaaaaaaaaaaaaaaaaaaaaaaa‌‌</div>
                 <div class="noticia-link">http://r7.com/</div>
             </a>
             <a href="http://r7.com/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 ‌07h00- Depois‌‌aaaaaaaaaaaaaaaaaa‌‌</div>
+                <div class="noticia-titulo">🔥 ‌07h00- Depois‌‌aaaaaaaaaaaaaaaaaaaaaaa‌‌</div>
                 <div class="noticia-link">http://r7.com/</div>
             </a>
             <a href="https://record.r7.com/programacao/" target="_blank" class="noticia-item">
@@ -4304,6 +4300,14 @@
                 <div class="noticia-titulo">🔥 Novelas e séries</div>
                 <div class="noticia-link">https://record.r7.com/</div>
             </a>
+            <a href="https://record.r7.com/coracao-de-mae/video/atilla-decide-desaparecer-e-pede-para-hasan-cuidar-de-mert-coracao-de-mae-21052026/" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 'Coração de Mãe': Atilla decide desaparecer e pede para Hasan cuidar de Mert</div>
+                <div class="noticia-link">https://record.r7.com/coracao-de-mae/video/atilla-decide-desaparecer-e-pede-para-hasan-cuidar-de-mert-coracao-de-mae-21052026/</div>
+            </a>
+            <a href="https://record.r7.com/coracao-de-mae/video/atilla-pede-para-mert-nao-guardar-rancor-de-hasan-e-se-reaproximar-do-pai-coracao-de-mae-21052026/" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 Atilla pede para Mert não guardar rancor de Hasan e se reaproximar do pai</div>
+                <div class="noticia-link">https://record.r7.com/coracao-de-mae/video/atilla-pede-para-mert-nao-guardar-rancor-de-hasan-e-se-reaproximar-do-pai-coracao-de-mae-21052026/</div>
+            </a>
             <a href="https://record.r7.com/coracao-de-mae/quizzes/voce-e-team-deniz-em-coracao-de-mae-20052026/" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🔥 Você é team Deniz? Faça o teste e prove que é fã do personagem mais fofo da novela turca</div>
                 <div class="noticia-link">https://record.r7.com/coracao-de-mae/quizzes/voce-e-team-deniz-em-coracao-de-mae-20052026/</div>
@@ -4376,8 +4380,48 @@
                 <div class="noticia-titulo">🔥 Trailer da 4ª temporada de 'Bleach: Thousand-Year Blood War' é divulgado</div>
                 <div class="noticia-link">https://www.jbox.com.br/2026/05/20/bleach-trailer-da-4a-temporada-de-thousand-year-blood-war-e-divulgado/</div>
             </a>
+            <a href="https://abcdoabc.com.br/ibp-lidera-pacto-por-equidade-feminina-offshore/" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 ABC do ABC/HÁ 2 MINUTOS</div>
+                <div class="noticia-link">https://abcdoabc.com.br/ibp-lidera-pacto-por-equidade-feminina-offshore/</div>
+            </a>
+            <a href="https://abcdoabc.com.br/ibp-lidera-pacto-por-equidade-feminina-offshore/" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 IBP lidera pacto por equidade feminina no offshore</div>
+                <div class="noticia-link">https://abcdoabc.com.br/ibp-lidera-pacto-por-equidade-feminina-offshore/</div>
+            </a>
+            <a href="https://noticias.r7.com/fala-ciencia/suplemento-com-microbiota-intestinal-mostra-efeito-no-peso-corporal-21052026/" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 Fala Ciência/HÁ 5 MINUTOS</div>
+                <div class="noticia-link">https://noticias.r7.com/fala-ciencia/suplemento-com-microbiota-intestinal-mostra-efeito-no-peso-corporal-21052026/</div>
+            </a>
+            <a href="https://noticias.r7.com/fala-ciencia/suplemento-com-microbiota-intestinal-mostra-efeito-no-peso-corporal-21052026/" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 Suplemento com microbiota intestinal mostra efeito no peso corporal</div>
+                <div class="noticia-link">https://noticias.r7.com/fala-ciencia/suplemento-com-microbiota-intestinal-mostra-efeito-no-peso-corporal-21052026/</div>
+            </a>
+            <a href="https://abcdoabc.com.br/santos-san-lorenzo-2/" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 ABC do ABC/HÁ 8 MINUTOS</div>
+                <div class="noticia-link">https://abcdoabc.com.br/santos-san-lorenzo-2/</div>
+            </a>
+            <a href="https://abcdoabc.com.br/santos-san-lorenzo-2/" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 Santos x San Lorenzo: Treinador relata agressão da torcida</div>
+                <div class="noticia-link">https://abcdoabc.com.br/santos-san-lorenzo-2/</div>
+            </a>
+            <a href="https://record.r7.com/casa-do-patrao/novidades/patrao-fc-moradores-especulam-convocacao-do-brasil-para-a-copa-do-mundo-e-acertam-dez-nomes-21052026/" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 Novidades /  HÁ 9 MINUTOS</div>
+                <div class="noticia-link">https://record.r7.com/casa-do-patrao/novidades/patrao-fc-moradores-especulam-convocacao-do-brasil-para-a-copa-do-mundo-e-acertam-dez-nomes-21052026/</div>
+            </a>
+            <a href="https://record.r7.com/casa-do-patrao/novidades/patrao-fc-moradores-especulam-convocacao-do-brasil-para-a-copa-do-mundo-e-acertam-dez-nomes-21052026/" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 Patrão FC! Moradores especulam convocação do Brasil para a Copa do Mundo e acertam dez nomes</div>
+                <div class="noticia-link">https://record.r7.com/casa-do-patrao/novidades/patrao-fc-moradores-especulam-convocacao-do-brasil-para-a-copa-do-mundo-e-acertam-dez-nomes-21052026/</div>
+            </a>
+            <a href="https://www.tnh1.com.br/noticia/nid/thais-carla-exibe-cintura-fininha-apos-perder-mais-de-100-kg-compare/" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 TNH1/HÁ 10 MINUTOS</div>
+                <div class="noticia-link">https://www.tnh1.com.br/noticia/nid/thais-carla-exibe-cintura-fininha-apos-perder-mais-de-100-kg-compare/</div>
+            </a>
+            <a href="https://www.tnh1.com.br/noticia/nid/thais-carla-exibe-cintura-fininha-apos-perder-mais-de-100-kg-compare/" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 Thais Carla exibe cintura fininha após perder mais de 100 kg; compare</div>
+                <div class="noticia-link">https://www.tnh1.com.br/noticia/nid/thais-carla-exibe-cintura-fininha-apos-perder-mais-de-100-kg-compare/</div>
+            </a>
             <a href="https://surtoolimpico.com.br/corinthians-devolve-o-atropelo-sobre-o-pinheiros-e-empata-a-semifinal-do-nbb/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Surto Olímpico/HÁ 1 MINUTO</div>
+                <div class="noticia-titulo">🔥 Surto Olímpico/HÁ 12 MINUTOS</div>
                 <div class="noticia-link">https://surtoolimpico.com.br/corinthians-devolve-o-atropelo-sobre-o-pinheiros-e-empata-a-semifinal-do-nbb/</div>
             </a>
             <a href="https://surtoolimpico.com.br/corinthians-devolve-o-atropelo-sobre-o-pinheiros-e-empata-a-semifinal-do-nbb/" target="_blank" class="noticia-item">
@@ -4385,7 +4429,7 @@
                 <div class="noticia-link">https://surtoolimpico.com.br/corinthians-devolve-o-atropelo-sobre-o-pinheiros-e-empata-a-semifinal-do-nbb/</div>
             </a>
             <a href="https://www.amomeupet.org/noticias/16627/-os-olhinhos-dizem-tudo-meses-depois-tenente-visita-veado-orfao-que-salvou-das-chamas-e-cena-fala-por-si-so" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Amo meu PET/HÁ 4 MINUTOS</div>
+                <div class="noticia-titulo">🔥 Amo meu PET/HÁ 14 MINUTOS</div>
                 <div class="noticia-link">https://www.amomeupet.org/noticias/16627/-os-olhinhos-dizem-tudo-meses-depois-tenente-visita-veado-orfao-que-salvou-das-chamas-e-cena-fala-por-si-so</div>
             </a>
             <a href="https://www.amomeupet.org/noticias/16627/-os-olhinhos-dizem-tudo-meses-depois-tenente-visita-veado-orfao-que-salvou-das-chamas-e-cena-fala-por-si-so" target="_blank" class="noticia-item">
@@ -4393,7 +4437,7 @@
                 <div class="noticia-link">https://www.amomeupet.org/noticias/16627/-os-olhinhos-dizem-tudo-meses-depois-tenente-visita-veado-orfao-que-salvou-das-chamas-e-cena-fala-por-si-so</div>
             </a>
             <a href="https://entretenimento.r7.com/bebe-mamae/daniel-cady-mostra-as-gemeas-apos-ivete-surgir-com-affair-21052026/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Bebê Mamãe/HÁ 12 MINUTOS</div>
+                <div class="noticia-titulo">🔥 Bebê Mamãe/HÁ 23 MINUTOS</div>
                 <div class="noticia-link">https://entretenimento.r7.com/bebe-mamae/daniel-cady-mostra-as-gemeas-apos-ivete-surgir-com-affair-21052026/</div>
             </a>
             <a href="https://entretenimento.r7.com/bebe-mamae/daniel-cady-mostra-as-gemeas-apos-ivete-surgir-com-affair-21052026/" target="_blank" class="noticia-item">
@@ -4401,7 +4445,7 @@
                 <div class="noticia-link">https://entretenimento.r7.com/bebe-mamae/daniel-cady-mostra-as-gemeas-apos-ivete-surgir-com-affair-21052026/</div>
             </a>
             <a href="https://ndmais.com.br/saude/caso-de-raiva-em-bovino-e-confirmado-em-sc-apos-identificacao-da-doenca-em-rebanho/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 ND Mais/HÁ 14 MINUTOS</div>
+                <div class="noticia-titulo">🔥 ND Mais/HÁ 25 MINUTOS</div>
                 <div class="noticia-link">https://ndmais.com.br/saude/caso-de-raiva-em-bovino-e-confirmado-em-sc-apos-identificacao-da-doenca-em-rebanho/</div>
             </a>
             <a href="https://ndmais.com.br/saude/caso-de-raiva-em-bovino-e-confirmado-em-sc-apos-identificacao-da-doenca-em-rebanho/" target="_blank" class="noticia-item">
@@ -4409,27 +4453,31 @@
                 <div class="noticia-link">https://ndmais.com.br/saude/caso-de-raiva-em-bovino-e-confirmado-em-sc-apos-identificacao-da-doenca-em-rebanho/</div>
             </a>
             <a href="https://esportes.r7.com/tudo-de-esportes/personalidade-na-argentina-arthur-jorge-exalta-postura-do-cruzeiro-na-bombonera-21052026/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Tudo de Esportes /  HÁ 15 MINUTOS</div>
+                <div class="noticia-titulo">🔥 Tudo de Esportes /  HÁ 25 MINUTOS</div>
                 <div class="noticia-link">https://esportes.r7.com/tudo-de-esportes/personalidade-na-argentina-arthur-jorge-exalta-postura-do-cruzeiro-na-bombonera-21052026/</div>
             </a>
             <a href="https://esportes.r7.com/tudo-de-esportes/personalidade-na-argentina-arthur-jorge-exalta-postura-do-cruzeiro-na-bombonera-21052026/" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🔥 PERSONALIDADE NA ARGENTINA! 🦊 Arthur Jorge exalta postura do Cruzeiro na Bombonera</div>
                 <div class="noticia-link">https://esportes.r7.com/tudo-de-esportes/personalidade-na-argentina-arthur-jorge-exalta-postura-do-cruzeiro-na-bombonera-21052026/</div>
             </a>
+            <a href="https://esportes.r7.com/tudo-de-esportes/cbf-liga-o-alerta-neymar-preocupa-apos-lesao-na-panturrilha-21052026/" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 CBF LIGA O ALERTA! 🚨 Neymar preocupa após lesão na panturrilha</div>
+                <div class="noticia-link">https://esportes.r7.com/tudo-de-esportes/cbf-liga-o-alerta-neymar-preocupa-apos-lesao-na-panturrilha-21052026/</div>
+            </a>
             <a href="https://esportes.r7.com/tudo-de-esportes/pequenos-erros-preocupam-dorival-analisa-momento-do-sao-paulo-apos-empate-21052026/" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🔥 PEQUENOS ERROS PREOCUPAM! ⚠️ Dorival analisa momento do São Paulo após empate</div>
                 <div class="noticia-link">https://esportes.r7.com/tudo-de-esportes/pequenos-erros-preocupam-dorival-analisa-momento-do-sao-paulo-apos-empate-21052026/</div>
             </a>
-            <a href="https://esportes.r7.com/tudo-de-esportes/cbf-liga-o-alerta-neymar-preocupa-apos-lesao-na-panturrilha-21052026/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 CBF LIGA O ALERTA! 🚨 Neymar preocupa após lesão na panturrilha</div>
-                <div class="noticia-link">https://esportes.r7.com/tudo-de-esportes/cbf-liga-o-alerta-neymar-preocupa-apos-lesao-na-panturrilha-21052026/</div>
+            <a href="https://esportes.r7.com/tudo-de-esportes/so-o-hexa-importa-parreira-manda-recado-para-a-selecao-antes-da-copa-21052026/" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 Tudo de Esportes /  HÁ 26 MINUTOS</div>
+                <div class="noticia-link">https://esportes.r7.com/tudo-de-esportes/so-o-hexa-importa-parreira-manda-recado-para-a-selecao-antes-da-copa-21052026/</div>
             </a>
             <a href="https://esportes.r7.com/tudo-de-esportes/so-o-hexa-importa-parreira-manda-recado-para-a-selecao-antes-da-copa-21052026/" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🔥 SÓ O HEXA IMPORTA! 🏆 Parreira manda recado para a Seleção antes da Copa</div>
                 <div class="noticia-link">https://esportes.r7.com/tudo-de-esportes/so-o-hexa-importa-parreira-manda-recado-para-a-selecao-antes-da-copa-21052026/</div>
             </a>
             <a href="https://abcdoabc.com.br/sao-jose-recebe-missao-alema-setor-aeroespacial/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 ABC do ABC/HÁ 15 MINUTOS</div>
+                <div class="noticia-titulo">🔥 ABC do ABC/HÁ 26 MINUTOS</div>
                 <div class="noticia-link">https://abcdoabc.com.br/sao-jose-recebe-missao-alema-setor-aeroespacial/</div>
             </a>
             <a href="https://abcdoabc.com.br/sao-jose-recebe-missao-alema-setor-aeroespacial/" target="_blank" class="noticia-item">
@@ -4437,7 +4485,7 @@
                 <div class="noticia-link">https://abcdoabc.com.br/sao-jose-recebe-missao-alema-setor-aeroespacial/</div>
             </a>
             <a href="https://esportes.r7.com/tudo-de-esportes/decisao-e-da-diretoria-dorival-comenta-situacao-de-arboleda-no-sao-paulo-21052026/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Tudo de Esportes /  HÁ 17 MINUTOS</div>
+                <div class="noticia-titulo">🔥 Tudo de Esportes /  HÁ 27 MINUTOS</div>
                 <div class="noticia-link">https://esportes.r7.com/tudo-de-esportes/decisao-e-da-diretoria-dorival-comenta-situacao-de-arboleda-no-sao-paulo-21052026/</div>
             </a>
             <a href="https://esportes.r7.com/tudo-de-esportes/decisao-e-da-diretoria-dorival-comenta-situacao-de-arboleda-no-sao-paulo-21052026/" target="_blank" class="noticia-item">
@@ -4445,7 +4493,7 @@
                 <div class="noticia-link">https://esportes.r7.com/tudo-de-esportes/decisao-e-da-diretoria-dorival-comenta-situacao-de-arboleda-no-sao-paulo-21052026/</div>
             </a>
             <a href="https://noticias.r7.com/jr-24h/conteudo-exclusivo/jr-entrevista/jr-entrevista-ministra-das-mulheres-defende-acao-conjunta-no-combate-ao-feminicidio-21052026/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 JR Entrevista /  HÁ 17 MINUTOS</div>
+                <div class="noticia-titulo">🔥 JR Entrevista /  HÁ 27 MINUTOS</div>
                 <div class="noticia-link">https://noticias.r7.com/jr-24h/conteudo-exclusivo/jr-entrevista/jr-entrevista-ministra-das-mulheres-defende-acao-conjunta-no-combate-ao-feminicidio-21052026/</div>
             </a>
             <a href="https://noticias.r7.com/jr-24h/conteudo-exclusivo/jr-entrevista/jr-entrevista-ministra-das-mulheres-defende-acao-conjunta-no-combate-ao-feminicidio-21052026/" target="_blank" class="noticia-item">
@@ -4453,7 +4501,7 @@
                 <div class="noticia-link">https://noticias.r7.com/jr-24h/conteudo-exclusivo/jr-entrevista/jr-entrevista-ministra-das-mulheres-defende-acao-conjunta-no-combate-ao-feminicidio-21052026/</div>
             </a>
             <a href="https://record.r7.com/casa-do-patrao/novidades/no-limite-da-cerca-relacao-de-matheus-e-bianca-da-o-que-falar-em-casa-do-patrao-21052026/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Novidades /  HÁ 22 MINUTOS</div>
+                <div class="noticia-titulo">🔥 Novidades /  HÁ 32 MINUTOS</div>
                 <div class="noticia-link">https://record.r7.com/casa-do-patrao/novidades/no-limite-da-cerca-relacao-de-matheus-e-bianca-da-o-que-falar-em-casa-do-patrao-21052026/</div>
             </a>
             <a href="https://record.r7.com/casa-do-patrao/novidades/no-limite-da-cerca-relacao-de-matheus-e-bianca-da-o-que-falar-em-casa-do-patrao-21052026/" target="_blank" class="noticia-item">
@@ -4461,7 +4509,7 @@
                 <div class="noticia-link">https://record.r7.com/casa-do-patrao/novidades/no-limite-da-cerca-relacao-de-matheus-e-bianca-da-o-que-falar-em-casa-do-patrao-21052026/</div>
             </a>
             <a href="https://www.folhavitoria.com.br/cotidiano/menino-autista-de-8-anos-e-atacado-por-cachorro-em-vila-velha/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Folha Vitória/HÁ 26 MINUTOS</div>
+                <div class="noticia-titulo">🔥 Folha Vitória/HÁ 37 MINUTOS</div>
                 <div class="noticia-link">https://www.folhavitoria.com.br/cotidiano/menino-autista-de-8-anos-e-atacado-por-cachorro-em-vila-velha/</div>
             </a>
             <a href="https://www.folhavitoria.com.br/cotidiano/menino-autista-de-8-anos-e-atacado-por-cachorro-em-vila-velha/" target="_blank" class="noticia-item">
@@ -4469,7 +4517,7 @@
                 <div class="noticia-link">https://www.folhavitoria.com.br/cotidiano/menino-autista-de-8-anos-e-atacado-por-cachorro-em-vila-velha/</div>
             </a>
             <a href="https://takta.com.br/ultimas-noticias/justica-determina-que-colegio-bernoulli-aceite-reutilizacao-de-material-didatico/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Taktá/HÁ 29 MINUTOS</div>
+                <div class="noticia-titulo">🔥 Taktá/HÁ 39 MINUTOS</div>
                 <div class="noticia-link">https://takta.com.br/ultimas-noticias/justica-determina-que-colegio-bernoulli-aceite-reutilizacao-de-material-didatico/</div>
             </a>
             <a href="https://takta.com.br/ultimas-noticias/justica-determina-que-colegio-bernoulli-aceite-reutilizacao-de-material-didatico/" target="_blank" class="noticia-item">
@@ -4477,56 +4525,12 @@
                 <div class="noticia-link">https://takta.com.br/ultimas-noticias/justica-determina-que-colegio-bernoulli-aceite-reutilizacao-de-material-didatico/</div>
             </a>
             <a href="https://abcdoabc.com.br/sao-jose-convocacao-selecao-brasileira-goalball/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 ABC do ABC/HÁ 29 MINUTOS</div>
+                <div class="noticia-titulo">🔥 ABC do ABC/HÁ 40 MINUTOS</div>
                 <div class="noticia-link">https://abcdoabc.com.br/sao-jose-convocacao-selecao-brasileira-goalball/</div>
             </a>
             <a href="https://abcdoabc.com.br/sao-jose-convocacao-selecao-brasileira-goalball/" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🔥 São José domina convocação da Seleção Brasileira de Goalball</div>
                 <div class="noticia-link">https://abcdoabc.com.br/sao-jose-convocacao-selecao-brasileira-goalball/</div>
-            </a>
-            <a href="https://www.folhavitoria.com.br/saude/pessoas-com-epilepsia-terao-carteira-de-identificacao-em-vitoria/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Folha Vitória/HÁ 30 MINUTOS</div>
-                <div class="noticia-link">https://www.folhavitoria.com.br/saude/pessoas-com-epilepsia-terao-carteira-de-identificacao-em-vitoria/</div>
-            </a>
-            <a href="https://www.folhavitoria.com.br/saude/pessoas-com-epilepsia-terao-carteira-de-identificacao-em-vitoria/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Pessoas com epilepsia terão carteira de identificação em Vitória</div>
-                <div class="noticia-link">https://www.folhavitoria.com.br/saude/pessoas-com-epilepsia-terao-carteira-de-identificacao-em-vitoria/</div>
-            </a>
-            <a href="https://receitasdepesos.com.br/receitas/2026/05/20/francis-mallmann-chef-a-carne-de-panela-nao-precisa-de-temperos-prontos-mas-de-paciencia-para-dourar-todos-os-lados-da-carne-antes-de-colocar-a-agua-2/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Receitas de Peso/HÁ 30 MINUTOS</div>
-                <div class="noticia-link">https://receitasdepesos.com.br/receitas/2026/05/20/francis-mallmann-chef-a-carne-de-panela-nao-precisa-de-temperos-prontos-mas-de-paciencia-para-dourar-todos-os-lados-da-carne-antes-de-colocar-a-agua-2/</div>
-            </a>
-            <a href="https://www.receitasdepesos.com.br" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Receitas de Peso</div>
-                <div class="noticia-link">https://www.receitasdepesos.com.br</div>
-            </a>
-            <a href="https://receitasdepesos.com.br/receitas/2026/05/20/francis-mallmann-chef-a-carne-de-panela-nao-precisa-de-temperos-prontos-mas-de-paciencia-para-dourar-todos-os-lados-da-carne-antes-de-colocar-a-agua-2/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Francis Mallmann, chef: “A carne de panela não precisa de temperos prontos, mas de paciência para dourar todos os lados da carne antes de colocar a água.”</div>
-                <div class="noticia-link">https://receitasdepesos.com.br/receitas/2026/05/20/francis-mallmann-chef-a-carne-de-panela-nao-precisa-de-temperos-prontos-mas-de-paciencia-para-dourar-todos-os-lados-da-carne-antes-de-colocar-a-agua-2/</div>
-            </a>
-            <a href="https://revistaoeste.com/agronegocio/como-a-genetica-transformou-a-pecuaria-brasileira/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Revista Oeste/HÁ 31 MINUTOS</div>
-                <div class="noticia-link">https://revistaoeste.com/agronegocio/como-a-genetica-transformou-a-pecuaria-brasileira/</div>
-            </a>
-            <a href="https://revistaoeste.com/agronegocio/como-a-genetica-transformou-a-pecuaria-brasileira/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Como a genética transformou a pecuária brasileira</div>
-                <div class="noticia-link">https://revistaoeste.com/agronegocio/como-a-genetica-transformou-a-pecuaria-brasileira/</div>
-            </a>
-            <a href="https://noticias.r7.com/giro-10/para-que-serve-aplicar-oleo-de-rosa-mosqueta-puro-em-cicatrizes-e-como-faze-lo-de-forma-correta-para-evitar-o-escurecimento-da-marca-21052026/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Giro 10/HÁ 34 MINUTOS</div>
-                <div class="noticia-link">https://noticias.r7.com/giro-10/para-que-serve-aplicar-oleo-de-rosa-mosqueta-puro-em-cicatrizes-e-como-faze-lo-de-forma-correta-para-evitar-o-escurecimento-da-marca-21052026/</div>
-            </a>
-            <a href="https://noticias.r7.com/giro-10/para-que-serve-aplicar-oleo-de-rosa-mosqueta-puro-em-cicatrizes-e-como-faze-lo-de-forma-correta-para-evitar-o-escurecimento-da-marca-21052026/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Para que serve aplicar óleo de rosa mosqueta puro em cicatrizes e como fazê-lo de forma correta para evitar o escurecimento da marca?</div>
-                <div class="noticia-link">https://noticias.r7.com/giro-10/para-que-serve-aplicar-oleo-de-rosa-mosqueta-puro-em-cicatrizes-e-como-faze-lo-de-forma-correta-para-evitar-o-escurecimento-da-marca-21052026/</div>
-            </a>
-            <a href="https://esportes.r7.com/futebol/na-arquibancada-neymar-e-flagrado-em-cena-fofa-com-a-filha-mavie-durante-jogo-do-santos-21052026/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Futebol /  HÁ 27 MINUTOS</div>
-                <div class="noticia-link">https://esportes.r7.com/futebol/na-arquibancada-neymar-e-flagrado-em-cena-fofa-com-a-filha-mavie-durante-jogo-do-santos-21052026/</div>
-            </a>
-            <a href="https://esportes.r7.com/futebol/na-arquibancada-neymar-e-flagrado-em-cena-fofa-com-a-filha-mavie-durante-jogo-do-santos-21052026/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Na arquibancada, Neymar é flagrado em cena fofa com a filha Mavie durante jogo do Santos</div>
-                <div class="noticia-link">https://esportes.r7.com/futebol/na-arquibancada-neymar-e-flagrado-em-cena-fofa-com-a-filha-mavie-durante-jogo-do-santos-21052026/</div>
             </a>
             <a href="https://record.r7.com/coracao-de-mae/fotos/corre-aqui-fabiola-reipert-veja-7-provas-de-que-filiz-e-turkan-sao-fofoqueiras-de-mao-cheia-em-coracao-de-mae-20052026/" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🔥 Corre aqui, Fabíola Reipert! Veja 7 provas de que Filiz e Türkan são fofoqueiras de mão cheia em Coração de Mãe</div>
@@ -4605,7 +4609,7 @@
                 <div class="noticia-link">https://record.r7.com/casa-do-patrao/novidades/fotos/var-coloca-fim-ao-misterio-e-revela-o-que-aconteceu-com-o-cigarro-de-vivao-16052026/</div>
             </a>
             <a href="https://noticias.r7.com/jr-na-tv/integras/video/assista-a-integra-do-jornal-da-record-20052026-21052026/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Íntegras /  HÁ 23 MINUTOS</div>
+                <div class="noticia-titulo">🔥 Íntegras /  HÁ 33 MINUTOS</div>
                 <div class="noticia-link">https://noticias.r7.com/jr-na-tv/integras/video/assista-a-integra-do-jornal-da-record-20052026-21052026/</div>
             </a>
             <a href="https://noticias.r7.com/jr-na-tv/integras/video/assista-a-integra-do-jornal-da-record-20052026-21052026/" target="_blank" class="noticia-item">
@@ -4613,7 +4617,7 @@
                 <div class="noticia-link">https://noticias.r7.com/jr-na-tv/integras/video/assista-a-integra-do-jornal-da-record-20052026-21052026/</div>
             </a>
             <a href="https://record.r7.com/coracao-de-mae/video/atilla-pede-para-mert-nao-guardar-rancor-de-hasan-e-se-reaproximar-do-pai-coracao-de-mae-21052026/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Coração de Mãe /  HÁ 44 MINUTOS</div>
+                <div class="noticia-titulo">🔥 Coração de Mãe /  HÁ 55 MINUTOS</div>
                 <div class="noticia-link">https://record.r7.com/coracao-de-mae/video/atilla-pede-para-mert-nao-guardar-rancor-de-hasan-e-se-reaproximar-do-pai-coracao-de-mae-21052026/</div>
             </a>
             <a href="https://record.r7.com/coracao-de-mae/video/atilla-pede-para-mert-nao-guardar-rancor-de-hasan-e-se-reaproximar-do-pai-coracao-de-mae-21052026/" target="_blank" class="noticia-item">
@@ -4621,7 +4625,7 @@
                 <div class="noticia-link">https://record.r7.com/coracao-de-mae/video/atilla-pede-para-mert-nao-guardar-rancor-de-hasan-e-se-reaproximar-do-pai-coracao-de-mae-21052026/</div>
             </a>
             <a href="https://record.r7.com/casa-do-patrao/24-horas/video/moradores-pegam-roupas-para-festa-com-tema-jardim-botanico-casa-do-patrao-21052026/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 24 Horas /  HÁ 51 MINUTOS</div>
+                <div class="noticia-titulo">🔥 24 Horas /  HÁ 1 HORA</div>
                 <div class="noticia-link">https://record.r7.com/casa-do-patrao/24-horas/video/moradores-pegam-roupas-para-festa-com-tema-jardim-botanico-casa-do-patrao-21052026/</div>
             </a>
             <a href="https://record.r7.com/casa-do-patrao/24-horas/video/moradores-pegam-roupas-para-festa-com-tema-jardim-botanico-casa-do-patrao-21052026/" target="_blank" class="noticia-item">
@@ -4629,20 +4633,12 @@
                 <div class="noticia-link">https://record.r7.com/casa-do-patrao/24-horas/video/moradores-pegam-roupas-para-festa-com-tema-jardim-botanico-casa-do-patrao-21052026/</div>
             </a>
             <a href="https://noticias.r7.com/jr-na-tv/video/manifestacao-de-estudantes-e-servidores-de-universidades-estaduais-bloqueia-avenidas-em-sp-21052026/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 JR na TV /  HÁ 57 MINUTOS</div>
+                <div class="noticia-titulo">🔥 JR na TV /  HÁ 1 HORA</div>
                 <div class="noticia-link">https://noticias.r7.com/jr-na-tv/video/manifestacao-de-estudantes-e-servidores-de-universidades-estaduais-bloqueia-avenidas-em-sp-21052026/</div>
             </a>
             <a href="https://noticias.r7.com/jr-na-tv/video/manifestacao-de-estudantes-e-servidores-de-universidades-estaduais-bloqueia-avenidas-em-sp-21052026/" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🔥 Manifestação de estudantes e servidores de universidades estaduais bloqueia avenidas em SP</div>
                 <div class="noticia-link">https://noticias.r7.com/jr-na-tv/video/manifestacao-de-estudantes-e-servidores-de-universidades-estaduais-bloqueia-avenidas-em-sp-21052026/</div>
-            </a>
-            <a href="https://noticias.r7.com/jr-na-tv/video/companhia-aerea-proibe-robos-humanoides-em-voos-apos-caso-nos-eua-21052026/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 JR na TV /  HÁ 59 MINUTOS</div>
-                <div class="noticia-link">https://noticias.r7.com/jr-na-tv/video/companhia-aerea-proibe-robos-humanoides-em-voos-apos-caso-nos-eua-21052026/</div>
-            </a>
-            <a href="https://noticias.r7.com/jr-na-tv/video/policia-prende-suspeito-de-integrar-quadrilha-do-golpe-do-bilhete-premiado-21052026/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 JR na TV /  HÁ 1 HORA</div>
-                <div class="noticia-link">https://noticias.r7.com/jr-na-tv/video/policia-prende-suspeito-de-integrar-quadrilha-do-golpe-do-bilhete-premiado-21052026/</div>
             </a>
             <a href="https://noticias.r7.com/jr-na-tv/video/policia-prende-suspeito-de-integrar-quadrilha-do-golpe-do-bilhete-premiado-21052026/" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🔥 Polícia prende suspeito de integrar quadrilha do golpe do bilhete premiado</div>
@@ -4655,10 +4651,6 @@
             <a href="https://record.r7.com/coracao-de-mae/video/atilla-decide-desaparecer-e-pede-para-hasan-cuidar-de-mert-coracao-de-mae-21052026/" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🔥 Atilla decide desaparecer e pede para Hasan cuidar de Mert | Coração de Mãe</div>
                 <div class="noticia-link">https://record.r7.com/coracao-de-mae/video/atilla-decide-desaparecer-e-pede-para-hasan-cuidar-de-mert-coracao-de-mae-21052026/</div>
-            </a>
-            <a href="https://record.r7.com/casa-do-patrao/24-horas/video/nataly-dispara-que-jp-so-se-garante-com-a-turma-dele-casa-do-patrao-21052026/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 24 Horas /  HÁ 1 HORA</div>
-                <div class="noticia-link">https://record.r7.com/casa-do-patrao/24-horas/video/nataly-dispara-que-jp-so-se-garante-com-a-turma-dele-casa-do-patrao-21052026/</div>
             </a>
             <a href="https://record.r7.com/casa-do-patrao/24-horas/video/nataly-dispara-que-jp-so-se-garante-com-a-turma-dele-casa-do-patrao-21052026/" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🔥 Nataly dispara que JP só se garante com a turma dele | Casa do Patrão</div>
@@ -4901,7 +4893,7 @@
                 <div class="noticia-link">https://www.terra.com.br/esportes/futebol/libertadores/ao-vivo/palmeiras-x-cerro-porteno/95414/</div>
             </a>
             <a href="https://www.terra.com.br/esportes/futebol/libertadores/ao-vivo/flamengo-x-estudiantes-de-la-plata/95412/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Flamengo recebe o Estudiantes no Maracanã; siga a partida ao vivo</div>
+                <div class="noticia-titulo">🔥 Pedro abre o placar para o Flamengo contra Estudiantes; siga ao vivo</div>
                 <div class="noticia-link">https://www.terra.com.br/esportes/futebol/libertadores/ao-vivo/flamengo-x-estudiantes-de-la-plata/95412/</div>
             </a>
             <a href="https://www.terra.com.br/noticias/eleicoes/flavio-bolsonaro-troca-de-marqueteiro-apos-vazamento-de-audio-com-vorcaro,1efa8cb8f30ec7994e824fb43f54656fl0f9klb6.html" target="_blank" class="noticia-item">
@@ -4952,6 +4944,10 @@
                 <div class="noticia-titulo">🔥 Torcedores cospem em direção a Gabigol após empate do Santos</div>
                 <div class="noticia-link">https://www.terra.com.br/esportes/santos/torcedores-cospem-em-direcao-a-gabigol-apos-empate-do-santos,efa79d283fac06439ce7b089bafb7197pdop84xu.html</div>
             </a>
+            <a href="https://www.terra.com.br/esportes/santos/cuca-rebate-criticas-apos-empate-do-santos-e-desabafa-acham-que-sou-burro,13c4666016ac57322a9388043681811dooxlvre2.html" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 Cuca rebate críticas após empate do Santos e desabafa: "Acham que sou burro?"</div>
+                <div class="noticia-link">https://www.terra.com.br/esportes/santos/cuca-rebate-criticas-apos-empate-do-santos-e-desabafa-acham-que-sou-burro,13c4666016ac57322a9388043681811dooxlvre2.html</div>
+            </a>
             <a href="https://www.terra.com.br/esportes/sao-paulo/jogadora-do-sao-paulo-denuncia-caso-de-misoginia-em-partida-do-paulistao-sub-20,772b318208ffb5c305dca1680c0d8b8anero8tfp.html" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🔥 Jogadora do São Paulo denuncia caso de misoginia no sub-20</div>
                 <div class="noticia-link">https://www.terra.com.br/esportes/sao-paulo/jogadora-do-sao-paulo-denuncia-caso-de-misoginia-em-partida-do-paulistao-sub-20,772b318208ffb5c305dca1680c0d8b8anero8tfp.html</div>
@@ -4959,10 +4955,6 @@
             <a href="https://www.terra.com.br/esportes/santos/advogado-joga-um-balde-de-agua-fria-nas-pretensoes-do-santos-de-tentar-anular-jogo-que-neymar-foi-substituido,31b39745f97b0b45a4f1e2c46c8a7113ytajl59n.html" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🔥 Advogado joga balde de água fria em plano do Santos para anular jogo de Neymar</div>
                 <div class="noticia-link">https://www.terra.com.br/esportes/santos/advogado-joga-um-balde-de-agua-fria-nas-pretensoes-do-santos-de-tentar-anular-jogo-que-neymar-foi-substituido,31b39745f97b0b45a4f1e2c46c8a7113ytajl59n.html</div>
-            </a>
-            <a href="https://www.terra.com.br/esportes/craques/neymar/santos-vai-ao-stjd-tentar-anular-jogo-contra-coritiba-por-substituicao-errada-de-neymar,f5c8c89a596aa04d1d7d439eb6a814b7j3o4p9b4.html" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Santos vai ao STJD tentar anular jogo contra Coritiba por substituição</div>
-                <div class="noticia-link">https://www.terra.com.br/esportes/craques/neymar/santos-vai-ao-stjd-tentar-anular-jogo-contra-coritiba-por-substituicao-errada-de-neymar,f5c8c89a596aa04d1d7d439eb6a814b7j3o4p9b4.html</div>
             </a>
             <a href="https://www.terra.com.br/esportes/futebol/internacional/endrick-estevao-e-rayan-sao-indicados-ao-golden-boy-2026,640236397afd8fbfc7391517ba367b41ul8zr7au.html" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🔥 Prêmio dos Jovens</div>
@@ -5473,7 +5465,7 @@
                 <div class="noticia-link">https://www.estadao.com.br/esportes/futebol/santos-x-san-lorenzo-quinta-rodada-copa-sul-americana-analise/</div>
             </a>
             <a href="https://www.estadao.com.br/esportes/futebol/flamengo-estudiantes-de-la-plata-ao-vivo-libertadores-2026-05-20/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Ao vivo|Flamengo enfrenta o Estudiantes e tenta conquistar vaga na 2ª fase da Libertadores; acompanhe</div>
+                <div class="noticia-titulo">🔥 Ao vivo|Flamengo faz o primeiro gol contra o Estudiantes; acompanhe</div>
                 <div class="noticia-link">https://www.estadao.com.br/esportes/futebol/flamengo-estudiantes-de-la-plata-ao-vivo-libertadores-2026-05-20/</div>
             </a>
             <a href="https://www.estadao.com.br/esportes/futebol/salah-encabeca-lista-de-26-convocados-do-egito-para-amistoso-com-brasil-e-a-copa-do-mundo/" target="_blank" class="noticia-item">
@@ -5481,7 +5473,7 @@
                 <div class="noticia-link">https://www.estadao.com.br/esportes/futebol/salah-encabeca-lista-de-26-convocados-do-egito-para-amistoso-com-brasil-e-a-copa-do-mundo/</div>
             </a>
             <a href="https://www.estadao.com.br/esportes/futebol/palmeiras-cerro-porteno-ao-vivo-libertadores-2026-05-20/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Libertadores AO VIVO PAL00CCP</div>
+                <div class="noticia-titulo">🔥 Libertadores AO VIVO PAL01CCP</div>
                 <div class="noticia-link">https://www.estadao.com.br/esportes/futebol/palmeiras-cerro-porteno-ao-vivo-libertadores-2026-05-20/</div>
             </a>
             <a href="https://www.estadao.com.br/esportes/futebol/flamengo-estudiantes-de-la-plata-ao-vivo-libertadores-2026-05-20/" target="_blank" class="noticia-item">
@@ -5489,7 +5481,7 @@
                 <div class="noticia-link">https://www.estadao.com.br/esportes/futebol/flamengo-estudiantes-de-la-plata-ao-vivo-libertadores-2026-05-20/</div>
             </a>
             <a href="https://www.estadao.com.br/esportes/futebol/independiente-botafogo-ao-vivo-copa-sul-americana-2026-05-20/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Copa Sul-Americana AO VIVO IND02BOT</div>
+                <div class="noticia-titulo">🔥 Copa Sul-Americana ENCERRADOIND03BOT</div>
                 <div class="noticia-link">https://www.estadao.com.br/esportes/futebol/independiente-botafogo-ao-vivo-copa-sul-americana-2026-05-20/</div>
             </a>
             <a href="https://www.estadao.com.br/esportes/futebol/gremio-palestino-ao-vivo-copa-sul-americana-2026-05-20/" target="_blank" class="noticia-item">
@@ -5652,25 +5644,21 @@
                 <div class="noticia-titulo">🔥 Política de Privacidade.</div>
                 <div class="noticia-link">https://www.estadao.com.br/termo-de-uso#politica-privacidade</div>
             </a>
-            <a href="https://www.estadao.com.br/politica/william-waack/flavio-bolsonaro-afunda-por-culpa-propria-mas-nao-e-o-unico-a-errar/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 1.Flávio Bolsonaro afunda por culpa própria, mas não é o único a errar</div>
-                <div class="noticia-link">https://www.estadao.com.br/politica/william-waack/flavio-bolsonaro-afunda-por-culpa-propria-mas-nao-e-o-unico-a-errar/</div>
-            </a>
             <a href="https://www.estadao.com.br/economia/tres-escolas-brasileiras-negocios-melhores-mundo-ranking-global/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 2.Três escolas brasileiras de negócios estão entre as melhores do mundo; veja ranking global</div>
+                <div class="noticia-titulo">🔥 1.Três escolas brasileiras de negócios estão entre as melhores do mundo; veja ranking global</div>
                 <div class="noticia-link">https://www.estadao.com.br/economia/tres-escolas-brasileiras-negocios-melhores-mundo-ranking-global/</div>
             </a>
-            <a href="https://www.estadao.com.br/economia/camila-farani/grupo-mateus-corta-66-mil-da-equipe-e-lucra-r-2-bi-nao-e-contradicao-e-o-varejo-honesto-consigo/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 3.Grupo Mateus corta 6,6 mil da equipe e lucra R$ 2 bi; não é contradição: é o varejo honesto consigo</div>
-                <div class="noticia-link">https://www.estadao.com.br/economia/camila-farani/grupo-mateus-corta-66-mil-da-equipe-e-lucra-r-2-bi-nao-e-contradicao-e-o-varejo-honesto-consigo/</div>
-            </a>
-            <a href="https://www.estadao.com.br/internacional/filipe-figueiredo/muito-simbolismo-e-pouco-resultado-no-encontro-entre-trump-e-xi/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 4.Muito simbolismo e pouco resultado no encontro entre Trump e Xi</div>
-                <div class="noticia-link">https://www.estadao.com.br/internacional/filipe-figueiredo/muito-simbolismo-e-pouco-resultado-no-encontro-entre-trump-e-xi/</div>
+            <a href="https://www.estadao.com.br/politica/william-waack/flavio-bolsonaro-afunda-por-culpa-propria-mas-nao-e-o-unico-a-errar/" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 2.Flávio Bolsonaro afunda por culpa própria, mas não é o único a errar</div>
+                <div class="noticia-link">https://www.estadao.com.br/politica/william-waack/flavio-bolsonaro-afunda-por-culpa-propria-mas-nao-e-o-unico-a-errar/</div>
             </a>
             <a href="https://www.estadao.com.br/politica/blog-do-fausto-macedo/pf-detecta-repasse-de-r-14-milhoes-de-fundo-ligado-a-refit-para-empresa-da-familia-de-ciro-nogueira/" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 5.PF detecta repasse de R$ 14 milhões de fundo ligado à Refit para empresa da família de Ciro Nogueira</div>
+                <div class="noticia-titulo">🔥 3.PF detecta repasse de R$ 14 milhões de fundo ligado à Refit para empresa da família de Ciro Nogueira</div>
                 <div class="noticia-link">https://www.estadao.com.br/politica/blog-do-fausto-macedo/pf-detecta-repasse-de-r-14-milhoes-de-fundo-ligado-a-refit-para-empresa-da-familia-de-ciro-nogueira/</div>
+            </a>
+            <a href="https://www.estadao.com.br/politica/carolina-brigido/candidatura-de-flavio-bolsonaro-esta-sob-risco-saiba-o-que-pensam-ministros-do-tse/" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 4.Candidatura de Flávio Bolsonaro está sob risco? Saiba o que pensam ministros do TSE</div>
+                <div class="noticia-link">https://www.estadao.com.br/politica/carolina-brigido/candidatura-de-flavio-bolsonaro-esta-sob-risco-saiba-o-que-pensam-ministros-do-tse/</div>
             </a>
             <a href="https://www.youtube.com/watch?v=YDjnXoITYY0" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🔥 assista ao vídeo</div>
@@ -6092,16 +6080,6 @@ garrafas PET de dois litrosPatrocinado porLubrax</div>
           versus</div>
                 <div class="noticia-link">https://placar.uol.com.br/esporte/futebol/copa-sul-americana/2026/05/20/gremio-x-palestino.htm</div>
             </a>
-            <a href="https://placar.uol.com.br/esporte/futebol/copa-sul-americana/2026/05/20/independiente-petrolero-x-botafogo.htm" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Copa Sul-Americana
-          INP
-        
-          BOT
-        
-            
-          versus</div>
-                <div class="noticia-link">https://placar.uol.com.br/esporte/futebol/copa-sul-americana/2026/05/20/independiente-petrolero-x-botafogo.htm</div>
-            </a>
             <a href="https://www.uol.com.br/esporte/futebol/ultimas-noticias/2026/05/20/sul-americana-olimpia-x-vasco.ghtm" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🔥 Vasco toma virada do Olimpia e se complica por vaga direta na Sul-Americana</div>
                 <div class="noticia-link">https://www.uol.com.br/esporte/futebol/ultimas-noticias/2026/05/20/sul-americana-olimpia-x-vasco.ghtm</div>
@@ -6148,6 +6126,10 @@ garrafas PET de dois litrosPatrocinado porLubrax</div>
                 <div class="noticia-titulo">🔥 Neymar foi convocado para a seleção sem condições de jogar</div>
                 <div class="noticia-link">https://www.uol.com.br/esporte/futebol/ultimas-noticias/2026/05/20/selecao-convocou-neymar-sem-condicoes-de-jogo-e-aposta-em-recuperacao.ghtm</div>
             </a>
+            <a href="https://www.uol.com.br/esporte/colunas/gabriel-sa/2026/05/20/sao-paulo-doria-discute-rescisao-apos-ameacas-nas-redes-sociais.htm" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 Zagueiro Dória quer deixar o São Paulo após ameaças nas redes sociais</div>
+                <div class="noticia-link">https://www.uol.com.br/esporte/colunas/gabriel-sa/2026/05/20/sao-paulo-doria-discute-rescisao-apos-ameacas-nas-redes-sociais.htm</div>
+            </a>
             <a href="https://noticias.uol.com.br/colunas/carlos-madeiro/2026/05/20/anp-confirma-que-sitio-de-agricultor-tem-petroleo-cru-no-sertao-do-ceara.htm" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🔥 ANP confirma que sítio de agricultor no sertão do CE tem petróleo cru</div>
                 <div class="noticia-link">https://noticias.uol.com.br/colunas/carlos-madeiro/2026/05/20/anp-confirma-que-sitio-de-agricultor-tem-petroleo-cru-no-sertao-do-ceara.htm</div>
@@ -6156,21 +6138,17 @@ garrafas PET de dois litrosPatrocinado porLubrax</div>
                 <div class="noticia-titulo">🔥 Com manobra ruralista, Câmara aprova redução em quase 40% de floresta nacional no Pará</div>
                 <div class="noticia-link">https://www1.folha.uol.com.br/ambiente/2026/05/com-manobra-de-ruralistas-camara-aprova-reducao-de-area-de-floresta-nacional-no-para.shtml</div>
             </a>
-            <a href="https://www1.folha.uol.com.br/poder/2026/05/congresso-deve-derrubar-veto-de-lula-e-liberar-verba-proibida-por-lei-a-municipios-antes-da-eleicao.shtml" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Congresso deve derrubar veto de Lula e liberar verba proibida por lei a municípios</div>
-                <div class="noticia-link">https://www1.folha.uol.com.br/poder/2026/05/congresso-deve-derrubar-veto-de-lula-e-liberar-verba-proibida-por-lei-a-municipios-antes-da-eleicao.shtml</div>
-            </a>
-            <a href="https://noticias.uol.com.br/cotidiano/ultimas-noticias/2026/05/20/caixa-aumenta-premio-da-mega-sena-30-anos-veja-quanto-pode-pagar.ghtm" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Caixa aumenta prêmio da Mega-Sena de 30 anos, e previsão sobe para R$ 300 milhões</div>
-                <div class="noticia-link">https://noticias.uol.com.br/cotidiano/ultimas-noticias/2026/05/20/caixa-aumenta-premio-da-mega-sena-30-anos-veja-quanto-pode-pagar.ghtm</div>
+            <a href="https://noticias.uol.com.br/colunas/tatiana-farah/2026/05/20/mario-frias-pode-ser-intimado-pelo-stf-em-audiencia-contra-atriz-ex-globo.htm" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 Mário Frias pode ser intimado pelo STF em audiência contra atriz ex-Globo</div>
+                <div class="noticia-link">https://noticias.uol.com.br/colunas/tatiana-farah/2026/05/20/mario-frias-pode-ser-intimado-pelo-stf-em-audiencia-contra-atriz-ex-globo.htm</div>
             </a>
             <a href="https://noticias.uol.com.br/colunas/carlos-madeiro/2026/05/20/orgao-alerta-para-inicio-de-super-el-nino-e-sugere-acoes-ao-governo-lula.htm" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🔥 Órgão alerta sobre início de 'super El Niño' e sugere ações ao governo Lula</div>
                 <div class="noticia-link">https://noticias.uol.com.br/colunas/carlos-madeiro/2026/05/20/orgao-alerta-para-inicio-de-super-el-nino-e-sugere-acoes-ao-governo-lula.htm</div>
             </a>
-            <a href="https://noticias.uol.com.br/colunas/tatiana-farah/2026/05/20/mario-frias-pode-ser-intimado-pelo-stf-em-audiencia-contra-atriz-ex-globo.htm" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 Mário Frias pode ser intimado pelo STF em audiência contra atriz ex-Globo</div>
-                <div class="noticia-link">https://noticias.uol.com.br/colunas/tatiana-farah/2026/05/20/mario-frias-pode-ser-intimado-pelo-stf-em-audiencia-contra-atriz-ex-globo.htm</div>
+            <a href="https://noticias.uol.com.br/cotidiano/ultimas-noticias/2026/05/20/caixa-aumenta-premio-da-mega-sena-30-anos-veja-quanto-pode-pagar.ghtm" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 Caixa aumenta prêmio da Mega-Sena de 30 anos, e previsão sobe para R$ 300 milhões</div>
+                <div class="noticia-link">https://noticias.uol.com.br/cotidiano/ultimas-noticias/2026/05/20/caixa-aumenta-premio-da-mega-sena-30-anos-veja-quanto-pode-pagar.ghtm</div>
             </a>
             <a href="https://noticias.uol.com.br/politica/ultimas-noticias/2026/05/20/justica-do-rio-suspende-segurancas-para-familiares-de-claudio-castro.ghtm" target="_blank" class="noticia-item">
                 <div class="noticia-titulo">🔥 Justiça do Rio suspende seguranças para familiares de Castro</div>
@@ -7286,7 +7264,7 @@ garrafas PET de dois litrosPatrocinado porLubrax</div>
             </div>
         </div>
         <div class="rodape-tempo">
-            Última captura de informações feita no dia 20/05/2026 às 22:48 hrs
+            Última captura de informações feita no dia 20/05/2026 às 22:59 hrs
         </div>
     </div>
     <script>
