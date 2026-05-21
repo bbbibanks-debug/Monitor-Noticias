@@ -10,7 +10,6 @@ except ImportError:
     subprocess.check_call([sys.executable, "-m", "pip", "install", "mtranslate"])
     from mtranslate import translate
 
-# Configuração das fontes
 sites = [
     {"id": "g1", "nome": "G1 Globo", "url": "https://globo.com", "xpath": "//a[contains(@class, 'feed-post-link')] | //a[contains(@class, 'post__link')] | //div[contains(@class, 'bstn-fd-main')]//a", "cor": "#c4170c", "tamanho_min": 15},
     {"id": "cnn", "nome": "CNN Brasil", "url": "https://cnnbrasil.com.br", "xpath": "//a", "cor": "#cc0000", "tamanho_min": 15},
@@ -29,7 +28,8 @@ sites = [
     {"id": "estadao", "nome": "Estadão", "url": "https://estadao.com.br", "xpath": "//a", "cor": "#007a87", "tamanho_min": 15},
     {"id": "folha", "nome": "Folha de S.Paulo", "url": "https://uol.com.br", "xpath": "//a", "cor": "#222222", "tamanho_min": 15},
     {"id": "bloomberg", "nome": "Bloomberg Línea", "url": "https://bloomberglinea.com.br", "xpath": "//a", "cor": "#ffdf00", "tamanho_min": 15},
-    {"id": "veja", "nome": "VEJA", "url": "https://abril.com.br", "xpath": "//a", "cor": "#e60000", "tamanho_min": 15}
+    # VEJA ajustada pontualmente com seletor genérico estável para cobrir toda a página inicial
+    {"id": "veja", "nome": "VEJA", "url": "https://abril.com.br", "xpath": "//a[@href]", "cor": "#e60000", "tamanho_min": 15}
 ]
 
 headers = {
@@ -44,26 +44,38 @@ termos_bloqueados = [
 ]
 
 def higienizar_string_url(url_bruta):
-    """Remove quebras de linha, tabulações e espaços vazios nas extremidades."""
+    """Limpa quebras de linha e espaçamentos vazios das pontas."""
     if not url_bruta:
         return ""
     return url_bruta.strip().replace("\n", "").replace("\t", "").replace(" ", "")
 
-# CARREGAMENTO COM HIGIENIZAÇÃO CRÍTICA DA BLACKLIST
-urls_bloqueadas = set()
+def extrair_url_base_pura(url_higienizada):
+    """Corta parâmetros de consulta (?) e âncoras (#) para a segunda validação."""
+    try:
+        pass1 = url_higienizada.split('?')[0]
+        pass2 = pass1.split('#')[0]
+        return pass2.rstrip('/')
+    except Exception:
+        return url_higienizada
+
+# CARREGAMENTO DA BLACKLIST
+urls_bloqueadas_brutas = set()
+urls_bloqueadas_bases = set()
+
 if os.path.exists("blacklist.txt"):
     with open("blacklist.txt", "r", encoding="utf-8") as f:
         for linha in f:
             linha_limpa = linha.strip()
             if linha_limpa and not linha_limpa.startswith("#"):
-                # Aplica a higienização de quebras de linha ocultas do arquivo de texto
-                urls_bloqueadas.add(higienizar_string_url(linha_limpa))
-    print(f"-> Blacklist carregada com sucesso! {len(urls_bloqueadas)} URLs limpas mapeadas.")
+                url_limpa = higienizar_string_url(linha_limpa)
+                urls_bloqueadas_brutas.add(url_limpa)
+                urls_bloqueadas_bases.add(extrair_url_base_pura(url_limpa))
+    print(f"-> Blacklist carregada com sucesso! {len(urls_bloqueadas_brutas)} caminhos mapeados.")
 else:
     print("-> Aviso: 'blacklist.txt' não encontrado.")
 
 dados_finais = {site["id"]: [] for site in sites}
-print("Iniciando a raspagem com higienização e exclusão molecular de links...")
+print("Iniciando a raspagem com dupla verificação de segurança contra exclusões...")
 
 for site in sites:
     try:
@@ -91,11 +103,17 @@ for site in sites:
                 
                 if "javascript:" not in link and link.startswith('http'):
                     
-                    # --- FILTRAGEM CORRIGIDA CONTRA ESPAÇOS OCULTOS NO HTML ---
+                    # Limpeza preliminar contra quebras de linha injetadas do HTML
                     link_higienizado = higienizar_string_url(link)
                     
-                    if link_higienizado in urls_bloqueadas:
-                        continue # Garante a exclusão efetiva se bater com a blacklist limpa
+                    # VERIFICAÇÃO 1: Correspondência exata da string contida na Blacklist
+                    if link_higienizado in urls_bloqueadas_brutas:
+                        continue
+                        
+                    # VERIFICAÇÃO 2: Correspondência da URL base (ignora parâmetros variáveis como ?utm_source)
+                    link_base_puro = extrair_url_base_pura(link_higienizado)
+                    if link_base_puro in urls_bloqueadas_bases:
+                        continue
                         
                     if site["id"] == "finviz":
                         try:
