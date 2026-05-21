@@ -2,7 +2,7 @@ name: Atualizador Automatizado de Notícias
 
 on:
   schedule:
-    - cron: '0 * * * *' # Dispara a raspagem de 1 em 1 hora automaticamente
+    - cron: '0 * * * *' # Dispara de 1 em 1 hora automaticamente
   workflow_dispatch: # Permite execução manual pelo botão
 
 permissions:
@@ -23,7 +23,7 @@ jobs:
 
     - name: Instalar Dependências do Sistema
       run: |
-        pip install requests lxml mtranslate
+        pip install requests lxml mtranslate twilio
 
     - name: Executar Monitor de Notícias
       run: python monitor.py
@@ -37,8 +37,24 @@ jobs:
         git push
 
     - name: Enviar Notificação no WhatsApp
-      uses: kaviadigdarshan/whatsapp-actions@main
       env:
-        ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
-        AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
-        TO_WHATSAPP_NUMBER: ${{ secrets.SEU_NUMERO_WHATSAPP }}
+        TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
+        TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
+        SEU_NUMERO_WHATSAPP: ${{ secrets.SEU_NUMERO_WHATSAPP }}
+      run: |
+        python -c "
+        import os
+        from twilio.rest import Client
+        
+        try:
+            client = Client(os.environ['TWILIO_ACCOUNT_SID'], os.environ['TWILIO_AUTH_TOKEN'])
+            message = client.messages.create(
+                from_='whatsapp:+14155238886',
+                body='O script de notícias rodou com sucesso no seu GitHub!',
+                to=f'whatsapp:{os.environ[\"SEU_NUMERO_WHATSAPP\"]}'
+            )
+            print(f'Mensagem enviada com sucesso! SID: {message.sid}')
+        except Exception as e:
+            print(f'Erro ao enviar: {e}')
+            exit(1)
+        "
