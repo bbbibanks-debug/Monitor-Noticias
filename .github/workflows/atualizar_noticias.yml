@@ -47,14 +47,16 @@ jobs:
         from twilio.rest import Client
         
         try:
-            # Lê o conteúdo do resumo estruturado gerado pelo monitor.py
             with open('resumo.txt', 'r', encoding='utf-8') as f:
                 conteudo_mensagem = f.read()
+            
+            # Corta a mensagem estritamente se ultrapassar o limite seguro do Twilio
+            if len(conteudo_mensagem) > 1500:
+                conteudo_mensagem = conteudo_mensagem[:1450] + '\n\n... (Texto cortado pelo limite de caracteres)'
                 
             client = Client(os.environ['TWILIO_ACCOUNT_SID'], os.environ['TWILIO_AUTH_TOKEN'])
             num = os.environ['SEU_NUMERO_WHATSAPP'].replace('+', '').replace(' ', '').strip()
             
-            # Dispara a mensagem com o conteúdo real das notícias
             message = client.messages.create(
                 from_='whatsapp:+14155238886',
                 body=conteudo_mensagem,
