@@ -1,7 +1,7 @@
 {
   "name": "Central de Notícias",
   "short_name": "Notícias",
-  "description": "Painel automatizado de monitoramento de portais.",
+  "description": "Central de Monitoramento de Portais",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#121214",
@@ -11,7 +11,7 @@
       "src": "https://flaticon.com",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ]
 }
