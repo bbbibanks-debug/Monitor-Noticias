@@ -127,14 +127,6 @@ texto_data_hora = hora_brasilia.strftime("Última captura de informações feita
 html_template = f"""<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./sw.js')
-      .then(reg => console.log('App Pronto para Uso!'))
-      .catch(err => console.log('Erro no App:', err));
-  }
-</script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel de Notícias</title>
