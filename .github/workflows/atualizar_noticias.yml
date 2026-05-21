@@ -2,7 +2,7 @@ name: Atualizador Automatizado de Notícias
 
 on:
   schedule:
-    - cron: '0 * * * *' # Dispara a raspagem de hora em hora automaticamente
+    - cron: '*/15 * * * *' # AGORA CONFIGURADO: Dispara a raspagem de 15 em 15 minutos automaticamente
   workflow_dispatch: # Permite que você clique em um botão para atualizar na hora que quiser
 
 jobs:
@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - name: Baixar Código do Repositório
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Configurar Ambiente Python
       uses: actions/setup-python@v4
