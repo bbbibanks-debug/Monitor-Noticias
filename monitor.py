@@ -10,7 +10,7 @@ except ImportError:
     subprocess.check_call([sys.executable, "-m", "pip", "install", "mtranslate"])
     from mtranslate import translate
 
-# Configuração das fontes com a inclusão da Bloomberg Línea e VEJA
+# Configuração das fontes
 sites = [
     {"id": "g1", "nome": "G1 Globo", "url": "https://globo.com", "xpath": "//a[contains(@class, 'feed-post-link')] | //a[contains(@class, 'post__link')] | //div[contains(@class, 'bstn-fd-main')]//a", "cor": "#c4170c", "tamanho_min": 15},
     {"id": "cnn", "nome": "CNN Brasil", "url": "https://cnnbrasil.com.br", "xpath": "//a", "cor": "#cc0000", "tamanho_min": 15},
@@ -28,10 +28,8 @@ sites = [
     {"id": "ig", "nome": "iG", "url": "https://ig.com.br", "xpath": "//h2/a | //h3/a | //main//a", "cor": "#1a4a7c", "tamanho_min": 15},
     {"id": "estadao", "nome": "Estadão", "url": "https://estadao.com.br", "xpath": "//a", "cor": "#007a87", "tamanho_min": 15},
     {"id": "folha", "nome": "Folha de S.Paulo", "url": "https://uol.com.br", "xpath": "//a", "cor": "#222222", "tamanho_min": 15},
-    # 1) Bloomberg Línea: Varredura completa da página inicial
-    {"id": "bloomberg", "nome": "Bloomberg Línea", "url": "https://www.bloomberglinea.com.br/", "xpath": "//a", "cor": "#ffdf00", "tamanho_min": 15},
-    # 2) VEJA: Varredura completa da página inicial
-    {"id": "veja", "nome": "VEJA", "url": "https://veja.abril.com.br/", "xpath": "//a", "cor": "#e60000", "tamanho_min": 15}
+    {"id": "bloomberg", "nome": "Bloomberg Línea", "url": "https://bloomberglinea.com.br", "xpath": "//a", "cor": "#ffdf00", "tamanho_min": 15},
+    {"id": "veja", "nome": "VEJA", "url": "https://abril.com.br", "xpath": "//a", "cor": "#e60000", "tamanho_min": 15}
 ]
 
 headers = {
@@ -45,20 +43,27 @@ termos_bloqueados = [
     "cadastre-se", "painel", "editorial", "videos"
 ]
 
-# CARREGAMENTO COMPLETO E LITERAL DA BLACKLIST
+def higienizar_string_url(url_bruta):
+    """Remove quebras de linha, tabulações e espaços vazios nas extremidades."""
+    if not url_bruta:
+        return ""
+    return url_bruta.strip().replace("\n", "").replace("\t", "").replace(" ", "")
+
+# CARREGAMENTO COM HIGIENIZAÇÃO CRÍTICA DA BLACKLIST
 urls_bloqueadas = set()
 if os.path.exists("blacklist.txt"):
     with open("blacklist.txt", "r", encoding="utf-8") as f:
         for linha in f:
-            linha_limpa = Finder = linha.strip()
+            linha_limpa = linha.strip()
             if linha_limpa and not linha_limpa.startswith("#"):
-                urls_bloqueadas.add(linha_limpa)
-    print(f"-> Blacklist carregada com sucesso! {len(urls_bloqueadas)} URLs literais prontas.")
+                # Aplica a higienização de quebras de linha ocultas do arquivo de texto
+                urls_bloqueadas.add(higienizar_string_url(linha_limpa))
+    print(f"-> Blacklist carregada com sucesso! {len(urls_bloqueadas)} URLs limpas mapeadas.")
 else:
     print("-> Aviso: 'blacklist.txt' não encontrado.")
 
 dados_finais = {site["id"]: [] for site in sites}
-print("Iniciando a raspagem com checagem estrita de igualdade...")
+print("Iniciando a raspagem com higienização e exclusão molecular de links...")
 
 for site in sites:
     try:
@@ -86,9 +91,11 @@ for site in sites:
                 
                 if "javascript:" not in link and link.startswith('http'):
                     
-                    # FILTRAGEM ABSOLUTA POR STRING EXATA CONTRA BLACKLIST
-                    if link in urls_bloqueadas:
-                        continue
+                    # --- FILTRAGEM CORRIGIDA CONTRA ESPAÇOS OCULTOS NO HTML ---
+                    link_higienizado = higienizar_string_url(link)
+                    
+                    if link_higienizado in urls_bloqueadas:
+                        continue # Garante a exclusão efetiva se bater com a blacklist limpa
                         
                     if site["id"] == "finviz":
                         try:
