@@ -48,12 +48,28 @@ jobs:
         
         try:
             client = Client(os.environ['TWILIO_ACCOUNT_SID'], os.environ['TWILIO_AUTH_TOKEN'])
-            message = client.messages.create(
+            
+            # Limpa o número de qualquer caractere extra
+            num = os.environ['SEU_NUMERO_WHATSAPP'].replace('+', '').replace(' ', '').strip()
+            
+            # Teste 1: Formato original salvo nos Secrets
+            msg1 = client.messages.create(
                 from_='whatsapp:+14155238886',
-                body='O script de notícias rodou com sucesso no seu GitHub!',
-                to=f'whatsapp:{os.environ[\"SEU_NUMERO_WHATSAPP\"]}'
+                body='[Teste 1] O script rodou com o formato salvo!',
+                to=f'whatsapp:+{num}'
             )
-            print(f'Mensagem enviada com sucesso! SID: {message.sid}')
+            print(f'Tentativa 1 enviada. SID: {msg1.sid}')
+            
+            # Teste 2: Se o número tem 13 dígitos (Ex: 5511999999999), tenta remover o 9 da frente
+            if len(num) == 13:
+                num_sem_9 = num[:4] + num[5:]
+                msg2 = client.messages.create(
+                    from_='whatsapp:+14155238886',
+                    body='[Teste 2] O script rodou removendo o nono dígito!',
+                    to=f'whatsapp:+{num_sem_9}'
+                )
+                print(f'Tentativa 2 enviada (sem 9). SID: {msg2.sid}')
+                
         except Exception as e:
             print(f'Erro ao enviar: {e}')
             exit(1)
