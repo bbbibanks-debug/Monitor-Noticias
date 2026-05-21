@@ -331,22 +331,22 @@ with open("index.html", "w", encoding="utf-8") as f:
 
 print(f"\nSucesso! Carimbo adicionado: {texto_data_hora}")
 
-# --- BLOCO CORRIGIDO: GERAR RESUMO MENOR PARA O WHATSAPP ---
-linhas_resumo = ["✅ O processo de raspagem rodou com sucesso!\n\n📌 *Amostra das últimas notícias:*"]
+# --- BLOCO FORMATADO SEM CARACTERES ESPECIAIS ---
+linhas_resumo = ["Processo concluido com sucesso. Resumo das ultimas noticias capturadas:"]
 
-# Pegamos apenas os primeiros 5 sites para não estourar o limite de caracteres
-for site in sites[:5]:
+# Coleta manchetes de forma compacta e sem emojis dos 4 primeiros portais
+for site in sites[:4]:
     noticias_do_site = dados_finais[site["id"]]
     if noticias_do_site:
-        linhas_resumo.append(f"\n📰 *{site['nome']}:*")
-        for i, noti in enumerate(noticias_do_site[:3]):
+        linhas_resumo.append(f"\n* {site['nome']} *")
+        for i, noti in enumerate(noticias_do_site[:2]):
             titulo = noti.get("texto_traduzido", noti["texto"])
-            # Mantém apenas os primeiros 80 caracteres de cada manchete no WhatsApp
-            if len(titulo) > 80:
-                titulo = titulo[:77] + "..."
-            linhas_resumo.append(f"{i+1}. {titulo}")
+            # Remove aspas e caracteres que quebram strings
+            titulo = titulo.replace('"', '').replace("'", "").strip()
+            if len(titulo) > 70:
+                titulo = titulo[:67] + "..."
+            linhas_resumo.append(f"{i+1}: {titulo}")
             
 with open("resumo.txt", "w", encoding="utf-8") as f:
     f.write("\n".join(linhas_resumo))
-
 
