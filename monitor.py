@@ -53,12 +53,12 @@ def higienizar_string_url(url_bruta):
     return url_bruta.strip().replace("\n", "").replace("\t", "").replace(" ", "")
 
 def extrair_url_base_pura(url_higienizada):
-    try:
-        pass1 = url_higienizada.split('?')[0]
-        pass2 = pass1.split('#')[0]
-        return pass2.rstrip('/')
-    except Exception:
-        return url_higienizada
+    # Lógica de fatiamento corrigida sem encadeamento ilegal de métodos split
+    if not url_higienizada:
+        return ""
+    url_base = url_higienizada.split('?')[0]
+    url_base = url_base.split('#')[0]
+    return url_base.rstrip('/')
 
 # CARREGAMENTO DA BLACKLIST CONTRA LINKS INDESEJADOS
 urls_bloqueadas_brutas = set()
@@ -137,6 +137,7 @@ for site in sites:
 hora_brasilia = datetime.utcnow() - timedelta(hours=3)
 texto_data_hora = hora_brasilia.strftime("Última captura de informações feita no dia %d/%m/%Y às %H:%M hrs")
 
+# CORREÇÃO CRÍTICA: Chaves duplicadas {{ }} inseridas nas chamadas CSS e JavaScript abaixo
 html_template = f"""<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -275,13 +276,13 @@ html_template = f"""<!DOCTYPE html>
         }}
     </style>
     
-    <!-- Script de ativação obrigatório exigido pelo Chrome no celular -->
+    <!-- JavaScript do Service Worker com chaves duplicadas para proteção de f-string -->
     <script>
-      if ('serviceWorker' in navigator) {
+      if ('serviceWorker' in navigator) {{
         navigator.serviceWorker.register('./sw.js')
           .then(reg => console.log('App Pronto para Uso!'))
           .catch(err => console.log('Erro no App:', err));
-      }
+      }}
     </script>
 </head>
 <body>
