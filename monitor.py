@@ -326,29 +326,27 @@ html_template += f"""
 </body>
 </html>
 """
-# ==========================================
-# SUBSTiTUA O FINAL DO SEU MONITOR.PY POR ISSO:
-# ==========================================
-
 with open("index.html", "w", encoding="utf-8") as f:
     f.write(html_template)
 
 print(f"\nSucesso! Carimbo adicionado: {texto_data_hora}")
 
-# --- NOVO BLOCO: GERAR RESUMO PARA O WHATSAPP ---
+# --- BLOCO CORRIGIDO: GERAR RESUMO MENOR PARA O WHATSAPP ---
 linhas_resumo = ["✅ O processo de raspagem rodou com sucesso!\n\n📌 *Amostra das últimas notícias:*"]
 
-for site in sites:
+# Pegamos apenas os primeiros 5 sites para não estourar o limite de caracteres
+for site in sites[:5]:
     noticias_do_site = dados_finais[site["id"]]
     if noticias_do_site:
         linhas_resumo.append(f"\n📰 *{site['nome']}:*")
-        # Pega no máximo as 3 primeiras notícias coletadas
         for i, noti in enumerate(noticias_do_site[:3]):
-            # Se for o Finviz, prioriza o texto já traduzido em português
             titulo = noti.get("texto_traduzido", noti["texto"])
+            # Mantém apenas os primeiros 80 caracteres de cada manchete no WhatsApp
+            if len(titulo) > 80:
+                titulo = titulo[:77] + "..."
             linhas_resumo.append(f"{i+1}. {titulo}")
             
-# Grava o arquivo de texto estruturado para o GitHub Actions ler
 with open("resumo.txt", "w", encoding="utf-8") as f:
     f.write("\n".join(linhas_resumo))
+
 
