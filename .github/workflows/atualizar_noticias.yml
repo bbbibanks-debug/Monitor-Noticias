@@ -32,10 +32,11 @@ jobs:
       run: |
         git config --global user.name "GitHub Actions Bot"
         git config --global user.email "actions@github.com"
-        git add index.html
-        # O bloco abaixo baixa as novidades do servidor antes de tentar enviar (corrige o erro de reject)
+        # 1. Primeiro sincroniza o repositório baixando as novidades da nuvem
         git fetch origin main
         git pull --rebase origin main
+        # 2. Depois adiciona os arquivos gerados pelo monitor.py e envia
+        git add index.html
         git commit -m "Notícias updated" || exit 0
         git push origin main
 
