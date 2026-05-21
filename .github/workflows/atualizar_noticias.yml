@@ -48,22 +48,18 @@ jobs:
         
         try:
             with open('resumo.txt', 'r', encoding='utf-8') as f:
-                conteudo_mensagem = f.read()
-            
-            # Corta a mensagem estritamente se ultrapassar o limite seguro do Twilio
-            if len(conteudo_mensagem) > 1500:
-                conteudo_mensagem = conteudo_mensagem[:1450] + '\n\n... (Texto cortado pelo limite de caracteres)'
+                conteudo = f.read().strip()
                 
             client = Client(os.environ['TWILIO_ACCOUNT_SID'], os.environ['TWILIO_AUTH_TOKEN'])
             num = os.environ['SEU_NUMERO_WHATSAPP'].replace('+', '').replace(' ', '').strip()
             
             message = client.messages.create(
                 from_='whatsapp:+14155238886',
-                body=conteudo_mensagem,
+                body=conteudo,
                 to=f'whatsapp:+{num}'
             )
-            print(f'Resumo enviado com sucesso! SID: {message.sid}')
+            print(f'Sucesso! SID: {message.sid}')
         except Exception as e:
-            print(f'Erro ao enviar resumo: {e}')
+            print(f'Erro: {e}')
             exit(1)
         "
