@@ -36,7 +36,7 @@ jobs:
         git commit -m "Notícias updated" || exit 0
         git push
 
-    - name: Enviar Notificação no WhatsApp
+    - name: Enviar Resumo no WhatsApp
       env:
         TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
         TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
@@ -47,30 +47,21 @@ jobs:
         from twilio.rest import Client
         
         try:
+            # Lê o conteúdo do resumo estruturado gerado pelo monitor.py
+            with open('resumo.txt', 'r', encoding='utf-8') as f:
+                conteudo_mensagem = f.read()
+                
             client = Client(os.environ['TWILIO_ACCOUNT_SID'], os.environ['TWILIO_AUTH_TOKEN'])
-            
-            # Limpa o número de qualquer caractere extra
             num = os.environ['SEU_NUMERO_WHATSAPP'].replace('+', '').replace(' ', '').strip()
             
-            # Teste 1: Formato original salvo nos Secrets
-            msg1 = client.messages.create(
+            # Dispara a mensagem com o conteúdo real das notícias
+            message = client.messages.create(
                 from_='whatsapp:+14155238886',
-                body='[Teste 1] O script rodou com o formato salvo!',
+                body=conteudo_mensagem,
                 to=f'whatsapp:+{num}'
             )
-            print(f'Tentativa 1 enviada. SID: {msg1.sid}')
-            
-            # Teste 2: Se o número tem 13 dígitos (Ex: 5511999999999), tenta remover o 9 da frente
-            if len(num) == 13:
-                num_sem_9 = num[:4] + num[5:]
-                msg2 = client.messages.create(
-                    from_='whatsapp:+14155238886',
-                    body='[Teste 2] O script rodou removendo o nono dígito!',
-                    to=f'whatsapp:+{num_sem_9}'
-                )
-                print(f'Tentativa 2 enviada (sem 9). SID: {msg2.sid}')
-                
+            print(f'Resumo enviado com sucesso! SID: {message.sid}')
         except Exception as e:
-            print(f'Erro ao enviar: {e}')
+            print(f'Erro ao enviar resumo: {e}')
             exit(1)
         "
