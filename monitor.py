@@ -40,26 +40,20 @@ termos_bloqueados = [
     "cadastre-se", "painel", "editorial", "videos"
 ]
 
-def limpar_url(url_string):
-    # Lógica corrigida e fatiada para evitar erros com objetos do tipo lista
-    url_limpa = url_string.replace("https://", "").replace("http://", "")
-    url_limpa = url_limpa.split('?')[0]
-    url_limpa = url_limpa.split('#')[0]
-    return url_limpa.strip().rstrip('/')
-
+# CARREGAMENTO COMPLETO E LITERAL DA BLACKLIST
 urls_bloqueadas = set()
 if os.path.exists("blacklist.txt"):
     with open("blacklist.txt", "r", encoding="utf-8") as f:
         for linha in f:
             linha_limpa = linha.strip()
             if linha_limpa and not linha_limpa.startswith("#"):
-                urls_bloqueadas.add(limpar_url(linha_limpa))
-    print(f"-> Blacklist carregada com sucesso! {len(urls_bloqueadas)} URLs banidas mapeadas.")
+                urls_bloqueadas.add(linha_limpa)
+    print(f"-> Blacklist carregada com sucesso! {len(urls_bloqueadas)} URLs literais prontas.")
 else:
-    print("-> Aviso: 'blacklist.txt' não encontrado. Nenhuma URL externa será bloqueada.")
+    print("-> Aviso: 'blacklist.txt' não encontrado.")
 
 dados_finais = {site["id"]: [] for site in sites}
-print("Iniciando a raspagem de notícias completa...")
+print("Iniciando a raspagem com checagem estrita de igualdade...")
 
 for site in sites:
     try:
@@ -86,17 +80,12 @@ for site in sites:
                     link = f"{url_base}{link}"
                 
                 if "javascript:" not in link and link.startswith('http'):
-                    link_limpo = limpar_url(link)
-                    link_limpo_com_www = link_limpo.replace("www.", "")
                     
-                    if link_limpo in urls_bloqueadas or link_limpo_com_www in urls_bloqueadas:
+                    # --- FILTRAGEM ABSOLUTA POR STRING EXATA ---
+                    # Sem limpezas parciais: verifica se o endereço inteiro bate com as linhas do arquivo txt
+                    if link in urls_bloqueadas:
                         continue
-                    
-                    if site["id"] in ["estadao", "folha", "band", "times", "correio", "cnn"]:
-                        partes_url = link_limpo.split('/')
-                        if len(partes_url) < 3:
-                            continue
-                    
+                        
                     if site["id"] == "finviz":
                         try:
                             texto_traduzido = translate(texto, "pt")
