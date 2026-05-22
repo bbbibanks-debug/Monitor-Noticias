@@ -2,8 +2,8 @@ name: Atualizador Automatizado de Notícias
 
 on:
   schedule:
-    - cron: '5 * * * *' # Mudado para rodar no minuto 5 (evita congestionamento do minuto 0)
-  workflow_dispatch:
+    - cron: '5 * * * *' # Dispara no minuto 5 de cada hora para evitar congestionamentos
+  workflow_dispatch: # Permite execução manual pelo botão
 
 permissions:
   contents: write
@@ -16,13 +16,12 @@ jobs:
     - name: Baixar Código do Repositório
       uses: actions/checkout@v4
       with:
-        fetch-depth: 0
+        fetch-depth: 0 # Baixa o histórico necessário para evitar falhas de push
 
     - name: Configurar Ambiente Python
-      uses: actions/setup-python@v5 # Atualizado para v5 (mais estável)
+      uses: actions/setup-python@v5
       with:
         python-version: '3.10'
-        cache: 'pip' # Ativa cache para acelerar a execução
 
     - name: Instalar Dependências do Sistema
       run: |
@@ -34,9 +33,8 @@ jobs:
     - name: Publicar Alterações no GitHub
       run: |
         git config --global user.name "github-actions[bot]"
-        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --global user.email "41898282+github-actions[bot]@://github.com"
         git add index.html
-        # Evita falha se o arquivo resumo.txt também mudar
         git add resumo.txt || true 
         if git diff --staged --quiet; then
           echo "Nenhuma alteração detectada."
