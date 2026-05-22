@@ -2,8 +2,8 @@ name: Atualizador Automatizado de Notícias
 
 on:
   schedule:
-    - cron: '0 * * * *' # Dispara de 1 em 1 hora automaticamente
-  workflow_dispatch: # Permite execução manual pelo botão
+    - cron: '5 * * * *' # Mudado para rodar no minuto 5 (evita congestionamento do minuto 0)
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -16,12 +16,13 @@ jobs:
     - name: Baixar Código do Repositório
       uses: actions/checkout@v4
       with:
-        fetch-depth: 0 # Baixa o histórico necessário para evitar falhas de push
+        fetch-depth: 0
 
     - name: Configurar Ambiente Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5 # Atualizado para v5 (mais estável)
       with:
         python-version: '3.10'
+        cache: 'pip' # Ativa cache para acelerar a execução
 
     - name: Instalar Dependências do Sistema
       run: |
@@ -30,14 +31,20 @@ jobs:
     - name: Executar Monitor de Notícias
       run: python monitor.py
 
-    - name: Publicar Alterações no GitHub Pages
+    - name: Publicar Alterações no GitHub
       run: |
-        git config --global user.name "GitHub Actions Bot"
-        git config --global user.email "actions@github.com"
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git add index.html
-        git commit -m "Notícias updated" || exit 0
-        # O comando abaixo força a gravação na nuvem, limpando qualquer rejeição local
-        git push origin main --force
+        # Evita falha se o arquivo resumo.txt também mudar
+        git add resumo.txt || true 
+        if git diff --staged --quiet; then
+          echo "Nenhuma alteração detectada."
+        else
+          git commit -m "Notícias atualizadas [skip ci]"
+          git pull --rebase origin main
+          git push origin main
+        fi
 
     - name: Enviar Resumo no WhatsApp
       env:
@@ -50,8 +57,16 @@ jobs:
         from twilio.rest import Client
         
         try:
+            if not os.path.exists('resumo.txt'):
+                print('Arquivo resumo.txt não encontrado.')
+                exit(0)
+                
             with open('resumo.txt', 'r', encoding='utf-8') as f:
                 conteudo = f.read().strip()
+                
+            if not conteudo:
+                print('Resumo vazio. Envio cancelado.')
+                exit(0)
                 
             client = Client(os.environ['TWILIO_ACCOUNT_SID'], os.environ['TWILIO_AUTH_TOKEN'])
             num = os.environ['SEU_NUMERO_WHATSAPP'].replace('+', '').replace(' ', '').strip()
