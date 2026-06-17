@@ -1,8 +1,8 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: A emoção do gênio: Messi se iguala a Klose como maior artilheiro de...
-2: Messi explica choro e comemora: Voltamos a nos emocionar
+1: O Globo: Ancelotti estuda mudanças cirúrgicas para sexta
+2: No detalhe: os motivos táticos que mantêm Endrick atrás na fila
 
 * CNN Brasil *
 1: Classificação
@@ -11,12 +11,11 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
         Simulador da Copa
 
 * Times Brasil *
-1: Intel inicia produção do seu chip mais avançado e aproxima-se de um...
-2: Snap lança óculos de realidade aumentada Specs por mais de US$ 2 mil
+1: China defende segurança da I.A enquanto cúpula do G7 termina sem pa...
+2: Ações da SpaceX avançam e empresa supera Amazon em valor de mercado
 
 * Jovem Pan *
 1: Ver tabela completa ›
-2: Negociações de paz                
+2: negociação de paz no oriente médio                
             
-            
-      ...
+   ...
