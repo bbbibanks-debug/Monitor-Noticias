@@ -1,8 +1,8 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: O Globo: Ancelotti estuda mudanças cirúrgicas para sexta
-2: No detalhe: os motivos táticos que mantêm Endrick atrás na fila
+1: TEMPO REALRD Congo marca o 1º gol em Copas e iguala o placar contra...
+2: Português que fez gol tem 21 anos, 11 títulos e vale R$ 375 milhões
 
 * CNN Brasil *
 1: Classificação
@@ -11,11 +11,12 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
         Simulador da Copa
 
 * Times Brasil *
-1: China defende segurança da I.A enquanto cúpula do G7 termina sem pa...
-2: Ações da SpaceX avançam e empresa supera Amazon em valor de mercado
+1: Lula discursa no encerramento do G7: O que Trump fez foi um desafor...
+2: Fed mantém juros sem alteração; comunicado reforça cautela com infl...
 
 * Jovem Pan *
 1: Ver tabela completa ›
-2: negociação de paz no oriente médio                
+2: Cúpula do g7                
             
-   ...
+            
+            ...
