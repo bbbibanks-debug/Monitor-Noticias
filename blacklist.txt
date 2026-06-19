@@ -258,4 +258,16 @@ https://bloomberglinea.com.br/quote/ITUB4:BS/
 https://bloomberglinea.com.br/quote/BBDC4:BS/
 https://bloomberglinea.com.br/quote/BBAS3:BS/
 https://bloomberglinea.com.br/quote/NU:UN/
+https://bloomberglinea.com.br/quote/SPCX:UN/
+https://metropoles.com/conteudo-especial
+https://metropoles.com/distrito-federal
+https://metropoles.com/ultimas-noticias
+https://www.cnnbrasil.com.br/esportes/futebol/copa-do-mundo/tabela/
+https://www.cnnbrasil.com.br/esportes/futebol/copa-do-mundo/simulador/
+https://www.uol.com.br/esporte/futebol/copa-do-mundo/jogos/bolao-do-uol.htm
+https://www.uol.com.br/saojoao/
+https://placar.uol.com.br/esporte/futebol/copa-do-mundo/2026/06/19/estados-unidos-x-australia.htm
+https://placar.uol.com.br/esporte/futebol/copa-do-mundo/2026/06/19/escocia-x-marrocos.htm
+https://placar.uol.com.br/esporte/futebol/copa-do-mundo/2026/06/19/brasil-x-haiti.htm
+https://placar.uol.com.br/esporte/futebol/copa-do-mundo/2026/06/20/turquia-x-paraguai.htm
 
