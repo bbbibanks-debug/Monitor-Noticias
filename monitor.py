@@ -20,7 +20,7 @@ sites = [
     {"id": "moneytimes", "nome": "Money Times", "url": "https://moneytimes.com.br", "xpath": "//h2/a | //h3/a | //div[contains(@class, 'news-item')]//a", "cor": "#173321", "tamanho_min": 15},
     {"id": "infomoney", "nome": "InfoMoney", "url": "https://infomoney.com.br", "xpath": "//a[contains(@class, 'typography__link')] | //main//a", "cor": "#001a30", "tamanho_min": 15},
     {"id": "r7", "nome": "R7 Notícias", "url": "https://r7.com", "xpath": "//a[contains(@class, 'r7-flex-title-link')] | /html/body/div/main//a", "cor": "#1d70b8", "tamanho_min": 15},
-    {"id": "metropoles", "nome": "Metrópoles", "url": "https://metropoles.com", "xpath": "//h1/a | //h2/a | //h3/a | //h5/a | //a[contains(@class, 'm-title')]", "cor": "#ff0055", "tamanho_min": 15},
+    {"id": "metropoles", "nome": "Metrópoles", "url": "https://metropoles.com", "xpath": "//h1/a | //h2/a | //h3/a | //h5/a | //a[contains(@class, 'm-title')] | //h3[contains(@class, 'title')]//a", "cor": "#ff0055", "tamanho_min": 15},
     {"id": "terra", "nome": "Terra", "url": "https://terra.com.br", "xpath": "//a[contains(@class, 'card-news__url')] | //main//a", "cor": "#2b3640", "tamanho_min": 15},
     {"id": "band", "nome": "Band", "url": "https://band.com.br", "xpath": "//a[@data-bnd-link] | //div[contains(@class, 'card')]//a | //main//a", "cor": "#006432", "tamanho_min": 15},
     {"id": "ig", "nome": "iG", "url": "https://ig.com.br", "xpath": "//h2/a | //h3/a | //main//a", "cor": "#1a4a7c", "tamanho_min": 15},
