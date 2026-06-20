@@ -1,12 +1,12 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: TEMPO REALEm busca da 1ª vitória, Holanda abre 2 a 0 logo no início...
-2: Romário: Embalou na hora certa. Mister achou escalação
+1: AO VIVOAlemanha enfrenta a Costa do Marfim após 7 a 1; veja o pré
+2: Alemanha pode voltar a um mata-mata após 12 anos
 
 * CNN Brasil *
-1: Defesa Civil bloqueia acessos externos e contas usadas em alertas f...
-2: Governo identificou 10 alertas falsos em sistema da Defesa Civil
+1: Holanda mostra força, goleia Suécia e assume ponta de grupo que est...
+2: Memphis dá assistência em goleada
 
 * Times Brasil *
 1: Jovem trabalhou disfarçada em uma rede de cafeterias antes de abrir...
@@ -14,4 +14,4 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * Jovem Pan *
 1: Datafolha: Lula aparece à frente de Flávio no 1º turno com 41% cont...
-2: PT admite baque, mas vai seguir usando Caso Master contra Flávio
+2: 65% dos eleitores são indiferentes ao apoio de Trump a um candidato...
