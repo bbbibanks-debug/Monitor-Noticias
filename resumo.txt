@@ -1,8 +1,8 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Análise: Argentina dá recado e mostra que é a melhor com Messi
-2: Veja os jogos da 2ª fase e o chaveamento até a final da Copa
+1: Veja confrontos da 2ª fase e chaveamento até a final da Copa
+2: Quem foi embora? Veja seleções eliminadas da Copa do Mundo
 
 * CNN Brasil *
 1: Aprovada pela Câmara, PEC do fim da 6x1 completa um mês parada no S...
@@ -16,4 +16,4 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 1: Cessar-fogo quebrado                    
                 
          ...
-2: Netanyahu diz que quer formar um amplo governo nacional se vencer p...
+2: Trump diz que Irã deixará de existir se EUA decidirem intensificar ...
