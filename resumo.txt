@@ -1,8 +1,8 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Amistoso entre Corinthians e Cascavel termina em empate no PR
-2: Fortaleza faz duelo com Atlético-GO pela Série B; SIGA
+1: Grêmio vence Cruzeiro em amistoso de 4 gols no Mané Garrincha
+2: Fortaleza faz duelo com Atlético-GO pela Série B; siga aqui
 
 * CNN Brasil *
 1: PF suspeita que Presidência da Câmara deu aval para desvios de emendas
@@ -13,8 +13,7 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 2: Aliado de Trump, senador Lindsey Graham morre aos 71 anos
 
 * Jovem Pan *
-1: Política                    
+1: Oriente Médio                    
                 
-                
-    ...
-2: Vacinada por casos Ciro Nogueira e Vorcaro, campanha de Flávio não ...
+                ...
+2: EUA dizem que Estreito de Ormuz segue aberto e rejeitam controle do...
