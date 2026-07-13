@@ -1,12 +1,12 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Grêmio vence Cruzeiro em amistoso de 4 gols no Mané Garrincha
-2: Fortaleza faz duelo com Atlético-GO pela Série B; siga aqui
+1: Canetas emagrecedoras ilegais entram no país com substâncias em teste
+2: Trump falou com Graham horas antes de senador morrer
 
 * CNN Brasil *
-1: PF suspeita que Presidência da Câmara deu aval para desvios de emendas
-2: PF lista quais municípios de MG teriam recebido emendas ligadas a E...
+1: Teerã condena novos ataques dos EUA e alerta países vizinhos contra...
+2: Petróleo sobe mais de 3% em meio a incertezas sobre Estreito de Ormuz
 
 * Times Brasil *
 1: Musk e Altman trocam provocações no X após Apple processar OpenAI
@@ -16,4 +16,4 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 1: Oriente Médio                    
                 
                 ...
-2: EUA dizem que Estreito de Ormuz segue aberto e rejeitam controle do...
+2: Irã critica ataques dos EUA após acordo de paz: Violou quase todos ...
