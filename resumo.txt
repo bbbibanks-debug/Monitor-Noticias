@@ -1,15 +1,15 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Canetas emagrecedoras ilegais entram no país com substâncias em teste
-2: Trump falou com Graham horas antes de senador morrer
+1: Canetas emagrecedoras ilegais vêm ao Brasil com substâncias em teste
+2: Estudo mostra que duas em cada três pessoas com Alzheimer são mulheres
 
 * CNN Brasil *
 1: Teerã condena novos ataques dos EUA e alerta países vizinhos contra...
 2: Petróleo sobe mais de 3% em meio a incertezas sobre Estreito de Ormuz
 
 * Times Brasil *
-1: Musk e Altman trocam provocações no X após Apple processar OpenAI
+1: Executivos de chips descartam freio na IA e veem demanda “quase ili...
 2: Aliado de Trump, senador Lindsey Graham morre aos 71 anos
 
 * Jovem Pan *
