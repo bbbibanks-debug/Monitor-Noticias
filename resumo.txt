@@ -1,20 +1,20 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Lula convoca ministros para reunião após decisão dos Estados Unidos
-2: Veja produtos afetados pela nova taxa de 25% e os que ficam isentos
+1: Mauro Vieira diz que novas tarifas dos EUA têm motivação política
+2: Vieira: Rubio ataca Lula de forma grosseira em declarações inaceitá...
 
 * CNN Brasil *
 1: Setor privado alerta governo brasileiro sobre riscos de retaliação ...
-2: Fiemg alerta para perda de competitividade da indústria com tarifaço
+2: Tarifaço ameaça exportações brasileiras, avalia CNI
 
 * Times Brasil *
-1: Veja os principais itens de exportação brasileiros que serão afetad...
-2: Executivo veterano da Amazon deixa a AWS após 18 anos
+1: Nvidia apresenta novo modelo de I.A e amplia ecossistema de intelig...
+2: TSMC vai investir mais US$ 100 bilhões no Arizona após lucro saltar...
 
 * Jovem Pan *
 1: tarifaço                    
                 
                 
     ...
-2: EUA anunciam tarifa de 25% a produtos do Brasil
+2: Rubio diz que presidente brasileiro não negociou de boa-fé
