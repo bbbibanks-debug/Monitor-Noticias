@@ -1,16 +1,16 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: TEMPO REALSantos busca empate com o Botafogo no Nilton Santos pelo ...
-2: Confira a classificação e a tabela de jogos do Brasileirão
+1: Em jogo de lambanças, joias marcam e Botafogo vence o Santos no fim
+2: Vitória aproveita falha e derrota o Vasco, que continua no Z-4
 
 * CNN Brasil *
-1: Lula criticou Trump ao menos 35 vezes desde química durante cúpula ...
-2: Governo terá programa para apoiar empresas após tarifaço, diz Alckmin
+1: Comissões do Congresso cobram negociação e criticam reciprocidade a...
+2: Lula criticou Trump ao menos 35 vezes desde química durante cúpula ...
 
 * Times Brasil *
-1: Ormuz segue como ponto crítico apesar de novos oleodutos
-2: Netflix mantém receita e lucro em linha com previsões e reforça apo...
+1: SpaceX adia lançamento da Starship após falha técnica; ações amplia...
+2: Ormuz segue como ponto crítico apesar de novos oleodutos
 
 * Jovem Pan *
 1: tarifaço                    
