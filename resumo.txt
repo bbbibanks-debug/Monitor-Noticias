@@ -1,16 +1,16 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Valdemar muda versão e diz ao STF que não indica emendas parlamentares
-2: Presidente do PL afirma que faz apenas sugestões políticas
+1: Tarifaço: governo deve iniciar hoje reuniões com setores afetados
+2: Setores de máquinas, calçados, plástico e têxteis discutem tarifaço
 
 * CNN Brasil *
-1: Governo de Donald Trump concede Green Card a Eduardo Bolsonaro
-2: O que muda para Eduardo após EUA concederem green card ao ex-deputado
+1: Sudeste é a única região do país que perdeu eleitores nos últimos q...
+2: PL aciona TSE após identificar rede de perfis falsos que atacava Fl...
 
 * Times Brasil *
-1: Justiça da Califórnia suspende por 14 dias fusão entre Paramount e ...
-2: AMD lança o Helios, seu primeiro sistema de IA em rack para rivaliz...
+1: Ações da Alphabet sobem após relatório sobre novo chip de IA para m...
+2: Justiça da Califórnia suspende por 14 dias fusão entre Paramount e ...
 
 * Jovem Pan *
 1: Emendas parlamentares                    
