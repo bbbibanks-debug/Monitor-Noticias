@@ -1,8 +1,8 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Flamengo goleia a Chapecoense e segue na caça ao líder Palmeiras
-2: Veja resultados, tabela de jogos e classificação do Brasileirão 2026
+1: O plano Trump: como empresas brasileiras tentam driblar o tarifaço
+2: Setores atingidos e governo divergem sobre reciprocidade aos EUA
 
 * CNN Brasil *
 1: Selo de qualidade para institutos de pesquisa perde força no TSE
@@ -13,5 +13,5 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 2: Tesla não atinge expectativas de lucro, apesar de superar previsões...
 
 * Jovem Pan *
-1: Lula libera R$ 18,5 bilhões em financiamento para empresas afetadas...
-2: Brasil Soberano 3 é instrumento para fortalecer economia brasileira...
+1: PoderData: 45% dizem ser certa suspensão de visitas de Flávio a Bol...
+2: PoderData: 51% dizem que governo Lula é melhor que o de Bolsonaro; ...
