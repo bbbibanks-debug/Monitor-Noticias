@@ -1,12 +1,12 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Confirmado candidato, Caiado tenta unificar PSD em estados importantes
-2: Caiado deixou governo de Goiás; em 1989, ele tentou a presidência
+1: Confirmado candidato, Caiado terá de unificar PSD em estados-chave
+2: Com Kassab na chapa como vice, PSD apoiará Tarcísio (Republicanos)
 
 * CNN Brasil *
-1: Caiado lança candidatura com foco em segurança pública e críticas a...
-2: Polarização é o máximo da estupidez, afirma Caiado
+1: Polarização é o máximo da estupidez, afirma Caiado
+2: Ex-governador lança candidatura com foco em segurança pública e crí...
 
 * Times Brasil *
 1: Irã e Ucrânia trocam acusações sobre ataque no Mar Cáspio e tensão ...
@@ -16,4 +16,4 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 1: Eleições 2026                    
                 
                 ...
-2: Brasil nega vistos a funcionários dos EUA que pretendiam se reunir ...
+2: EUA negam que visita de funcionários ao Brasil buscava interferir n...
