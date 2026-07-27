@@ -1,12 +1,12 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Com herói improvável, Atlético-MG vence o líder Palmeiras fora de casa
-2: Chances de título: Palmeiras tem 52%; Flamengo chega a 39%
+1: Governo lança programa para entregadores e mototaxistas; saiba
+2: Xi diz que China apoia o Brasil na rejeição à interferência externa
 
 * CNN Brasil *
-1: Itamaraty convoca embaixador de Milei após ataques a Lula e Moraes
-2: Brasil chama embaixador na Argentina após críticas de Milei a Lula ...
+1: Planalto vê tentativa dos EUA de barrar projeto sobre big techs
+2: Após tarifaço de Trump, Lula conversa com Xi Jinping sobre acordo M...
 
 * Times Brasil *
 1: Preço do cacau cai 34% em um ano e mercado se pergunta por que os c...
