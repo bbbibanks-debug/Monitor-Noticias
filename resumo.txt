@@ -1,12 +1,12 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Cruzeiro bate o Coritiba fora de casa e encosta no G-5 do Brasileirão
-2: Artur Jorge se rende a Matheus Pereira e Gerson: Referências
+1: Por que o calor europeu é pior e mais perigoso do que o do Brasil; ...
+2: A relação entre o El Niño e os ventos de mais de 120 km/h no Brasil
 
 * CNN Brasil *
-1: PF aponta que Jaques Wagner acompanhou avanço da emenda Master e se...
-2: Vorcaro orientou discrição em possível voo para transportar Jaques,...
+1: Tereza Cristina exige moderação para aceitar vice de Flávio Bolsonaro
+2: Flávio esbarra em resistência do PP para ter Tereza Cristina como vice
 
 * Times Brasil *
 1: AWS registra crescimento mais forte desde 2021 impulsionada por IA ...
