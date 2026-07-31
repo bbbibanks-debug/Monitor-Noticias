@@ -1,17 +1,17 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Por que o calor europeu é pior e mais perigoso do que o do Brasil; ...
-2: A relação entre o El Niño e os ventos de mais de 120 km/h no Brasil
+1: Gasolina com 32% de etanol chega aos postos amanhã; evite danos
+2: Gasolina sem etanol: ideia popular de lei irá ao Senado
 
 * CNN Brasil *
-1: Tereza Cristina exige moderação para aceitar vice de Flávio Bolsonaro
-2: Flávio esbarra em resistência do PP para ter Tereza Cristina como vice
+1: Líderes do PP reafirmam neutralidade e rejeitam indicar vice de Flá...
+2: JUSSARA SOARES: Entorno de Ciro vê tentativa de Flávio emparedá-lo
 
 * Times Brasil *
 1: AWS registra crescimento mais forte desde 2021 impulsionada por IA ...
 2: Anthropic afirma que seus modelos Claude “obtiveram acesso não auto...
 
 * Jovem Pan *
-1: Mendonça autoriza PF a investigar Lulinha sobre suposto tráfico de ...
+1: Ceuta registra entrada de quase 40 mil imigrantes e mobiliza Exérci...
 2: Trump diz ter firmado acordo histórico para desarmamento do Hamas
