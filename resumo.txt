@@ -1,8 +1,8 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Republicanos lança Tarcísio como candidato ao governo de SP
-2: PT lança Jerônimo Rodrigues como candidato na Bahia
+1: TEMPO REALVasco e Fluminense estão escalados para oitavas da Copa d...
+2: AO VIVO: assinantes Globoplay Premium assistem ao clássico em 4k
 
 * CNN Brasil *
 1: Empresa ligada a Lulinha tem acordos de R$ 55 milhões com governo Lula
@@ -13,5 +13,5 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 2: Europa corre contra o tempo para proteger sua infraestrutura de uma...
 
 * Jovem Pan *
-1: Ao lado de Flávio Bolsonaro, Tarcísio é oficializado como candidato...
+1: Segurança da mulher e ausência de Michelle marcam bastidores da con...
 2: São Paulo é grande porque o PT nunca governou o Estado, diz Tarcísio
