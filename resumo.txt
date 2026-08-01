@@ -1,19 +1,17 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Quaest: veja aprovação e desaprovação dos governos de 10 estados
-2: PT abre mão de candidaturas próprias em 14 estados por alianças; mapa
+1: Republicanos lança Tarcísio como candidato ao governo de SP
+2: PT lança Jerônimo Rodrigues como candidato na Bahia
 
 * CNN Brasil *
 1: Empresa ligada a Lulinha tem acordos de R$ 55 milhões com governo Lula
 2: Em dois dias, Mendonça amplia cerco a Lulinha e atrito com a PF escala
 
 * Times Brasil *
-1: Europa corre contra o tempo para proteger sua infraestrutura de uma...
-2: Fifa desiste de plano para vender participação após resistência de ...
+1: Ataque de agente da OpenAI à Hugging Face confirma alertas da ciber...
+2: Europa corre contra o tempo para proteger sua infraestrutura de uma...
 
 * Jovem Pan *
-1: BEATRIZ MANFREDINI                    
-                
-           ...
-2: Ao lado de Flávio Bolsonaro, Tarcísio é oficializado como candidato...
+1: Ao lado de Flávio Bolsonaro, Tarcísio é oficializado como candidato...
+2: São Paulo é grande porque o PT nunca governou o Estado, diz Tarcísio
