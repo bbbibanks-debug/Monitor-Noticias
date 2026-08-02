@@ -1,12 +1,12 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Com Ney e Gabigol, Santos passa em branco e empata com o Remo na Vila
-2: PC Oliveira diz que jogador do Remo deveria ter sido expulso; veja ...
+1: Aumento de casos de sarampo em SP acende alerta em outros estados
+2: Veja 10 maneiras simples de reduzir sua exposição a poluentes em casa
 
 * CNN Brasil *
-1: Trump cancela ataque ao Irã após pedido para fechar acordo
-2: Governo dos EUA orienta cidadãos americanos a deixarem o Oriente Médio
+1: Choque entre política fiscal e juros gera bola de neve na dívida pú...
+2: Entenda os juros que pesam no déficit do setor público
 
 * Times Brasil *
 1: Ataque de agente da OpenAI à Hugging Face confirma alertas da ciber...
