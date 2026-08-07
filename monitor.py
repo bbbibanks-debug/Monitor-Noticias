@@ -2,6 +2,7 @@ import os
 import requests
 from lxml import html
 from datetime import datetime, timedelta
+
 try:
     from mtranslate import translate
 except ImportError:
@@ -16,7 +17,6 @@ sites = [
     {"id": "jovempan", "nome": "Jovem Pan", "url": "https://jovempan.com.br", "xpath": "//div[contains(@class, 'post-item')]//a | //main//a", "cor": "#00441b", "tamanho_min": 15},
     {"id": "uol", "nome": "UOL", "url": "https://uol.com.br", "xpath": "//div[contains(@class, 'hu-commons')]//a | //a[contains(@class, 'hyperlink')]", "cor": "#f6a800", "tamanho_min": 15},
     {"id": "correio", "nome": "Correio Braziliense", "url": "https://correiobraziliense.com.br", "xpath": "//a", "cor": "#005ca9", "tamanho_min": 15},
-    # 1) OTIMIZADO: XPath expandido para capturar toda a tabela de notícias (nn-tab-link, linhas de texto e links internos)
     {"id": "finviz", "nome": "Market News (Finviz)", "url": "https://finviz.com", "xpath": "//a[contains(@class, 'nn-tab-link')] | //td[contains(@class, 'nn-text')]//a | //table[contains(@class, 'fullview-news-outer')]//a", "cor": "#3f9c35", "tamanho_min": 15},
     {"id": "moneytimes", "nome": "Money Times", "url": "https://moneytimes.com.br", "xpath": "//h2/a | //h3/a | //div[contains(@class, 'news-item')]//a", "cor": "#173321", "tamanho_min": 15},
     {"id": "infomoney", "nome": "InfoMoney", "url": "https://infomoney.com.br", "xpath": "//a[contains(@class, 'typography__link')] | //main//a", "cor": "#001a30", "tamanho_min": 15},
@@ -28,13 +28,10 @@ sites = [
     {"id": "estadao", "nome": "Estadão", "url": "https://estadao.com.br", "xpath": "//a", "cor": "#007a87", "tamanho_min": 15},
     {"id": "folha", "nome": "Folha de S.Paulo", "url": "https://uol.com.br", "xpath": "//a", "cor": "#222222", "tamanho_min": 15},
     {"id": "sbtnews", "nome": "SBT News", "url": "https://sbtnews.com.br", "xpath": "//a[contains(@class, 'news-card')] | //h2/a | //h3/a | //main//a", "cor": "#3b5998", "tamanho_min": 15},
-    # 2) NOVAS FONTES SOLICITADAS
-    {"id": "bloomberg", "nome": "Bloomberg Línea", "url": "https://www.bloomberglinea.com.br/", "xpath": "//a[contains(@class, 'card-link')] | //h2/a | //h3/a | //a[contains(@class, 'title')]", "cor": "#ffdf00", "tamanho_min": 15},
-    {"id": "bbc", "nome": "BBC News Brasil", "url": "https://www.bbc.com/portuguese", "xpath": "//a[contains(@class, 'bbc-')] | //h2/a | //h3/a", "cor": "#b71c1c", "tamanho_min": 15},
-    {"id": "cnbc", "nome": "CNBC World", "url": "https://www.cnbc.com/world/?region=world", "xpath": "//a[contains(@class, 'Card-title')] | //a[contains(@class, 'MarketCard-')] | //div[contains(@class, 'Headline')]//a", "cor": "#002f6c", "tamanho_min": 15}
+    {"id": "bloomberg", "nome": "Bloomberg Línea", "url": "https://bloomberglinea.com.br", "xpath": "//a[contains(@class, 'card-link')] | //h2/a | //h3/a | //a[contains(@class, 'title')]", "cor": "#ffdf00", "tamanho_min": 15},
+    {"id": "bbc", "nome": "BBC News Brasil", "url": "https://bbc.com", "xpath": "//a[contains(@class, 'bbc-')] | //h2/a | //h3/a", "cor": "#b71c1c", "tamanho_min": 15},
+    {"id": "cnbc", "nome": "CNBC World", "url": "https://cnbc.com", "xpath": "//a[contains(@class, 'Card-title')] | //a[contains(@class, 'MarketCard-')] | //div[contains(@class, 'Headline')]//a", "cor": "#002f6c", "tamanho_min": 15}
 ]
-
-
 headers_padrao = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8",
@@ -77,7 +74,6 @@ if os.path.exists("blacklist.txt"):
     print(f"-> Blacklist carregada com sucesso! {len(urls_bloqueadas_brutas)} caminhos mapeados.")
 else:
     print("-> Aviso: 'blacklist.txt' não encontrado.")
-
 dados_finais = {site["id"]: [] for site in sites}
 print("Iniciando a raspagem com checagem estrita de igualdade...")
 
@@ -117,26 +113,23 @@ for site in sites:
                     link_base_puro = extrair_url_base_pura(link_higienizado)
                     if link_base_puro in urls_bloqueadas_bases:
                         continue
-
-                     # Se o site for Finviz ou CNBC, aplica a tradução automática
-                     if site["id"] in ["finviz", "cnbc"]:
-                         try:
-                             texto_traduzido = translate(texto, "pt")
-                             dados_finais[site["id"]].append({
-                                 "texto": texto, 
-                                 "texto_traduzido": texto_traduzido, 
-                                 "link": link
-                             })
-                         except Exception:
-                             dados_finais[site["id"]].append({"texto": texto, "link": link})
+                    
+                    if site["id"] in ["finviz", "cnbc"]:
+                        try:
+                            texto_traduzido = translate(texto, "pt")
+                            dados_finais[site["id"]].append({
+                                "texto": texto, 
+                                "texto_traduzido": texto_traduzido, 
+                                "link": link
+                            })
+                        except Exception:
+                            dados_finais[site["id"]].append({"texto": texto, "link": link})
                     else:
-                         dados_finais[site["id"]].append({"texto": texto, "link": link})
-                 
-       
+                        dados_finais[site["id"]].append({"texto": texto, "link": link})
+        
         print(f"-> {len(dados_finais[site['id']])} notícias coletadas do {site['nome']}")
     except Exception as e:
         print(f"Erro ao acessar {site['nome']}: {e}")
-
 hora_brasilia = datetime.utcnow() - timedelta(hours=3)
 texto_data_hora = hora_brasilia.strftime("Última captura de informações feita no dia %d/%m/%Y às %H:%M hrs")
 
@@ -277,8 +270,8 @@ html_template = f"""<!DOCTYPE html>
     <script>
         if ('serviceWorker' in navigator) {{
             navigator.serviceWorker.register('./sw.js')
-            .then(reg => console.log('App Ready'))
-            .catch(err => console.log('Err:', err));
+                .then(reg => console.log('App Ready'))
+                .catch(err => console.log('Err:', err));
         }}
     </script>
 </head>
@@ -289,35 +282,34 @@ html_template = f"""<!DOCTYPE html>
 """
 
 for site in sites:
- noticias_html = ""
- for noti in dados_finais[site["id"]]:
-    if site["id"] in ["finviz", "cnbc"] and "texto_traduzido" in noti:
-         noticias_html += f"""
-         <a href="{noti['link']}" target="_blank" class="noticia-item">
-         <div class="noticia-titulo">🇺🇸 {noti['texto']}</div>
-         <div class="noticia-traducao">🇧🇷 {noti['texto_traduzido']}</div>
-         <div class="noticia-link">{noti['link']}</div>
-         </a>"""
-    else:
-         noticias_html += f"""
-         <a href="{noti['link']}" target="_blank" class="noticia-item">
-         <div class="noticia-titulo">🔥 {noti['texto']}</div>
-         <div class="noticia-link">{noti['link']}</div>
-         </a>"""
-
+    noticias_html = ""
+    for noti in dados_finais[site["id"]]:
+        if site["id"] in ["finviz", "cnbc"] and "texto_traduzido" in noti:
+            noticias_html += f"""
+            <a href="{noti['link']}" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🇺🇸 {noti['texto']}</div>
+                <div class="noticia-traducao">🇧🇷 {noti['texto_traduzido']}</div>
+                <div class="noticia-link">{noti['link']}</div>
+            </a>"""
+        else:
+            noticias_html += f"""
+            <a href="{noti['link']}" target="_blank" class="noticia-item">
+                <div class="noticia-titulo">🔥 {noti['texto']}</div>
+                <div class="noticia-link">{noti['link']}</div>
+            </a>"""
     
     if not noticias_html:
         noticias_html = "<p style='color:var(--text-muted);'>Nenhuma notícia relevante encontrada no momento.</p>"
-        
+    
     html_template += f"""
-    <div class="fonte-box">
-        <div class="fonte-header" style="border-left-color: {site['cor']};" onclick="toggleBox(this)">
-            {site['nome']}
-        </div>
-        <div class="fonte-content">
-            {noticias_html}
-        </div>
-    </div>"""
+            <div class="fonte-box">
+                <div class="fonte-header" style="border-left-color: {site['cor']};" onclick="toggleBox(this)">
+                    {site['nome']}
+                </div>
+                <div class="fonte-content">
+                    {noticias_html}
+                </div>
+            </div>"""
 
 html_template += f"""
         </div>
@@ -334,27 +326,23 @@ html_template += f"""
 </body>
 </html>
 """
+
 with open("index.html", "w", encoding="utf-8") as f:
     f.write(html_template)
 
 print(f"\nSucesso! Carimbo adicionado: {texto_data_hora}")
 
-# --- BLOCO FORMATADO SEM CARACTERES ESPECIAIS ---
 linhas_resumo = ["Processo concluido com sucesso. Resumo das ultimas noticias capturadas:"]
-
-# Coleta manchetes de forma compacta e sem emojis dos 4 primeiros portais
 for site in sites[:4]:
     noticias_do_site = dados_finais[site["id"]]
     if noticias_do_site:
         linhas_resumo.append(f"\n* {site['nome']} *")
         for i, noti in enumerate(noticias_do_site[:2]):
             titulo = noti.get("texto_traduzido", noti["texto"])
-            # Remove aspas e caracteres que quebram strings
             titulo = titulo.replace('"', '').replace("'", "").strip()
             if len(titulo) > 70:
                 titulo = titulo[:67] + "..."
             linhas_resumo.append(f"{i+1}: {titulo}")
-            
+ 
 with open("resumo.txt", "w", encoding="utf-8") as f:
     f.write("\n".join(linhas_resumo))
-
