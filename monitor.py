@@ -16,7 +16,8 @@ sites = [
     {"id": "jovempan", "nome": "Jovem Pan", "url": "https://jovempan.com.br", "xpath": "//div[contains(@class, 'post-item')]//a | //main//a", "cor": "#00441b", "tamanho_min": 15},
     {"id": "uol", "nome": "UOL", "url": "https://uol.com.br", "xpath": "//div[contains(@class, 'hu-commons')]//a | //a[contains(@class, 'hyperlink')]", "cor": "#f6a800", "tamanho_min": 15},
     {"id": "correio", "nome": "Correio Braziliense", "url": "https://correiobraziliense.com.br", "xpath": "//a", "cor": "#005ca9", "tamanho_min": 15},
-    {"id": "finviz", "nome": "Market News", "url": "https://finviz.com", "xpath": "//a[contains(@class, 'nn-tab-link')] | //td[contains(@class, 'nn-text')]//a", "cor": "#3f9c35", "tamanho_min": 15},
+    # 1) OTIMIZADO: XPath expandido para capturar toda a tabela de notícias (nn-tab-link, linhas de texto e links internos)
+    {"id": "finviz", "nome": "Market News (Finviz)", "url": "https://finviz.com", "xpath": "//a[contains(@class, 'nn-tab-link')] | //td[contains(@class, 'nn-text')]//a | //table[contains(@class, 'fullview-news-outer')]//a", "cor": "#3f9c35", "tamanho_min": 15},
     {"id": "moneytimes", "nome": "Money Times", "url": "https://moneytimes.com.br", "xpath": "//h2/a | //h3/a | //div[contains(@class, 'news-item')]//a", "cor": "#173321", "tamanho_min": 15},
     {"id": "infomoney", "nome": "InfoMoney", "url": "https://infomoney.com.br", "xpath": "//a[contains(@class, 'typography__link')] | //main//a", "cor": "#001a30", "tamanho_min": 15},
     {"id": "r7", "nome": "R7 Notícias", "url": "https://r7.com", "xpath": "//a[contains(@class, 'r7-flex-title-link')] | /html/body/div/main//a", "cor": "#1d70b8", "tamanho_min": 15},
@@ -26,9 +27,13 @@ sites = [
     {"id": "ig", "nome": "iG", "url": "https://ig.com.br", "xpath": "//h2/a | //h3/a | //main//a", "cor": "#1a4a7c", "tamanho_min": 15},
     {"id": "estadao", "nome": "Estadão", "url": "https://estadao.com.br", "xpath": "//a", "cor": "#007a87", "tamanho_min": 15},
     {"id": "folha", "nome": "Folha de S.Paulo", "url": "https://uol.com.br", "xpath": "//a", "cor": "#222222", "tamanho_min": 15},
-    {"id": "bloomberg", "nome": "Bloomberg Línea", "url": "https://bloomberglinea.com.br", "xpath": "//a", "cor": "#ffdf00", "tamanho_min": 15},
-    {"id": "sbtnews", "nome": "SBT News", "url": "https://sbtnews.com.br", "xpath": "//a[contains(@class, 'news-card')] | //h2/a | //h3/a | //main//a", "cor": "#3b5998", "tamanho_min": 15}
+    {"id": "sbtnews", "nome": "SBT News", "url": "https://sbtnews.com.br", "xpath": "//a[contains(@class, 'news-card')] | //h2/a | //h3/a | //main//a", "cor": "#3b5998", "tamanho_min": 15},
+    # 2) NOVAS FONTES SOLICITADAS
+    {"id": "bloomberg", "nome": "Bloomberg Línea", "url": "https://www.bloomberglinea.com.br/", "xpath": "//a[contains(@class, 'card-link')] | //h2/a | //h3/a | //a[contains(@class, 'title')]", "cor": "#ffdf00", "tamanho_min": 15},
+    {"id": "bbc", "nome": "BBC News Brasil", "url": "https://www.bbc.com/portuguese", "xpath": "//a[contains(@class, 'bbc-')] | //h2/a | //h3/a", "cor": "#b71c1c", "tamanho_min": 15},
+    {"id": "cnbc", "nome": "CNBC World", "url": "https://www.cnbc.com/world/?region=world", "xpath": "//a[contains(@class, 'Card-title')] | //a[contains(@class, 'MarketCard-')] | //div[contains(@class, 'Headline')]//a", "cor": "#002f6c", "tamanho_min": 15}
 ]
+
 
 headers_padrao = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
@@ -112,20 +117,22 @@ for site in sites:
                     link_base_puro = extrair_url_base_pura(link_higienizado)
                     if link_base_puro in urls_bloqueadas_bases:
                         continue
-                    
-                    if site["id"] == "finviz":
-                        try:
-                            texto_traduzido = translate(texto, "pt")
-                            dados_finais[site["id"]].append({
-                                "texto": texto, 
-                                "texto_traduzido": texto_traduzido, 
-                                "link": link
-                            })
-                        except Exception:
-                            dados_finais[site["id"]].append({"texto": texto, "link": link})
+
+                     # Se o site for Finviz ou CNBC, aplica a tradução automática
+                     if site["id"] in ["finviz", "cnbc"]:
+                         try:
+                             texto_traduzido = translate(texto, "pt")
+                             dados_finais[site["id"]].append({
+                                 "texto": texto, 
+                                 "texto_traduzido": texto_traduzido, 
+                                 "link": link
+                             })
+                         except Exception:
+                             dados_finais[site["id"]].append({"texto": texto, "link": link})
                     else:
-                        dados_finais[site["id"]].append({"texto": texto, "link": link})
-        
+                         dados_finais[site["id"]].append({"texto": texto, "link": link})
+                 
+       
         print(f"-> {len(dados_finais[site['id']])} notícias coletadas do {site['nome']}")
     except Exception as e:
         print(f"Erro ao acessar {site['nome']}: {e}")
@@ -282,21 +289,23 @@ html_template = f"""<!DOCTYPE html>
 """
 
 for site in sites:
-    noticias_html = ""
-    for noti in dados_finais[site["id"]]:
-        if site["id"] == "finviz" and "texto_traduzido" in noti:
-            noticias_html += f"""
-            <a href="{noti['link']}" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🇺🇸 {noti['texto']}</div>
-                <div class="noticia-traducao">🇧🇷 {noti['texto_traduzido']}</div>
-                <div class="noticia-link">{noti['link']}</div>
-            </a>"""
-        else:
-            noticias_html += f"""
-            <a href="{noti['link']}" target="_blank" class="noticia-item">
-                <div class="noticia-titulo">🔥 {noti['texto']}</div>
-                <div class="noticia-link">{noti['link']}</div>
-            </a>"""
+ noticias_html = ""
+ for noti in dados_finais[site["id"]]:
+     # Adicionado "cnbc" à checagem de tradução visual
+     if site["id"] in ["finviz", "cnbc"] and "texto_traduzido" in noti:
+         noticias_html += f"""
+         <a href="{noti['link']}" target="_blank" class="noticia-item">
+         <div class="noticia-titulo">🇺🇸 {noti['texto']}</div>
+         <div class="noticia-traducao">🇧🇷 {noti['texto_traduzido']}</div>
+         <div class="noticia-link">{noti['link']}</div>
+         </a>"""
+     else:
+         noticias_html += f"""
+         <a href="{noti['link']}" target="_blank" class="noticia-item">
+         <div class="noticia-titulo">🔥 {noti['texto']}</div>
+         <div class="noticia-link">{noti['link']}</div>
+         </a>"""
+
     
     if not noticias_html:
         noticias_html = "<p style='color:var(--text-muted);'>Nenhuma notícia relevante encontrada no momento.</p>"
