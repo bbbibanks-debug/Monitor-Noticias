@@ -29,7 +29,7 @@ sites = [
     {"id": "folha", "nome": "Folha de S.Paulo", "url": "https://uol.com.br", "xpath": "//a", "cor": "#222222", "tamanho_min": 15},
     {"id": "sbtnews", "nome": "SBT News", "url": "https://sbtnews.com.br", "xpath": "//a[contains(@class, 'news-card')] | //h2/a | //h3/a | //main//a", "cor": "#3b5998", "tamanho_min": 15},
     {"id": "bloomberg", "nome": "Bloomberg Línea", "url": "https://bloomberglinea.com.br", "xpath": "//a[contains(@class, 'card-link')] | //h2/a | //h3/a | //a[contains(@class, 'title')]", "cor": "#ffdf00", "tamanho_min": 15},
-    {"id": "bbc", "nome": "BBC News Brasil", "url": "https://bbc.com", "xpath": "//a[contains(@class, 'bbc-')] | //h2/a | //h3/a", "cor": "#b71c1c", "tamanho_min": 15},
+    {"id": "bbc", "nome": "BBC News Brasil", "url": "https://www.bbc.com/portuguese", "xpath": "//a[contains(@href, '/portuguese/articles/')] | //a[@data-bbc-container='news'] | //div[contains(@class, 'Promo')]//a | //h2/a | //h3/a", "cor": "#b71c1c", "tamanho_min": 15},
     {"id": "cnbc", "nome": "CNBC World", "url": "https://cnbc.com", "xpath": "//a[contains(@class, 'Card-title')] | //a[contains(@class, 'MarketCard-')] | //div[contains(@class, 'Headline')]//a", "cor": "#002f6c", "tamanho_min": 15}
 ]
 headers_padrao = {
