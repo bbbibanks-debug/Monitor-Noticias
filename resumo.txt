@@ -1,11 +1,11 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: TEMPO REALRio volta ao Estágio 2 após redução de ventos fortes, diz...
-2: Rajadas de vento já alcançaram 84,7 km/h no Estado do Rio nesta sexta
+1: Lula afirma que Trump o trata com respeito e que Rubio odeia o Brasil
+2: Lula chama Marco Rubio de bolsonarista e latino-americano frustrado
 
 * CNN Brasil *
-1: Alerta de ciclone-bomba suspende serviços no Rio; litoral de SP tem...
+1: Ciclone-bomba: Rio diminui nível de alerta após redução de ventos
 2: RS tem um morto, cinco feridos e 118 cidades com danos
 
 * Times Brasil *
@@ -13,5 +13,5 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 2: China ganha terreno em IA, mas EUA ainda mantêm vantagem estratégica
 
 * Jovem Pan *
-1: Ciclone extratropical provoca morte no RS e deixa Sul e Sudeste em ...
+1: Após atingir RS, ciclone bomba afeta litoral paulista e suspende au...
 2: SP tem alerta para ventos de até 100 km/h; Porto de Santos paralisa...
