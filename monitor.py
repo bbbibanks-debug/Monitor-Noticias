@@ -291,15 +291,14 @@ html_template = f"""<!DOCTYPE html>
 for site in sites:
  noticias_html = ""
  for noti in dados_finais[site["id"]]:
-     # Adicionado "cnbc" à checagem de tradução visual
-     if site["id"] in ["finviz", "cnbc"] and "texto_traduzido" in noti:
+    if site["id"] in ["finviz", "cnbc"] and "texto_traduzido" in noti:
          noticias_html += f"""
          <a href="{noti['link']}" target="_blank" class="noticia-item">
          <div class="noticia-titulo">🇺🇸 {noti['texto']}</div>
          <div class="noticia-traducao">🇧🇷 {noti['texto_traduzido']}</div>
          <div class="noticia-link">{noti['link']}</div>
          </a>"""
-     else:
+    else:
          noticias_html += f"""
          <a href="{noti['link']}" target="_blank" class="noticia-item">
          <div class="noticia-titulo">🔥 {noti['texto']}</div>
