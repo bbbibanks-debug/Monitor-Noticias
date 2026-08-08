@@ -1,8 +1,8 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Chuva e mais: o que fez previsão de vendaval não se confirmar no Rio
-2: Ventania ainda atinge Sul e Sudeste hoje com rajadas de até 90 km/h
+1: Ventania ainda atinge Sul e Sudeste hoje com rajadas de até 90 km/h
+2: Chuva e mais: o que fez previsão de vendaval não se confirmar no Rio
 
 * CNN Brasil *
 1: Eleição de 2026 é a primeira do século sem mulheres em chapas compe...
