@@ -1,17 +1,17 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Colômbia registra mais de 70 mortes após terremoto de magnitude 7,4
+1: Colômbia registra 111 mortes após terremoto de magnitude 7,4
 2: Presidente da Colômbia declara desastre nacional
 
 * CNN Brasil *
-1: Forte terremoto deixa 80 mortos e causa destruição na Colômbia
-2: País declara desastre nacional após tremor
+1: Forte terremoto deixa 111 mortos e causa destruição na Colômbia
+2: Prédio desaba por completo; veja vídeo
 
 * Times Brasil *
-1: Negócio de licenciamento imobiliário de Trump no exterior dispara p...
-2: OpenAI reforça controles sobre novo modelo por riscos de cibersegur...
+1: Ações da SpaceX se recuperam e se aproximam do preço do IPO de US$ 135
+2: Negócio de licenciamento imobiliário de Trump no exterior dispara p...
 
 * Jovem Pan *
-1: Número de mortos após terremoto na Colômbia chega a 72
+1: Número de mortos após terremoto na Colômbia chega a 111
 2: Aeroporto destruído: veja como ficou cidades após tremor
