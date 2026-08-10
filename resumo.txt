@@ -1,8 +1,8 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Congresso volta do recesso com pauta emperrada por embates eleitorais
-2: Desenrola Adimplentes começa hoje após ajustes para atrair os bancos
+1: Embates eleitorais emperram pauta na volta do recesso no Congresso
+2: Blog: impasse põe em xeque lista de quase 9 mil inelegíveis do TCU
 
 * CNN Brasil *
 1: Cracolândia, alianças e segurança foram temas principais no debate ...
@@ -16,4 +16,4 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 1: eleições 2026                    
                 
                 ...
-2: O otimismo e os alertas da campanha para Haddad após o debate da Band
+2: Para 52%, economia do país está ruim ou péssima, aponta pesquisa BT...
