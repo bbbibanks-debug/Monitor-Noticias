@@ -1,17 +1,17 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Colômbia registra 111 mortes após terremoto de magnitude 7,4
+1: Colômbia registra 132 mortes após terremoto de magnitude 7,4
 2: Ex-presidente da Colômbia alfineta líder eleito após terremoto
 
 * CNN Brasil *
-1: Colômbia declara desastre nacional após terremoto; número de mortos...
-2: Influenciador mostra momento de terremoto em aeroporto; veja vídeo
+1: Haddad sobre nomeações de coronéis: Perdemos a cadeia de comando
+2: Haddad defende passar a limpo investigação sobre Lulinha
 
 * Times Brasil *
 1: OpenAI conclui venda de ações no valor de US$ 7 bilhões antes de po...
 2: Nvidia articula plano de US$ 500 bilhões para financiar infraestrut...
 
 * Jovem Pan *
-1: Colômbia declara estado de emergência após terremoto; número de mor...
+1: Colômbia declara estado de emergência após terremoto que deixou mai...
 2: Aeroporto destruído: veja como ficou cidades após tremor
