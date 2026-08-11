@@ -1,12 +1,12 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Colômbia registra 132 mortes após terremoto de magnitude 7,4
-2: Ex-presidente da Colômbia alfineta líder eleito após terremoto
+1: Lula eleva o tom contra o Congresso e Flávio mira mais críticas ao STF
+2: Quaest: 20% dizem que decidem voto para presidente na última semana
 
 * CNN Brasil *
-1: À CNN, Haddad fala sobre segurança, Lulinha e “taxa das blusinhas”
-2: Haddad sobre nomeações de coronéis: Perdemos a cadeia de comando
+1: Entorno de Vorcaro vê nova tentativa de delação, mas defesa desenha...
+2: Vorcaro prepara terceira proposta de delação premiada
 
 * Times Brasil *
 1: OpenAI conclui venda de ações no valor de US$ 7 bilhões antes de po...
