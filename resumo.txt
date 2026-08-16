@@ -1,12 +1,12 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Candidatos à Presidência iniciam campanha em seus berços políticos
+1: Lula promete combater facções; Flávio fala em negociar com os EUA
 2: Começa a campanha eleitoral: o que os candidatos podem fazer agora?
 
 * CNN Brasil *
 1: Candidatos à Presidência escolhem berço político para início da cam...
-2: Veja o que pode e o que não pode nas campanhas que começam hoje
+2: Lula fala em Ministério da Segurança e exalta mulheres: Companheiras
 
 * Times Brasil *
 1: Reserva estratégica de petróleo dos EUA cai a nível que preocupa es...
@@ -17,4 +17,4 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
                 
                 
     ...
-2: Em discurso voltado a mulheres, Janja cita Marisa: Toda a minha adm...
+2: Lula faz abertura de campanha em tom nostálgico em São Bernardo
