@@ -2,7 +2,7 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
 1: Petrobras confirma descoberta de petróleo no litoral do Amapá
-2: Temos petróleo, temos descoberta, anuncia presidente da Petrobras
+2: Temos petróleo, temos descoberta, anuncia a presidente da Petrobras
 
 * CNN Brasil *
 1: Dino fala em ecossistema criminoso ao determinar afastamento do pre...
@@ -16,4 +16,4 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 1: Eleições 2026                    
                 
                 ...
-2: Casas Bahia entra com recuperação judicial para reestruturar dívidas
+2: Moraes autoriza ida de Bolsonaro ao dentista
