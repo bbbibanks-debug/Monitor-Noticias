@@ -1,12 +1,12 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Como a Casas Bahia tenta renegociações após pedir recuperação judicial
-2: Dívida de R$ 17,3 bi levou a Casas Bahia a pedido de recuperação ju...
+1: Após determinação de agência, Discord diz que suspendeu lives no Br...
+2: Morte de jovem aumenta o nível de alerta sobre segurança na internet
 
 * CNN Brasil *
-1: Ações das Casas Bahia desabam 30% após pedido de recuperação judicial
-2: NEOFEED: Casas Bahia negocia empréstimo de R$ 1 bilhão
+1: Dino fala em ecossistema criminoso ao determinar afastamento do pre...
+2: Presidente do Tribunal de Contas do Maranhão é sobrinho do governador
 
 * Times Brasil *
 1: Brockman, da OpenAI, minimiza preocupações com mudanças na lideranç...
@@ -16,4 +16,4 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 1: Eleições 2026                    
                 
                 ...
-2: PT aposta no legado de Lula para enfrentar Flávio Bolsonaro na segu...
+2: Casas Bahia entra com recuperação judicial para reestruturar dívidas
