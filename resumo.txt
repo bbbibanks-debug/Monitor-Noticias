@@ -1,12 +1,12 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Laura Cardoso morre aos 98 anos: Nossa grande estrela se despediu
-2: Atriz morreu em casa em São Paulo após se sentir mal, afirma filha
+1: Laura Cardoso morre em casa em SP de causas naturais aos 98 anos
+2: Referência na dramaturgia nacional, atriz se sentiu mal
 
 * CNN Brasil *
-1: Laura Cardoso, referência da dramaturgia brasileira, morre aos 98 anos
-2: Atriz participou de mais de 100 produções na carreira; relembre as ...
+1: Morre Laura Cardoso, referência da dramaturgia brasileira; relembre...
+2: Na TV, atriz teve papéis marcantes em novelas como A Viagem; veja
 
 * Times Brasil *
 1: Receita anualizada da Anthropic supera US$ 65 bilhões às vésperas d...
@@ -16,4 +16,4 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 1: Jornal da Manhã                    
                 
               ...
-2: O plano secreto do Irã para escalar a guerra no Oriente Médio
+2: Bolsonaro não gostava do Doria, diz candidato do PT sobre verbas pa...
