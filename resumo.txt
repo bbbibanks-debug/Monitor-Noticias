@@ -5,7 +5,7 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 2: Colisão entre os dois veículos foi frontal; BR-373 está interditada
 
 * CNN Brasil *
-1: Acidente entre ônibus e carreta deixa pelo menos 22 mortos no inter...
+1: Acidente entre ônibus e carreta deixa pelo menos 23 mortos no inter...
 2: Ônibus era da secretaria de Saúde de Imbituva e transportava pacientes
 
 * Times Brasil *
@@ -13,5 +13,7 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 2: Disney processa governo Trump por exigir renovação antecipada das l...
 
 * Jovem Pan *
-1: Morre, aos 91 anos, a atriz Glória Menezes
-2: Rainha da Sucata, Guerra dos Sexos, Senhora do Destino: relembre a ...
+1: Eliseu Caetano                    
+                
+               ...
+2: Irã alerta países do Golfo a não facilitarem ações militares dos EUA
