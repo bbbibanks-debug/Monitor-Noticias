@@ -1,11 +1,11 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Lula e mais 5 candidatos à Presidência têm propostas em comum
-2: Da proibição a impostos: o que os presidenciáveis defendem sobre bets
+1: Presidenciáveis mais bem colocados têm propostas em comum ou similares
+2: Da proibição a impostos: o que os candidatos defendem sobre bets
 
 * CNN Brasil *
-1: Caso Lulinha: Campanha de Lula tenta conter vazamentos e pressiona MJ
+1: Campanha de Lula tenta conter vazamentos e pressiona Ministério da ...
 2: JUSSARA SOARES: Advogado de Lulinha reclama a Lula de vazamentos se...
 
 * Times Brasil *
@@ -13,5 +13,5 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 2: Exportações do Japão superam estimativas em julho, com fortes embar...
 
 * Jovem Pan *
-1: Trump anuncia guerra econômica contra Irã e promete pressionar alia...
-2: Latam confirma vazamento de dados de parcela dos clientes
+1: Amigo Flávio x Filho da Esperança: sob a sombra do pai, candidato d...
+2: Por que o debate da Band é o primeiro da eleição: entenda a tradiçã...
