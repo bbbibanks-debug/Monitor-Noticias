@@ -1,12 +1,12 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Como julgamento no STF sobre a Ficha Limpa pode afetar a eleição no DF
-2: Federações partidárias neutras por presidente têm 3,7 mil candidatos
+1: El Niño pode elevar preço dos alimentos em até 20% e afetar a inflação
+2: Nova regra promete economia na conta de luz; veja como será
 
 * CNN Brasil *
 1: Ex-assessor de Lula recebia demandas e atualizava lobista sobre age...
-2: Ex-assessor de Lula pediu para lobista quadro de 100 mil euros, diz PF
+2: Lulinha vira munição do PL enquanto PT contra-ataca com Dark Horse
 
 * Times Brasil *
 1: Como a Coca-Cola quer automatizar a produção de refrigerantes e ref...
@@ -16,4 +16,4 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 1: ELEIÇÕES 2026                    
                 
                 ...
-2: CGU termina análise dos códigos-fonte dos sistemas eleitorais para ...
+2: Entenda como funcionam as regras de decoro e quais foram as maiores...
