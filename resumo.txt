@@ -1,12 +1,12 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Presidenciáveis querem Brasil perto de Ásia e EUA; veja as propostas
-2: Quase 3 em cada 10 candidatos de 2026 são estreantes nas urnas
+1: Petrobras prevê US$ 2,5 bi em 4 anos para poços da Margem Equatorial
+2: Governo incluirá no Orçamento previsão de novo receita de tributos
 
 * CNN Brasil *
-1: Governo busca agenda positiva enquanto oposição mira CPMI sobre Lul...
-2: Lula é orientado a diferenciar situações de Lulinha e Marcola
+1: Lula tem empate técnico com Flávio e Caiado no 2º turno, aponta pes...
+2: No 1º turno, Lula tem 41% das intenções de voto; Flávio Bolsonaro, 37%
 
 * Times Brasil *
 1: Secretário do Tesouro dos EUA anunciará sanções ao Irã na segunda-f...
@@ -16,4 +16,4 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 1: ELEIÇÕES 2026                    
                 
                 ...
-2: Renan agressivo, Caiado ponderado, Cury péssimo: quem venceu o debate?
+2: Trump amplia ofensiva contra políticas ambientais da Califórnia
