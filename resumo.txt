@@ -1,12 +1,12 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: TEMPO REALPalmeiras empata, e Mirassol tem pênalti anulado pelo VAR...
-2: Confira classificação, resultados e tabela de jogos do Brasileirão
+1: Bandidos vendem acessos para tirar multas e até mandados de prisão
+2: EUA fazem 1º ataque ao Irã desde julho, e Teerã retalia; saiba
 
 * CNN Brasil *
-1: Palmeiras empata contra o Mirassol; siga
-2: Grêmio 3 x 1 Chapecoense: siga a partida
+1: Em retaliação à ofensiva dos EUA, Irã ataca bases americanas na Jor...
+2: EUA atacam ilha iraniana e marcam 1ª ofensiva em mais de um mês
 
 * Times Brasil *
 1: Rede de postos elogiada por Trump está envolvida em processo de US$...
@@ -16,4 +16,4 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 1: Tensão no Oriente Médio                    
                 
       ...
-2: Navio petroleiro é atingido por projétil no Estreito de Ormuz; não ...
+2: Irã diz ter lançado mísseis contra bases dos EUA na Jordânia em ret...
