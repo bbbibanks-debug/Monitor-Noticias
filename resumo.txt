@@ -1,16 +1,16 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: TEMPO REALPalmeiras pega LDU na altitude pela Liberta e tem vantage...
+1: Palmeiras bate LDU nos pênaltis após levar virada e vai à semi na L...
 2: Veja os resultados das quartas de final e o chaveamento da Libertad...
 
 * CNN Brasil *
-1: BC corta juros em 0,25 ponto pela 5ª vez seguida e Selic recua a 13...
-2: Brasil volta à posição de maior juro real do mundo; veja ranking
+1: BC reduz juros a 13,75% e deixa porta aberta para novos cortes
+2: Copom aponta que cortes futuros dependerão de dados; leia comunicado
 
 * Times Brasil *
 1: Inteligência Artificial
-2: Fed aprova aumento da taxa de juros e sinaliza mais um aumento prev...
+2: Anthropic diz que empresas de IA não podem operar com ‘código de ho...
 
 * Jovem Pan *
 1: Caso moraes x mendonça                    
