@@ -1,12 +1,12 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: TEMPO REALPressionado, Corinthians recebe o Fluminense sob cobrança...
-2: Mais 2 jogos hoje; veja tabela e disputa no G-4 e Z-4 do Brasileirão
+1: TEMPO REALVarela abre para o Flamengo sobre o Bragantino no Maracan...
+2: Ayrton Lucas se lesiona com 4 minutos e deixa campo chorando; vídeo
 
 * CNN Brasil *
-1: Dino determina que União faça avaliação de regras de atuação da CVM...
-2: CVM abre quatro processos contra BRB por atraso em balanço
+1: Escritório da esposa de Moraes confirma voos de ministro em avião l...
+2: Flávio diz que Moraes implodiu a democracia sob pretexto de protegê-la
 
 * Times Brasil *
 1: Inteligência Artificial
@@ -16,4 +16,4 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 1: Encontro marcado ONU                    
                 
          ...
-2: Lula defenderá multilateralismo e reforma do Conselho de Segurança
+2: Brasil, UE, Quênia e Canadá escrevem manifesto em defesa do multila...
