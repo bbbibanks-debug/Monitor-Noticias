@@ -1,12 +1,12 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Datafolha, 1º turno: Lula, 40%; Flávio Bolsonaro, 36%; Cury, 5%; Ca...
+1: Datafolha no 1º turno: saiba intenção de voto por região, gênero e ...
 2: Datafolha: no 2º turno, Lula aparece com 47%; Flávio Bolsonaro, com...
 
 * CNN Brasil *
-1: Gilmar Mendes submete ao plenário ação de indenização da Turma do KN
-2: CNJ faz operação contra desembargador que integraria Turma do KN no...
+1: Conselho Superior do MPF analisa hoje mensagens de Vorcaro sobre Gonet
+2: O que se sabe sobre a relação entre Paulo Gonet e Daniel Vorcaro
 
 * Times Brasil *
 1: Inteligência Artificial
@@ -14,4 +14,4 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * Jovem Pan *
 1: Datafolha: Lula e Flávio empatam tecnicamente em eventual 2º turno
-2: Datafolha: Cleitinho tem 40% dos votos no 1º turno em MG; Patrus te...
+2: Lula registra 40%; Flávio, 36% no primeiro turno
