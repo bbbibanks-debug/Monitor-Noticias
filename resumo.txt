@@ -1,12 +1,12 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Nunes Marques cita risco de interferência no TSE e pede medidas a F...
-2: Nunes Marques cita risco de captura institucional e erosão democrática
+1: Fux derruba decisão de Dino sobre posts de Nossa Senhora Aparecida
+2: Em decisão, Fux diz que TSE tem a última palavra em matéria eleitoral
 
 * CNN Brasil *
-1: Fachin deve levar caso de Nossa Senhora ao plenário na quarta-feira
-2: Subordinação do TSE ao STF esvazia os dois tribunais, diz Nunes Mar...
+1: Tensão entre STF e TSE cresce a 5 dias das eleições
+2: Fux suspende decisão de Dino e retoma ordem contra fake news sobre ...
 
 * Times Brasil *
 1: Inteligência Artificial
