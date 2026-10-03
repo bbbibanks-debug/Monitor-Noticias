@@ -1,8 +1,8 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: TEMPO REALBrasil enfrenta a Índia em amistoso; acompanhe o pré-jogo
-2: Brasil é campeão do mundo com mais amistosos longe da torcida
+1: Brasil goleia Índia em amistoso com direito a gol no último lance
+2: Felipe Melo critica atuações: Tem dado passos para trás
 
 * CNN Brasil *
 1: Montar minha colinha
@@ -10,7 +10,7 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * Times Brasil *
 1: Inteligência Artificial
-2: Anthropic investirá US$ 100 milhões para formar talentos em engenha...
+2: Copiloto da Flydubai atacou piloto com machado e tentou cometer ate...
 
 * Jovem Pan *
 1: PESQUISAS ELEITORAIS                    
