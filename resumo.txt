@@ -1,8 +1,12 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Flávio lidera corrida presidencial com 64% das urnas apuradas no pa...
-2: Confira os números e os mapas por cargos e por estados
+1: FLÁVIO BOLSONARO E LULA DISPUTARÃO SEGUNDO TURNO
+2: Flávio Bolsonaro festeja 1º turno e diz: Brasil quer mudança
+
+* CNN Brasil *
+1: Flávio Bolsonaro e Lula vão disputar o 2º turno
+2: Flávio diz estar feliz com 1º turno: É o fim da era do PT
 
 * Times Brasil *
 1: Inteligência Artificial
@@ -10,4 +14,4 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * Jovem Pan *
 1: Ver apuração completa
-2: Flávio tem 49% contra 42% de Lula; siga apuração
+2: Flávio e Lula vão disputar o 2º turno da eleição presidencial
