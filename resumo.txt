@@ -1,12 +1,12 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Como o avanço do PL no Congresso impacta Flávio ou Lula na presidência
-2: Veja quando serão divulgadas as primeiras pesquisas para o 2º turno
+1: MP Eleitoral defende que TSE aceite desistência de recurso de Garot...
+2: O Globo: 204 mil anularam voto com 13 ao governo do Rio de Janeiro
 
 * CNN Brasil *
-1: Ala do STF vê Alcolumbre enfraquecido e com chance baixa de se reel...
-2: CAIO: PL rejeita acordão e defende impeachment de Moraes e Dino
+1: Marinho diz a Fachin que Senado não será omisso sobre crimes de min...
+2: Lula cogita tirar da Presidência indicação de ministros do STF, diz...
 
 * Times Brasil *
 1: Inteligência Artificial
@@ -14,4 +14,6 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * Jovem Pan *
 1: Ver apuração completa
-2: Em meio à disputa entre Lula e Flávio, Senado debate nesta terça o ...
+2: BEATRIZ MANFREDINI                    
+                
+           ...
