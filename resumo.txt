@@ -1,12 +1,12 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: MP Eleitoral defende que TSE aceite desistência de recurso de Garot...
-2: O Globo: 204 mil anularam voto com 13 ao governo do Rio de Janeiro
+1: PP e União Brasil anunciam apoio a Flávio Bolsonaro no 2º turno
+2: Ronaldo Caiado declara voto em Flávio e promete mobilização integral
 
 * CNN Brasil *
-1: Marinho diz a Fachin que Senado não será omisso sobre crimes de min...
-2: Lula cogita tirar da Presidência indicação de ministros do STF, diz...
+1: TSE desmente fraude e explica pausa na divulgação de votos por 50 m...
+2: OEA aponta interferência externa e desinformação na eleição brasileira
 
 * Times Brasil *
 1: Inteligência Artificial
@@ -14,6 +14,4 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * Jovem Pan *
 1: Ver apuração completa
-2: BEATRIZ MANFREDINI                    
-                
-           ...
+2: Federação União Brasil-PP declara apoio a Flávio Bolsonaro
