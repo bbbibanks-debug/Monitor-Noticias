@@ -1,12 +1,12 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Calleri marca dois, Lucas Moura volta e São Paulo supera Vitória em...
-2: Dorival expõe problemas no CT: Um dos trabalhos mais complicados
+1: Papa anuncia operação para retirar nódulo muito inicial do pulmão
+2: AO VIVOVerstappen lidera em Singapura, com Ferraris logo atrás
 
 * CNN Brasil *
-1: Calleri decide, São Paulo vence o Vitória e respira no Brasileirão
-2: Vasco empata com o Remo em São Januário e interrompe sequência de v...
+1: Papa Leão XIV revela nódulo no pulmão e diz que passará por cirurgi...
+2: Papa condena pena de morte enquanto EUA preparam transmissão de exe...
 
 * Times Brasil *
 1: Inteligência Artificial
@@ -14,4 +14,4 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * Jovem Pan *
 1: Ver apuração completa
-2: Lula exalta programas sociais em Natal; Flávio aposta em agenda eco...
+2: Papa Leão XIV anuncia cirurgia para retirada de nódulo no pulmão
