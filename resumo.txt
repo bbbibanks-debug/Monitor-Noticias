@@ -1,17 +1,19 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Senado deve votar nesta quarta PEC que acaba com a escala 6x1
-2: O que acontece se proposta for aprovada ou rejeitada hoje no Senado
+1: CCJ do Senado aprova PEC que cria o SUS da Segurança e mira facções
+2: Fim da saidinha a membros de facções: o que prevê a PEC da Segurança
 
 * CNN Brasil *
-1: 6x1: Senado conclui hoje sessões de debate e deve votar PEC em 1º t...
-2: Flávio leva campanha a Porto Alegre e deve votar em fim da 6x1 à di...
+1: CCJ do Senado conclui análise e PEC da Segurança vai ao plenário
+2: 6x1: Senado conclui hoje sessões de debate e deve votar PEC em 1º t...
 
 * Times Brasil *
 1: Inteligência Artificial
-2: Bank of America é multado em US$ 1,2 bilhão por violações de lavage...
+2: ASML divulga resultados acima da expectativa do mercado, carteira d...
 
 * Jovem Pan *
 1: Ver apuração completa
-2: Governo consegue apoio para aprovar fim da escala da 6×1; votação a...
+2: eleições 2026                    
+                
+                ...
