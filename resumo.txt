@@ -1,12 +1,12 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Papa é diagnosticado com câncer de pulmão após retirada de nódulo
-2: Cirurgia para retirar nódulo é concluída com sucesso, diz Vaticano
+1: TEMPO REALSIGA: Vasco abre sobre o Boca Juniors na Bombonera pela s...
+2: Blog: consórcio Fla-Flu recorre ao STJ contra Vasco x Boca Jrs. no ...
 
 * CNN Brasil *
-1: Papa Leão XIV retira parte do pulmão e é diagnosticado com câncer, ...
-2: Papa Leão XIV foi levado para quarto em hospital após cirurgia e já...
+1: Alcolumbre diz ter apoio para acelerar 6x1 e votação deve ser amanhã
+2: Análise: Com pacote a MEIs, Flávio vê desespero e Lula mira classe C
 
 * Times Brasil *
 1: Inteligência Artificial
@@ -14,4 +14,4 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * Jovem Pan *
 1: Ver apuração completa
-2: Canal Exército do Lula terá que esperar 48 horas para voltar a func...
+2: Governo consegue apoio para aprovar fim da escala da 6×1; votação a...
