@@ -1,12 +1,12 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: São Paulo vence o Vasco, dá salto na tabela e deixa rival à beira d...
-2: Pedro Emanuel liga alerta no Vasco: Não estamos salvos de nada
+1: Davi Alcolumbre articula reeleição no Senado com governo de Lula ou...
+2: Plebiscito sobre desmembramento de municípios do Paraná será inédito
 
 * CNN Brasil *
-1: Roberta Luchsinger diz à CNN que quer fazer delação e não vai poupa...
-2: Lula diz que desconhece inteiramente acusações de Roberta Luchsinger
+1: Aliados fazem atos pelo país, e Lula e Flávio se enfrentam em debat...
+2: TSE mantém atos pró-democracia deste domingo (18) e nega veto a shows
 
 * Times Brasil *
 1: Inteligência Artificial
@@ -14,4 +14,6 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * Jovem Pan *
 1: Ver apuração completa
-2: Luchsinger nega crime, mas diz que fará delação premiada: Lula é me...
+2: Eleições 2026                    
+                
+                ...
