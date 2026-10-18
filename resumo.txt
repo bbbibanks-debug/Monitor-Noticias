@@ -1,12 +1,12 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: TEMPO REALPhilippe Coutinho vira para o Santos contra o Fluminense ...
-2: Rabiscou! Igor Rabello acerta bonita caneta em Neymar; confira o lance
+1: TEMPO REALDe pênalti, Jorginho marca 1º do Fla sobre o Bahia pelo B...
+2: Confira a classificação, tabela de jogos e resultados do Brasileirão
 
 * CNN Brasil *
-1: Domingo de campanha: Flávio fala de vagas no STF; PT lembra mortes ...
-2: Flávio e Lula apostam em economia na preparação para 1° debate na T...
+1: Flávio e Lula chegam para primeiro debate presidencial do 2º turno
+2: Flávio diz que usará debate para rebater fake news e diferença de p...
 
 * Times Brasil *
 1: Inteligência Artificial
@@ -14,6 +14,6 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * Jovem Pan *
 1: Ver apuração completa
-2: Eleições 2026                    
+2: Debate Band/Jovem Pan                    
                 
-                ...
+        ...
