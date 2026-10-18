@@ -1,12 +1,12 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Palmeiras vence o Athletico em duelo direto, assume a liderança e s...
-2: Andreas Pereira é expulso no primeiro tempo de Athletico x Palmeiras
+1: São Paulo vence o Vasco, dá salto na tabela e deixa rival à beira d...
+2: Pedro Emanuel liga alerta no Vasco: Não estamos salvos de nada
 
 * CNN Brasil *
-1: Luchsinger diz à CNN que Lulinha sentou inúmeras vezes com ministro...
-2: Empresária diz que quer fazer delação e não vai poupar Lula nem Lul...
+1: Roberta Luchsinger diz à CNN que quer fazer delação e não vai poupa...
+2: Lula diz que desconhece inteiramente acusações de Roberta Luchsinger
 
 * Times Brasil *
 1: Inteligência Artificial
