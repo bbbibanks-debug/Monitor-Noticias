@@ -1,12 +1,12 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Campanhas travam disputa jurídica e chegam ao recorde de 800 ações
-2: Campanha de Lula entrega aval para atender condição de Flávio sobre...
+1: Nunes Marques manda Meta fazer pente-fino no canal Exército do Lula
+2: Ministra cita grande volume de processos e relata sobrecarga no TSE
 
 * CNN Brasil *
-1: Campanhas de Flávio e Lula vão ao TSE para tratar de abertura de si...
-2: CAIO JUNQUEIRA: Flávio cobra Lula e lista sigilos que PT deve abrir...
+1: Campanhas de Flávio e Lula assinam acordo para tratar de quebras de...
+2: Advogada diz que entregará sigilo de Flávio após analisar dados de ...
 
 * Times Brasil *
 1: Programas Semanais
@@ -14,4 +14,6 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * Jovem Pan *
 1: Ver apuração completa
-2: PoderData/Aya: Flávio Bolsonaro tem 51% dos votos válidos contra 49...
+2: ELEIÇÕES 2026                    
+                
+                ...
