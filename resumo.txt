@@ -1,12 +1,12 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Globo promove último debate presidencial nesta sexta; saiba tudo
-2: Como será o debate presidencial entre Lula e Flávio? Entenda as regras
+1: Antes de debate, Flávio é orientado a baixar tom, e Lula, a evitar ...
+2: Globo promove hoje o último debate presidencial; veja o horário
 
 * CNN Brasil *
-1: Flávio e Lula afinam estratégias para o último duelo na TV antes da...
-2: Globo limita espaço de Flávio e Lula no estúdio em último debate
+1: Flávio e Lula formalizam aval para abertura de sigilos sem divulgar...
+2: Pesquisa Real Time: Flávio tem 52% dos votos válidos no 2º turno; L...
 
 * Times Brasil *
 1: Programas Semanais
@@ -14,4 +14,4 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * Jovem Pan *
 1: Ver apuração completa
-2: Datafolha: Flávio Bolsonaro e Lula empatam com 50% dos votos válido...
+2: TSE dá 24 horas para Meta e X explicarem regras sobre IA e conteúdo...
