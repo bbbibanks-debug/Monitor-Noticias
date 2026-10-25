@@ -1,12 +1,12 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Ônibus sem circular: TRE manda prender secretário de Salvador
-2: Ao menos 75 ônibus foram impedidos de deixar garagens
+1: Zanin: prorrogação até 19h só vale para locais com urnas ainda abertas
+2: TSE pausa a divulgação de resultados com 0,25% das urnas apuradas
 
 * CNN Brasil *
-1: Presidente do TSE vê eleição dentro do esperado e prevê resultado a...
-2: Kassio diz que falhas no transporte no 2º turno “estão sendo corrig...
+1: Zanin prorroga votação até 19h em todo o Brasil
+2: Zanin diz que adiamento de votação vale para urnas que não foram fe...
 
 * Times Brasil *
 1: Programas Semanais
