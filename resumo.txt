@@ -1,12 +1,12 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Entenda a combinação que levou Lula à vitória histórica sobre Flávio
-2: Lula reduz vantagem em SP, vence em MG e amplia folga no NE
+1: Bolsa despenca mais de 15% após circuit breaker; dólar sobe e bate ...
+2: Durigan conversa com Lula e coordena com BC intervenção do Tesouro
 
 * CNN Brasil *
-1: Dólar dispara 12% e chega a R$ 5,60 na abertura; Ibovespa futuro de...
-2: Ações de empresas brasileiras despencam mais de 20% no exterior apó...
+1: Após reeleição de Lula, Bolsa caminha para uma das maiores quedas d...
+2: Ibovespa despenca após pausa por circuit breaker; dólar dispara com...
 
 * Times Brasil *
 1: Programas Semanais
@@ -14,4 +14,6 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * Jovem Pan *
 1: Ver apuração completa
-2: Abstenções, brancos, nulos e “vira voto”: a anatomia da virada de L...
+2: ELEIÇÕES 2026                    
+                
+                ...
