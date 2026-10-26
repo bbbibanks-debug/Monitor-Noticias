@@ -1,12 +1,8 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Zanin: prorrogação até 19h só vale para locais com urnas ainda abertas
-2: TSE pausa a divulgação de resultados com 0,25% das urnas apuradas
-
-* CNN Brasil *
-1: Zanin prorroga votação até 19h em todo o Brasil
-2: Zanin diz que adiamento de votação vale para urnas que não foram fe...
+1: Lula lidera apuração acirrada com mais de 95% das urnas apuradas; siga
+2: Abstenção cai de 21,08% para 18,98% no segundo turno
 
 * Times Brasil *
 1: Programas Semanais
