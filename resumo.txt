@@ -1,12 +1,12 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Premiê Netanyahu perde maioria no Parlamento nas eleições de Israel
-2: Oposição já articula formação de governo enquanto fraude é descartada
+1: Itamaraty convoca diplomata da Argentina após fuga de Flavio
+2: Democratas questionam papel de Trump na fuga de Flávio Bolsonaro
 
 * CNN Brasil *
-1: Lula convidará Trump e Milei para cerimônia de posse em janeiro
-2: Governo Trump não pretende apoiar Flávio como líder do Brasil, diz ...
+1: Itamaraty convoca encarregada da Argentina a prestar esclarecimento...
+2: URIBE: Lula convidará Trump e Milei para cerimônia de posse em janeiro
 
 * Times Brasil *
 1: Programas Semanais
@@ -14,4 +14,4 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * Jovem Pan *
 1: Desemprego cai para 5,2% no Brasil e registra menor nível em 14 ano...
-2: Fachin devolve a Mendonça inquérito sobre descontos indevidos no INSS
+2: Justiça nega pedido de Willer Tomaz, amigo de Flávio, para que Rich...
