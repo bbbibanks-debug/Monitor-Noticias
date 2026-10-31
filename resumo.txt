@@ -1,12 +1,12 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: O que pode acontecer com Flávio nos EUA se democratas vencerem Trump?
-2: Vitória de Lula frusta, e Trump deve acelerar pressão sobre A. Latina
+1: A 3 dias das midterms, EUA batem recorde e já têm 47 milhões de votos
+2: Armas, direitos trans, taxa para ricos: 39 estados terão referendo
 
 * CNN Brasil *
-1: Mauro Vieira e Rubio acertam encontro antes de cúpula do G20 em dez...
-2: PRISCILA YAZBEK: Vieira e Rubio se cumprimentam em reunião do G20
+1: Mercado reavalia riscos fiscais após queda de 18% do Ibovespa
+2: Ibovespa tem a quinta maior queda semanal desde o Plano Real
 
 * Times Brasil *
 1: Programas Semanais
@@ -14,4 +14,4 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * Jovem Pan *
 1: Alcolumbre pauta para próxima terça-feira votação da PEC da Seguran...
-2: Em live, Flávio fala em usar Congresso como trincheira e diz que sa...
+2: Eleições nos EUA registram recorde de quase 48 milhões de votos ant...
