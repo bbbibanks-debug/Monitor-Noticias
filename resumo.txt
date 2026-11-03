@@ -1,12 +1,12 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: EUA abrem urnas em  eleições decisivas para Donald Trump; SIGA
-2: Entenda o que acontece se os democratas vencerem as eleições nos EUA
+1: Sem incluir maioridade, relator apresenta parecer sobre a PEC da Se...
+2: AO VIVO: Senado discute agora a PEC da Segurança e deve votá-la hoje
 
 * CNN Brasil *
-1: EUA vão às urnas; veja fatores que podem favorecer republicanos e d...
-2: Veja detalhes sobre a disputa pelo Congresso
+1: EUA vão às urnas nos 50 estados; veja horário de fechamento por estado
+2: Trump comemora vitória republicana em Guam, mas omite contexto impo...
 
 * Times Brasil *
 1: Programas Semanais
