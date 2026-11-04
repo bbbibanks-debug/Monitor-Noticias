@@ -1,12 +1,12 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Em derrota a Trump, democratas conquistam Câmara e Senado
-2: Como vitória esmagadora dos democratas pode limitar poderes de Trump
+1: Onda azul impõe derrota a Trump e Musk; veja quem perde e ganha
+2: Votação histórica elege 1º senador gay e 1ª governadora negra
 
 * CNN Brasil *
-1: Democratas impõem derrota a Trump e consolidam maioria na Câmara e ...
-2: Democratas conquistam Senado em estados-chave nos EUA; veja quais
+1: BREAKING NEWSOnda azul impõe derrota a Trump nas Midterms; entenda ...
+2: Democratas consolidam maioria na Câmara e no Senado dos Estados Uni...
 
 * Times Brasil *
 1: Programas Semanais
@@ -16,4 +16,4 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 1: midterms norte-americanas                    
                 
     ...
-2: Trump reconhece derrota republicana e admite negociar com democrata...
+2: Democratas conquistam Câmara e Senado e impõem derrota histórica a ...
