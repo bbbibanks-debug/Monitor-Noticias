@@ -1,20 +1,17 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Temores com IA depois das eleições nos EUA derrubam bolsas globais
-2: Wall Street perde trilhões em um dia: entenda queda nas ações de IA
+1: Após impeachment, Justiça do Paraguai pede prisão de ex-presidente
+2: Quem é Pedro Alliana, vice que vai assumir a Presidência do Paraguai
 
 * CNN Brasil *
-1: Peña falta e envia advogados ao Senado do Paraguai para defendê-lo ...
-2: Empresariado brasileiro fala em decepção e espera para rever aposta...
+1: MP do Paraguai ordena prisão de Santiago Peña após impeachment
+2: Senado paraguaio aprova impeachment de Peña
 
 * Times Brasil *
 1: Programas Semanais
 2: Parlatório Talks
 
 * Jovem Pan *
-1: Paraguai                    
-                
-                
-    ...
-2: Entenda crise bancária que levou à renúncia do presidente do BC par...
+1: Senado paraguaio aprova impeachment de Santiago Peña
+2: Ex-presidente não compareceu na audiência de impeachment
