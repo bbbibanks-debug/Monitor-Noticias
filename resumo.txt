@@ -1,12 +1,12 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: TEMPO REALPRÉ: Palmeiras encara Remo e tenta impedir que Fla desgar...
-2: Veja resultados, classificação e tabela de jogos do Brasileirão
+1: Palmeiras atropela o Remo com a maior goleada do Brasileirão 2026
+2: Fla depende só de si para ser campeão na casa do Palmeiras; veja
 
 * CNN Brasil *
-1: Governistas abandonam sessão e Congresso do Paraguai suspende análi...
-2: Ministério Público do Paraguai abre investigação contra presidente ...
+1: Senado do Paraguai retoma amanhã sessão sobre impeachment de Santia...
+2: Veja linha do tempo da crise política que ameaça Peña no Paraguai
 
 * Times Brasil *
 1: Programas Semanais
@@ -17,4 +17,4 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
                 
                 
     ...
-2: Bancada governista havia anunciado apoio ao impeachment de Peña
+2: Entenda crise bancária que levou à renúncia do presidente do BC par...
