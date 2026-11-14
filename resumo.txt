@@ -1,17 +1,17 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: EUA suspendem as decolagens em todos os aeroportos do país
-2: Secretário descarta ataque e cita falha técnica: Isso não é um novo...
+1: Após mais de 4h, EUA encerram interrupção de decolagens no país
+2: Secretário diz que sistema de tráfego aéreo é velho
 
 * CNN Brasil *
-1: EUA suspendem todos os voos por falha de comunicação
-2: Suspensão nos EUA afeta quase 7 mil voos
+1: EUA põem fim à paralisação após quatro horas sem voos no país
+2: 5 mil voos foram cancelados no país e 10 mil sofreram atraso
 
 * Times Brasil *
 1: Programas Semanais
 2: Parlatório Talks
 
 * Jovem Pan *
-1: Estados Unidos suspendem voos em todos os aeroportos
-2: Entenda por que os EUA suspenderam as decolagens em todo o país
+1: Estados Unidos encerram interrupção de decolagens de voos
+2: O que se sabe sobre a suspensão de decolagens em todo o país
