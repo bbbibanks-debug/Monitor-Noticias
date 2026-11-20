@@ -1,12 +1,12 @@
 Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
 
 * G1 Globo *
-1: Lula 4: o que já se sabe sobre os ministérios, economia e novas pastas
-2: De Idosos a Segurança: Lula redesenha Esplanada com fusões e estreias
+1: Trump diz que convenceu Filipinas a deixar de comprar do Brasil
+2: Trump ameaça taxar empresas que construam data centers no exterior
 
 * CNN Brasil *
-1: Mendonça pede que Fachin torne público relatório da PF que cita seu...
-2: Fachin envia à PGR, sob sigilo, relatórios sobre Moraes, Nunes Marq...
+1: Tempestade destrói cidade no Rio Grande do Sul e deixa ao menos trê...
+2: Governador do RS suspeita de tornado após forte tempestade
 
 * Times Brasil *
 1: Programas Semanais
@@ -17,4 +17,4 @@ Processo concluido com sucesso. Resumo das ultimas noticias capturadas:
                 
                 
  ...
-2: Master: Fachin arquiva seis relatórios sobre ministros e envia quat...
+2: Mendonça abre mão do sigilo de relatório da PF sobre Vorcaro que ci...
